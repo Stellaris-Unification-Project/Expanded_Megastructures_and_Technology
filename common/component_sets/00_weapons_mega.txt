@@ -1,0 +1,39 @@
+# Mini Arc Emitter
+component_set = {
+	key = "MINI_ART_EMITTER_CAT"
+	
+	icon = "GFX_ship_part_mini_arc_emitter"
+	icon_frame = 1	
+}
+
+# Space Whale Weapon
+component_set = {
+	key = "SPACE_WHALE_WEAPON_2_CAT"
+	
+	icon = "GFX_ship_part_space_whale_weapon_2"
+	icon_frame = 1	
+}
+
+# Adv null void beam
+component_set = {
+	key = "NULL_VOID_2"
+	
+	icon = "GFX_ship_part_null_void_weapon_2"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "MINING_DRONE_LASER_2"
+	
+	icon = "GFX_ship_part_mining_drone_laser_1"
+	icon_frame = 1	
+}
+
+# Space Cloud Weapon
+
+component_set = {
+	key = "SPACE_CLOUD_WEAPON_2"
+	
+	icon = "GFX_ship_part_space_cloud_weapon_2"
+	icon_frame = 1	
+}

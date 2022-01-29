@@ -1,0 +1,584 @@
+### Vanilla ###
+
+# ##################
+# Genetics
+# ##################
+
+#Selected Lineages
+tech_selected_lineages = {
+	cost = @tier3cost2
+	area = society
+	category = { biology }
+	tier = 3
+	is_rare = yes
+	prerequisites = { "tech_vitality_boosters" }
+	weight = @tier3weight2
+	
+	# Modifiers from this tech is added through a policy-option
+	
+	potential = {
+		NOT = { has_authority = auth_machine_intelligence }
+	}
+		
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0.50
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_biology"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_spark_of_genius"
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			has_ethic = "ethic_fanatic_egalitarian"
+		}
+		modifier = {
+			factor = 0.25
+			is_egalitarian = yes
+		}
+		modifier = {
+			factor = 2
+			is_authoritarian = yes
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_selected_lineages }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 3 #rare tech
+		modifier = {
+			factor = 1.50
+			has_ethic = ethic_fanatic_authoritarian
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+		modifier = {
+			factor = 0
+			is_egalitarian = yes
+			is_galactic_community_member = yes
+			OR = {
+				is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+				is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			}
+		}
+	}
+}
+
+#Capacity Boosters
+tech_capacity_boosters = {
+	cost = @tier4cost3
+	area = society
+	category = { biology }
+	tier = 4
+	is_rare = yes
+	prerequisites = { "tech_selected_lineages" }
+	weight = @tier4weight3
+	
+	# Modifiers from this tech is added through a policy-option
+	
+	potential = {
+		NOT = { has_authority = auth_machine_intelligence }
+	}
+	
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0.20
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_biology"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_spark_of_genius"
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			is_egalitarian = yes
+		}
+		modifier = {
+			factor = 2
+			is_authoritarian = yes
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_capacity_boosters }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 3 #rare tech
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+		modifier = {
+			factor = 0
+			is_egalitarian = yes
+			is_galactic_community_member = yes
+			OR = {
+				is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+				is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+			}
+		}
+	}
+}
+
+# ##################
+# Strategic Resources
+# ##################
+
+#Living Metal
+tech_mine_living_metal = {
+	cost = @tier5cost1
+	area = engineering
+	tier = 5
+	category = { materials }
+	is_rare = yes
+	prerequisites = { "tech_space_construction" }
+	weight = @tier5weight1
+	
+	weight_modifier = {
+		factor = 0.1
+		modifier = {
+			factor = 2
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_mine_living_metal }
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				any_owned_planet = { has_deposit = d_hab_living_metal_1 }
+				any_planet_within_border = { has_deposit = d_living_metal_deposit }
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 10 #strategic resource
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				has_technology = tech_mega_engineering
+				end_game_years_passed > 0
+			}
+		}
+	}
+}
+
+# Nanite Transmutation
+tech_nanite_transmutation = {
+	cost = @tier2cost3
+	area = engineering
+	tier = 2
+	category = { materials }
+	weight = @tier2weight3
+	is_rare = yes
+	
+	potential = {
+		host_has_dlc = "Distant Stars Story Pack"
+	}
+	
+	weight_modifier = {
+		factor = 0.50
+		modifier = {
+			factor = 0
+			NOR = {
+				any_system_within_border = { any_system_planet = { has_resource = { type = nanites amount > 0 } } }
+				has_technology = tech_nanite_plant
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_nanite_transmutation }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 5 #important resource
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}
+
+# ##################
+# Critter Weapons
+# ##################
+
+tech_mining_drone_weapon_1 = {
+	area = physics
+	cost = @tier2cost2
+	tier = 2
+	category = { particles }
+	ai_update_type = military
+	weight = 0
+	
+	modifier = {
+		station_gatherers_produces_mult = 0.20
+	}
+	
+	ai_weight = {
+		factor = 2		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
+
+#Enigmatic Encoder
+tech_enigmatic_encoder = {
+	cost = @guardiantechcost
+	area = physics
+	tier = @guardiantechtier
+	category = { computing }
+	ai_update_type = all
+	weight = @tier5weight1
+	is_rare = yes
+	
+	modifier = {
+		intel_encryption_add = 2
+	}
+
+	weight_modifier = {
+		factor = 0.33
+		modifier = {
+			factor = 0
+			NOT = { has_ascension_perk = ap_enigmatic_engineering }
+		}
+		modifier = {
+			factor = 0.20
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_computing"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_spark_of_genius"
+				}
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_enigmatic_encoder }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}
+
+#Enigmatic Encoder
+tech_enigmatic_decoder = {
+	cost = @guardiantechcost
+	area = physics
+	tier = @guardiantechtier
+	category = { computing }
+	ai_update_type = all
+	weight = @tier5weight1
+	is_rare = yes
+	
+	modifier = {
+		intel_decryption_add = 2
+	}
+	
+	weight_modifier = {
+		factor = 0.33
+		modifier = {
+			factor = 0
+			NOT = { has_ascension_perk = ap_enigmatic_engineering }
+		}
+		modifier = {
+			factor = 0.20
+			NOR = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_computing"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_spark_of_genius"
+				}
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_enigmatic_decoder }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}
+
+# ##################
+# Other
+# ##################
+
+tech_lgate_activation = {
+	cost = @tier3cost3
+	area = physics
+	tier = 3
+	is_rare = yes
+	is_dangerous = yes
+	category = { particles }
+	weight = 0
+
+	potential = {
+		NOT = { has_global_flag = l_cluster_opened }
+	}
+
+	prereqfor_desc = {
+		custom = {
+			title = lgate_activation_title
+			desc = lgate_activation_desc
+		}
+	}
+	
+	weight_modifier = {
+		factor = 0
+	}
+}
+
+### Restored Techs ###
+
+tech_matter_generator = {
+	area = physics
+	cost = @tier5cost1
+	tier = 5
+	category = { particles }
+	prerequisites = { "tech_zero_point_power" "tech_colonial_centralization" }
+	weight = @tier5weight1
+	is_rare = yes
+	
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0.25
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_particles"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_maniacal"
+				}				
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+	}
+	
+	ai_weight = {
+		factor = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}

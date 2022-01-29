@@ -1,0 +1,170 @@
+Features
+
+Additions:
+Habitats
+- Changes to Districts
+	- Housing Districts benefits from techs
+	- Leisure Districts will give priest or manager jobs when appropriate
+	- Leisure Districts built by Rogue Servitors get +1 maintenance jobs (or caretaker jobs with Expanded Pops) and +1 housing
+	- Trade Districts give +5% trade value
+		- If built over trade deposits, gives an additional +5% trade value
+	- Gestalts (except Rogue Servitors) can build Coordination Districts, giving +1 synapse drone/evaluator and +2 maintenance drone jobs, 3 housing
+	- Fortress Habitats (see below) can build Fortified Barracks, giving +3 soldier jobs, +3 housing
+
+- Fully expanded habitats gain +1 building slot
+- Can be built around moons and asteroids (but only if they have deposits)
+- Buildings 4 or more of one kind of non-housing district gives a special deposit, giving a planet-wide bonus and an appropriate ruler job
+- Habitat designations buffed to be similar to their equivalent designations
+
+Dyson Sphere
+- Can spend 50,000 unity to build another one
+
+Science Nexus
+- Research output increased 1.5 times
+- Country research bonus increased by 5 points per level
+
+Matter Decompressor
+- Also produces dark matter
+- Can spend 50,000 unity to build another one
+
+- Techs for Science Nexus, Interstellar Assembly, and Mega Art Installation have different requirements, and can potentially be researched before Mega-Engineering
+
+
+Other Special Worlds
+- Gaia, Machine, and Hive Worlds give +20% resources from jobs (up from +10%)
+- Machine Worlds give -15% housing requirements
+- Hive Worlds give +100% defensive army damage and -25% bombardment damage
+- Ring Worlds and Shattered Ring Worlds give +25% pop growth
+
+
+Technology
+- After researching a long list of technologies, you can gain access to Dark Matter Power
+- Once you research Dark Matter Power and Dark Matter Generation, you can research FE ship components. They will be very rare. With Zenith of Fallen Empires, they will also require the Galactic Ascendency perk.
+
+- New Techs
+	- Accelerated Embryonics, rare tier 4 tech. Cloning Vats give +1 Organic Pop Assembly
+	- Spawning Vats, unlocks Spawning Vats (upgraded Spawning Pools)
+	- Synthetic Lifeforms, rare tier 5 tech that will allow you to create new species from scratch, and grants -10% species modification project cost, requires Genetic Resequencing
+	- Mega-Architecture, +15% megastructure build speed, -15% cost
+	- Galactic Trade Empire, for megacorps, +15% branch office value
+	- Free Traders get their own version of the above tech that gives +25% branch office value
+	- Dark Matter Generation, rare tier 5 tech that allows the the construction of Dark Matter Laboratories, gives +1 Dark Matter Lab Technician jobs (+2 dark matter in exchange for 2 rare crystals and 10 energy), requires Dark Matter Drawing, Multi-Dimensional Studies
+	- Living Metal Cultivation, rare tier 5 tech that allows the construction of Living Metal Farms, gives +1 Living Metal Horticulturist jobs (+2 living metal in exchange for 2 volatile motes and 10 minerals), requires Living Metal (or a neighbor having the same tech) and Superfluid Materials
+	- Nanite Construction, rare tier 5 tech that allows the construction of Nanite Factories, gives +1 Nanite Machinist (2 nanites in exchange for 1 living metal, 40 minerals), requires Nanite Transmutation (or a neighbor having the same tech), Construction Templates, Superfluid Materials, Self-Evolving Logic, and either Living Metal or Living Metal Cultivation
+	- Crystal Farming, tier 1 lithoid-only tech, lithoid equivalent of hydroponic farming
+	- Three tier 4 techs that doubles production and upkeep of rare resource refining jobs, gives +1 jobs from the rare resource mining buildings
+	- Three lithoid-only techs that give additional hibernating pops on your homeworld, as well as other minor benefits
+	- Fortified Habitat, allows for habitats not over deposits to be militarized, allows the construction of fortress districts, requires Habitat and Ground Defense Planning techs
+	- Intergalactic Vassalage, rare tier 3 tech that gives -25% Subject power penalty. Requires Colonial Bureaucracy, Artificial Moral Codes, and a subject
+		- Feudal Society and Franchising gets a better version of above tech that gives -33% Subject power penalty
+	- Strategic / Precision Bombardment, tier 3 / 5 techs that each give +20% bombardment damage
+	- Dynamic Resettlement Protocols, tier 2 tech that gives -15% resettlement cost, +10% pop growth from immigration
+
+- Psionic Techs
+	- Regenerative Meditation, gives +20 leader lifespan, requires Vitality Boosters tech and Mind over Matter perk
+	- Empathic Diplomacy, gives +10% diplomatic weight from pops, +1 envoy, requires Telepathy
+	- Subspace Telepathy, gives +5% admin cap and +10 base intel, requires Telepathy and Colonial Bureaucracy
+	- Telekinetic Construction, gives +25% building speed, requires Telepathy and Assembly Patterns
+		- Unlocks Telekinetic Megaconstruction edict, which gives +20% megastructure speed for 100 zro
+	- Psionic Barriers, gives +10% overall army health, +10% defensive army health and morale, requires Telepathy and Combat Training
+	- Zro Syphoning, rare tier 4 tech that allows for the construction of the Zro Syphoning Facility, gives +1 Zro Distiller jobs (+2 zro in exchange for 2 exotic gases and 15% pop growth), requires Zro Distillation tech and Transcendence perk
+	
+- Ship Techs:
+	- Dark Matter Armor for Fallen Empires, stronger than Dragonscale Armor, but requires dark matter
+	- Dark Energy Sensors for Fallen Empires, gives +25 tracking, +5 sensor range
+	- Psionic Sensors, gives +20 tracking, +5% evasion, +5 sensor range, requires Telepathy and Tachyon Sensors techs
+	- Dark Matter Afterburners, gives +30% sublight speed and +15% evasion, but costs dark matter
+	- Miniaturized Arc Emitter, tier 5, a large penetrating weapon. More powerful than Void Lightning, but also much more expensive
+	- Engineered Frequency Tuning, tier 4 tech, requires Frequency Tuning and Targeted Gene Expression, roughly equivalent to advanced railguns
+	- Mining Drone Drills, tier 5 tech, gives +20% mining station output, mining drill weapons
+	- Void Lightning Conduits, tier 5 tech, requires Cloud Lightning Conduits
+	- Advanced Null Void Beam, rare tier 5 tech, requires Null Void Beam and finished the Probe the Void special project
+	- Integrated Fire-Control, tier 3, unlocks improved fire control auxiliary component, requires Auxiliary Fire Control
+	- Automated FTL Protocols, tier 1, gives -25% Emergency FTL Jump Cooldown, requires Automatic Exploration Protocols
+
+	
+- Restored and Equivalent Techs
+	- Restored Modular Components and Intelligent Factories techs, now gives -10% replicator upkeep
+	- Regular empires can research Modular Components as a tier 3 technology, giving -10% roboticist upkeep
+	- Restored Hyperlane Mapping, which now gives +6 hyperlane sensor range and -10% hyperdrive windup and winddown
+	- Restored Matter Generation, Matter Replicators now give +1 motes, crystals, and gases in addition to minerals, but costs dark matter to build and maintain
+	- Machine Empire gets equivalent to Selected Linages / Capacity Boosters, gives + leader xp instead of lifespan, requires Machine Template System tech
+	- Restored Sapient Resource Management (repeatable), now gives +1 leader pool, +5% ruler, synapse drone, and evaluator production, can be researched 5 times
+	- Restored Talent Acquisition (repeatable), now gives -10% leader cost and upkeep, can be researched 5 times
+	- Restored Communication Protocols (repeatable), now gives -5% empire size from planets, can be research 5 times
+	- Restored Hull Integrity (Repeatable), +5% hull points, now requires Advanced Battleship Hulls (and Titans with Apocalypse dlc)
+	
+- Repeatable Techs
+	- Defense Grid Computing, +2 defense platform capacity
+	- Predictive Tactical Intelligence, gives +5% starbase damage
+	- Mega-Logistics gives +1 Megastructures build capacity, can be researched 5 times, requires Master Builder perk
+	- Weak Point Analysis, +1 codebreaking
+	- Adaptive Security, +1 encryption
+	- Compact Architecture, gives -2.5% housing usage, can be researched 5 times
+	- Repeatable techs that give +1 modification point, can be researched 5 times
+
+- Vanilla Techs
+	- Living Metal gives the Living Hull auxilary component, which gives +3 daily hull regeneration, +4 daily armor regeneration, costs 20 alloy and 1 living metal
+	- Mining Laser tech gives +20% mining station output
+	- Enigmatic Encoder/Decoder can be researched normally with the Enigmatic Engineering perk
+	- Enigmatic Encoder/Decoder gives +2 encryption/codebreaking
+	- Enigmatic Decoder gives +10% accuracy
+	- Dark Matter Reactors give Dark Matter Reactor Boosters, which gives +150 power, costs 20 alloys and 0.5 dark matter
+	
+
+Buildings
+	- Clone Vats are now unlocked with the cloning tech, but is only a third as effective without the Engineered Evolution perk
+	- Cloning Vats give Cloning Technician jobs, which give pop assembly, amenities, and social research
+	- Cloning Vats now require minerals when building lithoids
+	- Restored Animal Evaluation Laboratories for gestalts, which now provide +2 brain drones/calculators and +2 synapse drones/evaluators
+	- Alien Zoo gives +25% immigration attraction
+	
+
+New Origins:
+	Genesis Project (not gestalt)
+	Starts with the Genome Mapping and Cloning techs, allowing you to clone new pops
+	Cloning Vats are fully effective, even without the Engineered Evolution perk
+	Pops have -100% pop growth, forcing you to rely heavily on cloning
+	
+	Hive Queens (Hive Minds)
+	Cannot grow pops normally. Instead, pops are birthed by the Hive Queens (spawning drones swap)
+	+1 ruler and governor level
+	
+Changed Origins and Civics:
+	Clone Army
+	Clone Armies cannot build normal cloning vats until you either finish the Genetic Crossroads event chain or adopt the Engineered Evolution perk
+	Cloning vats can support up to 40 clone army pops (60 with the Accelerated Embryonics tech)
+	
+	Pleasure Seekers
+	Leisure Habitats give +20% culture worker output
+	
+
+New Covenant Effects:
+	- The Whisperers in the Void
+		- +20% diplomatic weight from techs
+		- Less likely to get bad shroud events (similar to the Zroni relic)
+		- New random events
+	- The Composer of Strands
+		- +20% diplomatic weight from pops
+		- +20% pop assembly speed
+		- Expensive decision to create a new pop with current planet's habitability trait, may come out "wrong," with random traits
+		- New random events
+	- The Eater of Worlds
+		- 20% diplomatic weight from fleets
+		- +30% army health
+		- Reliable but expensive way to build shroud avatars, sometimes they must to be subdued first
+		- Can be temporarily sated by feeding it non-citizen pops (won't stop it if it is ravenous)
+	- The Instrument of Desire
+		- +20% diplomatic weight from economy
+		- +10% trade value and amenities
+		- Can build the Temple of Desire, empire unique that give +1 high priest job, +10% happiness, empire gets +10% amenities, +15% consumer goods production, -33% governing ethics attraction
+	- The End of the Cycle
+		- +20% diplomatic weight
+		- Reliable and cheap way to build shroud avatars
+		- The Reckoning now has hull regeneration, and buffed hp and shields
+
+	
+Tweaks:
+- Organic ship components (space whale, amoeba, ext) now require less alloys, but now also has a food cost
+- Using a planet cracker to destroy a barren world will add mineral deposits
+- Xeno-Compatability gives +1 pop production from cloning vats and +1 biological trait point

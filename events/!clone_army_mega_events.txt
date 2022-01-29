@@ -1,0 +1,126 @@
+############################
+#
+# Clone Army Origin Events
+#
+############################
+
+namespace = clones
+
+# Pop creation event for Clone Army's Ancient Cloning Vats
+country_event = {
+	id = clones.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_clone_army
+		NOT = {
+			has_country_flag = clone_army_fertility_unlocked
+		}
+	}
+
+	immediate = {
+		every_owned_planet = {
+			limit = {
+				is_colony = yes
+				is_under_colonization = no
+			}
+
+			# Figure out how many (not disabled) VATS the planet has.
+			export_trigger_value_to_variable = {
+				trigger = num_buildings
+				parameters = {
+					type = building_clone_army_clone_vat
+					disabled = no
+				}
+				variable = num_clone_vats
+			}
+
+			# Figure out Clone Army Population (only OWN species are compatible, not imported ones)
+			set_variable = { which = num_clone_pops value = 0 }
+			every_owned_pop = {
+				limit = {
+					owner_main_species = { is_same_species = prev }
+					OR = {
+						has_trait = trait_clone_soldier_infertile
+						has_trait = trait_clone_soldier_infertile_full_potential
+					}
+				}
+				prev = { change_variable = { which = num_clone_pops value = 1 } }
+			}
+
+			### Variable 'clone_pops_missing' read by 'should_force_decline_species' and must be updated.
+			### clone_pops_missing = (20 * num_clone_vats) - num_clone_pops
+			set_variable = { which = clone_pops_missing value = 20 }
+			multiply_variable = { which = clone_pops_missing value = num_clone_vats }
+			if = {
+				limit = { has_building  = building_clone_vats }
+				change_variable = { which = "clone_pops_missing" value = 40 }
+				if = {
+					limit = {
+						ROOT = { has_technology = tech_adv_cloning }
+					}
+					change_variable = { which = "clone_pops_missing" value = 20 }
+				}
+			}
+			subtract_variable = { which = clone_pops_missing value = num_clone_pops }
+
+			### Override it to -1 if there are no pops on the planet, but the planet could not sustain them
+			### Only applies after colonization. Prevents pops from auto-migrating and immediately being purged
+			if = {
+				limit = {
+					check_variable = { which = num_clone_pops value = 0 }
+					check_variable = { which = num_clone_vats value = 0 }
+				}
+				set_variable = { which = clone_pops_missing value = -1 }
+			}
+
+			### Variable 'clone_pops_missing_per_vat' is read by 'building_clone_army_clone_vat' and must be updated.
+			set_variable = { which = clone_pops_missing_per_vat value = 0 }
+
+			# Always remove modifier. Reapply further down if still needed.
+			remove_modifier = modifier_clone_pops_decline
+
+			if = {
+				limit = {
+					check_variable = { which = clone_pops_missing value > 0 }
+				}
+
+				### Growing.
+				### clone_pops_missing_per_vat = clone_pops_missing / num_clone_vats, don't divide by 0.
+				set_variable = { which = clone_pops_missing_per_vat value = clone_pops_missing }
+				divide_variable = { which = clone_pops_missing_per_vat value = num_clone_vats }
+			}
+			else_if = {
+				limit = {
+					check_variable = { which = clone_pops_missing value = 0 }
+				}
+				### Pop stable.
+			}
+			else_if = {
+				limit = { ### No need to set modifier if no declining pops present
+					check_variable = { which = num_clone_pops value > 0 }
+					OR = {
+						NOT = { exists = declining_species }
+						declining_species = { is_same_species = root }
+					}
+				}
+				### Pop above max, should decline. Variable 'clone_pops_missing' is negative:
+				### clone_pops_decline_factor = ( 4 % per month - clone_pops_missing ) / BASE_POP_DECLINE
+				set_variable = { which = clone_pops_decline_factor value = 4 }
+				subtract_variable = { which = clone_pops_decline_factor value = clone_pops_missing }
+				divide_variable = { which = clone_pops_decline_factor value = 5 }	# 5 should match BASE_POP_DECLINE.
+				subtract_variable = { which = clone_pops_decline_factor value = 1 }	# Subtract base decline.
+
+				add_modifier = {
+					modifier = modifier_clone_pops_decline
+					multiplier = clone_pops_decline_factor
+					clear_on_owner_change = yes
+				}
+			}
+
+			# Debug growth/decline.
+			#log = "Clones on '[This.GetName]'. clone_pops_missing is: [This.clone_pops_missing], clone_pops_missing_per_vat: [This.clone_pops_missing_per_vat], clone_pops_decline_factor: [This.clone_pops_decline_factor]"
+		}
+	}
+}

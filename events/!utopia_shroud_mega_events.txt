@@ -1,0 +1,1231 @@
+
+############################
+#
+# Shroud Events
+#
+# Written by Henrik Thyrwall
+#
+############################
+
+# ID 3000 - 3999
+
+namespace = utopia
+
+### VISIONS
+
+# Vision 1
+country_event = {
+	id = utopia.3100
+	title = "utopia.3000.name"
+	desc = "utopia.3100.desc"
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = shroud_diplomacy_engaged
+		set_country_flag = shroud_vision_1
+		randomize_shroud_flags = yes 
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = shroud_diplomacy_engaged
+		}
+		remove_shroud_flags = yes
+	}
+
+	### Constant
+	# Summon Avatar
+	option = {
+		name = "utopia.3100.a"
+		custom_tooltip = "shroud.avatar.chances.high"
+		hidden_effect = {
+			random_list = {
+				35 = { country_event = { id = utopia.3020 }}
+				35 = { country_event = { id = utopia.3021 }}
+				20 = { 
+					modifier = {
+						factor = 0.5
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0.5
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_event = { id = utopia.3022 }
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_event = { id = utopia.3023 }
+				}
+			}
+		}
+	}
+
+	### Medium
+	option = {
+		name = "boon.happiness.medium"
+		trigger = { has_country_flag = medium.1 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		happiness_shroud_medium = yes
+	}
+	option = {
+		name = "boon.upkeep.medium"
+		trigger = { has_country_flag = medium.2 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		upkeep_shroud_medium = yes
+	}
+	option = {
+		name = "boon.research.medium"
+		trigger = { has_country_flag = medium.3 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		research_shroud_medium = yes
+	}
+	option = {
+		name = "boon.shields.medium"
+		trigger = { has_country_flag = medium.4 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		shields_shroud_medium = yes
+	}
+	option = {
+		name = "boon.weapons.medium"
+		trigger = { has_country_flag = medium.5 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		weapons_shroud_medium = yes
+	}
+	option = {
+		name = "boon.firing.medium"
+		trigger = { has_country_flag = medium.6 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		firingrate_shroud_medium = yes
+	}
+	option = {
+		name = "boon.ethics.medium"
+		trigger = { has_country_flag = medium.7 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		ethics_shroud_medium = yes
+	}
+	option = {
+		name = "boon.influence.medium"
+		trigger = { has_country_flag = medium.8 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		influence_shroud_medium = yes
+	}
+	option = {
+		name = "boon.unity.medium"
+		trigger = { has_country_flag = medium.9 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		unity_shroud_medium = yes
+	}
+	option = {
+		name = "boon.evasion.medium"
+		trigger = { has_country_flag = medium.10 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		evasion_shroud_medium = yes
+	}
+	option = {
+		name = "boon.repair.medium"
+		trigger = { has_country_flag = medium.11 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		repair_shroud_medium = yes
+	}
+	option = {
+		name = "boon.lifespans.medium"
+		trigger = { has_country_flag = medium.12 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		lifespan_shroud_medium = yes
+	}
+	option = {
+		name = "boon.speed.medium"
+		trigger = { has_country_flag = medium.13 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		speed_shroud_medium = yes
+	}
+	option = {
+		name = "boon.morale.medium"
+		trigger = { has_country_flag = medium.14 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		morale_shroud_medium = yes
+	}
+	option = {
+		name = "boon.sensors.medium"
+		trigger = { has_country_flag = medium.15 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		sensor_shroud_medium = yes
+	}
+
+	### Low
+	option = {
+		name = "boon.happiness.low"
+		trigger = { has_country_flag = low.1 }
+		custom_tooltip = "shroud.boon.chances.low"
+		happiness_shroud_low = yes
+	}
+	option = {
+		name = "boon.upkeep.low"
+		trigger = { has_country_flag = low.2 }
+		custom_tooltip = "shroud.boon.chances.low"
+		upkeep_shroud_low = yes
+	}
+	option = {
+		name = "boon.research.low"
+		trigger = { has_country_flag = low.3 }
+		custom_tooltip = "shroud.boon.chances.low"
+		research_shroud_low = yes
+	}
+	option = {
+		name = "boon.shields.low"
+		trigger = { has_country_flag = low.4 }
+		custom_tooltip = "shroud.boon.chances.low"
+		shields_shroud_low = yes
+	}
+	option = {
+		name = "boon.weapons.low"
+		trigger = { has_country_flag = low.5 }
+		custom_tooltip = "shroud.boon.chances.low"
+		weapons_shroud_low = yes
+	}
+	option = {
+		name = "boon.firing.low"
+		trigger = { has_country_flag = low.6 }
+		custom_tooltip = "shroud.boon.chances.low"
+		firingrate_shroud_low = yes
+	}
+	option = {
+		name = "boon.ethics.low"
+		trigger = { has_country_flag = low.7 }
+		custom_tooltip = "shroud.boon.chances.low"
+		ethics_shroud_low = yes
+	}
+	option = {
+		name = "boon.influence.low"
+		trigger = { has_country_flag = low.8 }
+		custom_tooltip = "shroud.boon.chances.low"
+		influence_shroud_low = yes
+	}
+	option = {
+		name = "boon.unity.low"
+		trigger = { has_country_flag = low.9 }
+		custom_tooltip = "shroud.boon.chances.low"
+		unity_shroud_low = yes
+	}
+	option = {
+		name = "boon.evasion.low"
+		trigger = { has_country_flag = low.10 }
+		custom_tooltip = "shroud.boon.chances.low"
+		evasion_shroud_low = yes
+	}
+	option = {
+		name = "boon.repair.low"
+		trigger = { has_country_flag = low.11 }
+		custom_tooltip = "shroud.boon.chances.low"
+		repair_shroud_low = yes
+	}
+	option = {
+		name = "boon.lifespans.low"
+		trigger = { has_country_flag = low.12 }
+		custom_tooltip = "shroud.boon.chances.low"
+		lifespan_shroud_low = yes
+	}
+	option = {
+		name = "boon.speed.low"
+		trigger = { has_country_flag = low.13 }
+		custom_tooltip = "shroud.boon.chances.low"
+		speed_shroud_low = yes
+	}
+	option = {
+		name = "boon.morale.low"
+		trigger = { has_country_flag = low.14 }
+		custom_tooltip = "shroud.boon.chances.low"
+		morale_shroud_low = yes
+	}
+	option = {
+		name = "boon.sensors.low"
+		trigger = { has_country_flag = low.15 }
+		custom_tooltip = "shroud.boon.chances.low"
+		sensor_shroud_low = yes
+	}
+
+	# Exit
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+
+# Vision 2
+country_event = {
+	id = utopia.3110
+	title = "utopia.3000.name"
+	desc = "utopia.3110.desc"
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = shroud_diplomacy_engaged
+		set_country_flag = shroud_vision_2
+		randomize_shroud_flags = yes 
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = shroud_diplomacy_engaged
+		}
+		remove_shroud_flags = yes
+	}
+
+	### Constant
+	# Summon Archon
+	option = {
+		name = "shroud.avatar.high"
+		custom_tooltip = "shroud.avatar.chances.high"
+		hidden_effect = {
+			random_list = {
+				35 = { country_event = { id = utopia.3020 }}
+				35 = { country_event = { id = utopia.3021 }}
+				20 = { 
+					modifier = {
+						factor = 0.5
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0.5
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_event = { id = utopia.3022 }
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_event = { id = utopia.3023 }
+				}
+			}
+		}
+	}
+
+	### Medium
+	option = {
+		name = "boon.happiness.medium"
+		trigger = { has_country_flag = medium.1 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		happiness_shroud_medium = yes
+	}
+	option = {
+		name = "boon.upkeep.medium"
+		trigger = { has_country_flag = medium.2 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		upkeep_shroud_medium = yes
+	}
+	option = {
+		name = "boon.research.medium"
+		trigger = { has_country_flag = medium.3 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		research_shroud_medium = yes
+	}
+	option = {
+		name = "boon.shields.medium"
+		trigger = { has_country_flag = medium.4 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		shields_shroud_medium = yes
+	}
+	option = {
+		name = "boon.weapons.medium"
+		trigger = { has_country_flag = medium.5 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		weapons_shroud_medium = yes
+	}
+	option = {
+		name = "boon.firing.medium"
+		trigger = { has_country_flag = medium.6 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		firingrate_shroud_medium = yes
+	}
+	option = {
+		name = "boon.ethics.medium"
+		trigger = { has_country_flag = medium.7 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		ethics_shroud_medium = yes
+	}
+	option = {
+		name = "boon.influence.medium"
+		trigger = { has_country_flag = medium.8 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		influence_shroud_medium = yes
+	}
+	option = {
+		name = "boon.unity.medium"
+		trigger = { has_country_flag = medium.9 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		unity_shroud_medium = yes
+	}
+	option = {
+		name = "boon.evasion.medium"
+		trigger = { has_country_flag = medium.10 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		evasion_shroud_medium = yes
+	}
+	option = {
+		name = "boon.repair.medium"
+		trigger = { has_country_flag = medium.11 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		repair_shroud_medium = yes
+	}
+	option = {
+		name = "boon.lifespans.medium"
+		trigger = { has_country_flag = medium.12 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		lifespan_shroud_medium = yes
+	}
+	option = {
+		name = "boon.speed.medium"
+		trigger = { has_country_flag = medium.13 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		speed_shroud_medium = yes
+	}
+	option = {
+		name = "boon.morale.medium"
+		trigger = { has_country_flag = medium.14 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		morale_shroud_medium = yes
+	}
+	option = {
+		name = "boon.sensors.medium"
+		trigger = { has_country_flag = medium.15 }
+		custom_tooltip = "shroud.boon.chances.medium"
+		sensor_shroud_medium = yes
+	}
+
+	### Low
+	option = {
+		name = "boon.happiness.low"
+		trigger = { has_country_flag = low.1 }
+		custom_tooltip = "shroud.boon.chances.low"
+		happiness_shroud_low = yes
+	}
+	option = {
+		name = "boon.upkeep.low"
+		trigger = { has_country_flag = low.2 }
+		custom_tooltip = "shroud.boon.chances.low"
+		upkeep_shroud_low = yes
+	}
+	option = {
+		name = "boon.research.low"
+		trigger = { has_country_flag = low.3 }
+		custom_tooltip = "shroud.boon.chances.low"
+		research_shroud_low = yes
+	}
+	option = {
+		name = "boon.shields.low"
+		trigger = { has_country_flag = low.4 }
+		custom_tooltip = "shroud.boon.chances.low"
+		shields_shroud_low = yes
+	}
+	option = {
+		name = "boon.weapons.low"
+		trigger = { has_country_flag = low.5 }
+		custom_tooltip = "shroud.boon.chances.low"
+		weapons_shroud_low = yes
+	}
+	option = {
+		name = "boon.firing.low"
+		trigger = { has_country_flag = low.6 }
+		custom_tooltip = "shroud.boon.chances.low"
+		firingrate_shroud_low = yes
+	}
+	option = {
+		name = "boon.ethics.low"
+		trigger = { has_country_flag = low.7 }
+		custom_tooltip = "shroud.boon.chances.low"
+		ethics_shroud_low = yes
+	}
+	option = {
+		name = "boon.influence.low"
+		trigger = { has_country_flag = low.8 }
+		custom_tooltip = "shroud.boon.chances.low"
+		influence_shroud_low = yes
+	}
+	option = {
+		name = "boon.unity.low"
+		trigger = { has_country_flag = low.9 }
+		custom_tooltip = "shroud.boon.chances.low"
+		unity_shroud_low = yes
+	}
+	option = {
+		name = "boon.evasion.low"
+		trigger = { has_country_flag = low.10 }
+		custom_tooltip = "shroud.boon.chances.low"
+		evasion_shroud_low = yes
+	}
+	option = {
+		name = "boon.repair.low"
+		trigger = { has_country_flag = low.11 }
+		custom_tooltip = "shroud.boon.chances.low"
+		repair_shroud_low = yes
+	}
+	option = {
+		name = "boon.lifespans.low"
+		trigger = { has_country_flag = low.12 }
+		custom_tooltip = "shroud.boon.chances.low"
+		lifespan_shroud_low = yes
+	}
+	option = {
+		name = "boon.speed.low"
+		trigger = { has_country_flag = low.13 }
+		custom_tooltip = "shroud.boon.chances.low"
+		speed_shroud_low = yes
+	}
+	option = {
+		name = "boon.morale.low"
+		trigger = { has_country_flag = low.14 }
+		custom_tooltip = "shroud.boon.chances.low"
+		morale_shroud_low = yes
+	}
+	option = {
+		name = "boon.sensors.low"
+		trigger = { has_country_flag = low.15 }
+		custom_tooltip = "shroud.boon.chances.low"
+		sensor_shroud_low = yes
+	}
+
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+
+# Vision 6 - Fallen Empire
+country_event = {
+	id = utopia.3150
+	title = "utopia.3000.name"
+	desc = "utopia.3150.desc"
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = shroud_diplomacy_engaged
+		random_country = {
+			limit = {
+				is_country_type = fallen_empire
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { is_at_war_with = root }
+				has_communications = root
+			}
+			save_event_target_as = fallen_empire
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = shroud_diplomacy_engaged
+		}
+	}
+
+	option = {
+		name = "utopia.3150.a"
+		custom_tooltip = "shroud.unknown.chances.medium"
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = { id = utopia.3151 }
+				}
+				40 = {
+					modifier = {
+						factor = 0.5
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0.5
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_Event = { id = utopia.3152 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+
+# Vision 7 - Psi Jump Drives
+country_event = {
+	id = utopia.3160
+	title = "utopia.3000.name"
+	desc = "utopia.3160.desc"
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = shroud_diplomacy_engaged
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = shroud_diplomacy_engaged
+		}
+	}
+
+	option = {
+		name = "utopia.3160.a"
+		custom_tooltip = "shroud.unknown.chances.medium"
+		hidden_effect = {
+			random_list = {
+				60 = { country_event = { id = utopia.3161 } }
+				40 = { 
+					modifier = {
+						factor = 0.5
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0.5
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_event = { id = utopia.3162 } 
+				}
+			}
+		}
+	}
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+
+# Vision 8 - Psionic Shield
+country_event = {
+	id = utopia.3170
+	title = "utopia.3000.name"
+	desc = "utopia.3170.desc"
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = shroud_diplomacy_engaged
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = shroud_diplomacy_engaged
+		}
+	}
+
+	option = {
+		name = "utopia.3170.a"
+		custom_tooltip = "shroud.unknown.chances.medium"
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = { id = utopia.3171 }
+				}
+				40 = {
+					modifier = {
+						factor = 0.5
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0.5
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_Event = { id = utopia.3172 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+
+# Vision 9 - Precognition Interface
+country_event = {
+	id = utopia.3180
+	title = "utopia.3000.name"
+	desc = "utopia.3180.desc"
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = shroud_diplomacy_engaged
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = shroud_diplomacy_engaged
+		}
+	}
+
+	option = {
+		name = "utopia.3180.a"
+		custom_tooltip = "shroud.unknown.chances.medium"
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = { id = utopia.3181 }
+				}
+				40 = {
+					modifier = {
+						factor = 0.5
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0.5
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_Event = { id = utopia.3182 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+
+# Vision 10
+country_event = {
+	id = utopia.3190
+	title = "utopia.3000.name"
+	desc = "utopia.3190.desc"
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = shroud_diplomacy_engaged
+		random_owned_leader = {
+			limit = { leader_class = ruler }
+			save_event_target_as = leader_1
+			random_list = {
+				33 = { set_leader_flag = high_psi }
+				33 = { set_leader_flag = medium_psi }
+				33 = { set_leader_flag = low_psi }
+			}
+		}
+		random_owned_leader = {
+			limit = {
+				NOT = { is_same_value = event_target:leader_1 } 
+			}
+			save_event_target_as = leader_2
+			random_list = {
+				33 = { set_leader_flag = high_psi }
+				33 = { set_leader_flag = medium_psi }
+				33 = { set_leader_flag = low_psi }
+			}
+		}
+		random_owned_leader = {
+			limit = {
+				NOR = { 
+					is_same_value = event_target:leader_1
+					is_same_value = event_target:leader_2
+				} 
+			}
+			save_event_target_as = leader_3
+			random_list = {
+				33 = { set_leader_flag = high_psi }
+				33 = { set_leader_flag = medium_psi }
+				33 = { set_leader_flag = low_psi }
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = shroud_diplomacy_engaged
+			event_target:leader_1 = {
+				remove_leader_flag = high_psi
+				remove_leader_flag = medium_psi
+				remove_leader_flag = low_psi
+			}
+			event_target:leader_2 = {
+				remove_leader_flag = high_psi
+				remove_leader_flag = medium_psi
+				remove_leader_flag = low_psi
+			}
+			event_target:leader_3 = {
+				remove_leader_flag = high_psi
+				remove_leader_flag = medium_psi
+				remove_leader_flag = low_psi
+			}
+		}
+	}
+
+	option = {
+		name = "utopia.3190.1.a"
+		custom_tooltip = "shroud.unknown.chances.high"
+		trigger = {
+			event_target:leader_1 = { has_leader_flag = high_psi }
+		}
+		event_target:leader_1 = { save_event_target_as = chosen_leader }
+		hidden_effect = {
+			random_list = {
+				70 = { country_event = { id = utopia.3191 }}
+				20 = { country_event = { id = utopia.3192 }}
+				10 = { country_event = { id = utopia.3193 }}
+			}
+		}
+	}
+	option = {
+		name = "utopia.3190.2.a"
+		custom_tooltip = "shroud.unknown.chances.medium"
+		trigger = {
+			event_target:leader_1 = { has_leader_flag = medium_psi }
+		}
+		event_target:leader_1 = { save_event_target_as = chosen_leader }
+		hidden_effect = {
+			random_list = {
+				50 = { country_event = { id = utopia.3191 }}
+				30 = { country_event = { id = utopia.3192 }}
+				20 = { country_event = { id = utopia.3193 }}
+			}
+		}
+	}
+	option = {
+		name = "utopia.3190.3.a"
+		custom_tooltip = "shroud.unknown.chances.low"
+		trigger = {
+			event_target:leader_1 = { has_leader_flag = low_psi }
+		}
+		event_target:leader_1 = { save_event_target_as = chosen_leader }
+		hidden_effect = {
+			random_list = {
+				30 = { country_event = { id = utopia.3191 }}
+				40 = { country_event = { id = utopia.3192 }}
+				30 = { country_event = { id = utopia.3193 }}
+			}
+		}
+	}
+	option = {
+		name = "utopia.3190.1.b"
+		custom_tooltip = "shroud.unknown.chances.high"
+		trigger = {
+			event_target:leader_2 = { has_leader_flag = high_psi }
+		}
+		event_target:leader_2 = { save_event_target_as = chosen_leader }
+		hidden_effect = {
+			random_list = {
+				70 = { country_event = { id = utopia.3191 }}
+				20 = { country_event = { id = utopia.3192 }}
+				10 = { country_event = { id = utopia.3193 }}
+			}
+		}
+	}
+	option = {
+		name = "utopia.3190.2.b"
+		custom_tooltip = "shroud.unknown.chances.medium"
+		trigger = {
+			event_target:leader_2 = { has_leader_flag = medium_psi }
+		}
+		event_target:leader_2 = { save_event_target_as = chosen_leader }
+		hidden_effect = {
+			random_list = {
+				50 = { country_event = { id = utopia.3191 }}
+				30 = { country_event = { id = utopia.3192 }}
+				20 = { country_event = { id = utopia.3193 }}
+			}
+		}
+	}
+	option = {
+		name = "utopia.3190.3.b"
+		custom_tooltip = "shroud.unknown.chances.low"
+		trigger = {
+			event_target:leader_2 = { has_leader_flag = low_psi }
+		}
+		event_target:leader_2 = { save_event_target_as = chosen_leader }
+		hidden_effect = {
+			random_list = {
+				30 = { country_event = { id = utopia.3191 }}
+				40 = { country_event = { id = utopia.3192 }}
+				30 = { country_event = { id = utopia.3193 }}
+			}
+		}
+	}
+
+	option = {
+		name = "utopia.3190.1.c"
+		custom_tooltip = "shroud.unknown.chances.high"
+		trigger = {
+			event_target:leader_3 = { has_leader_flag = high_psi }
+		}
+		event_target:leader_3 = { save_event_target_as = chosen_leader }
+		hidden_effect = {
+			random_list = {
+				70 = { country_event = { id = utopia.3191 }}
+				20 = { country_event = { id = utopia.3192 }}
+				10 = { 
+					modifier = {
+						factor = 0
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_event = { id = utopia.3193 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "utopia.3190.2.c"
+		custom_tooltip = "shroud.unknown.chances.medium"
+		trigger = {
+			event_target:leader_3 = { has_leader_flag = medium_psi }
+		}
+		event_target:leader_3 = { save_event_target_as = chosen_leader }
+		hidden_effect = {
+			random_list = {
+				50 = { country_event = { id = utopia.3191 }}
+				30 = { country_event = { id = utopia.3192 }}
+				20 = { 
+					modifier = {
+						factor = 0
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_event = { id = utopia.3193 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "utopia.3190.3.c"
+		custom_tooltip = "shroud.unknown.chances.low"
+		trigger = {
+			event_target:leader_3 = { has_leader_flag = low_psi }
+		}
+		event_target:leader_3 = { save_event_target_as = chosen_leader }
+		hidden_effect = {
+			random_list = {
+				30 = { country_event = { id = utopia.3191 }}
+				40 = { country_event = { id = utopia.3192 }}
+				30 = { 
+					modifier = {
+						factor = 0
+						has_relic = r_zro_crystal
+					}
+					modifier = {
+						factor = 0
+						has_modifier = covenant_whisperers_in_the_void
+					}
+					country_event = { id = utopia.3193 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+
+
+# Pick a Patron to contact
+country_event = {
+	id = utopia.3303
+	
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			25 = { country_event = { id = utopia.3304 } }	# The Whisperers in the Void
+			25 = { country_event = { id = utopia.3305 } }	# The Composer of Strands
+			25 = {
+				country_event = { id = utopia.3306 }		# The Eater of Worlds
+				modifier = {
+					factor = 0
+					is_pacifist = yes
+				}
+			}
+			25 = { country_event = { id = utopia.3307 } }	# The Instrument of Desire
+			2 = {
+				modifier = {
+					factor = 13
+					has_global_flag = impending_doom
+				}
+				modifier = {
+					factor = 10
+					has_origin = origin_doomsday
+				}
+				modifier = {
+					factor = 3
+					is_homicidal = yes
+				}
+				modifier = {
+					factor = 0.5 # balance
+					is_pacifist = yes
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = end_of_the_cycle }
+					}
+					country_event = { id = utopia.3308 }  # The End of the Cycle - extremely rare
+				}
+				else = {
+					random_list = {
+						25 = { country_event = { id = utopia.3304 } }	# The Whisperers in the Void
+						25 = { country_event = { id = utopia.3305 } }	# The Composer of Strands
+						25 = {
+							country_event = { id = utopia.3306 }		# The Eater of Worlds
+							modifier = {
+								factor = 0
+								is_pacifist = yes
+							}
+						}
+						25 = { country_event = { id = utopia.3307 } }	# The Instrument of Desire	
+					}
+				}					
+			}	
+		}
+	}
+}
+
+# Covenant Side Effects - Gatekeeper event
+country_event = {
+	id = utopia.3330
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_country_flag = covenant_side_effects }
+		OR = {
+			has_modifier = covenant_whisperers_in_the_void
+			has_modifier = covenant_composer_of_strands
+			has_modifier = covenant_eater_of_worlds
+			has_modifier = covenant_instrument_of_desire
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 25
+	}
+	
+	immediate = {
+		set_timed_country_flag = { flag = covenant_side_effects days = 3600 }
+		if = {
+			limit = {
+				has_modifier = covenant_whisperers_in_the_void
+			}
+			random_list = {
+				30 = { country_event = { id = utopia.3331 } }	# Leader turns to substance abuse
+				30 = { country_event = { id = utopia.3332 } }	# Suicide of leader
+				20 = { country_event = { id = utopia.3333 } }	# Planet succumbs to madness
+				10 = { country_event = { id = utopia.3334 } }	# Planet collapses into anarchy
+				5 = { country_event = { id = megamegaexpanded.17 } } # Dark Secrets Revealed
+				5 = { country_event = { id = megamegaexpanded.18 } } # Technological Breakthroughs Revealed
+				2 = { country_event = { id = megamegaexpanded.19 } } # Scientist dies, gets random tech option
+				5 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_country_flag = whisper_sensors
+							has_modifier = whisper_sensors
+						}
+					}
+					country_event = { id = megamegaexpanded.20 } # Gain extra sensor range and intel, scientist becomes paranoid
+				}
+				5 = { country_event = { id = megamegaexpanded.21 } } # Governor becomes corrupt
+				5 = { country_event = { id = megamegaexpanded.22 } } # Scientist becomes paranoid
+				5 = { country_event = { id = megamegaexpanded.23 } } # Admiral becomes nervous
+				5 = { country_event = { id = megamegaexpanded.24 } } # General becomes armchair commander
+				5 = { country_event = { id = megamegaexpanded.25 } } # Random leader improves
+				10 = { country_event = { id = megamegaexpanded.28 } } # Planet-Wide Substance Abuse
+				
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = covenant_eater_of_worlds
+			}
+			random_list = {
+				195 = {
+					modifier = {
+						factor = 0
+						NOT = { has_country_flag = eater_sated }
+					}
+					remove_country_flag = eater_sated
+					remove_country_flag = covenant_side_effects
+					country_event = { id = megamegaexpanded.16 }
+				}
+				65 = {
+					modifier = {
+						factor = 0
+						has_country_flag = eater_sated
+					}
+					country_event = { id = utopia.3335 } # Pop devoured
+				}
+				30 = {
+					modifier = {
+						factor = 0
+						has_country_flag = eater_sated
+					}
+					country_event = { id = utopia.3336 } # Pops devoured
+				}
+				5 = {
+					country_event = { id = utopia.3337 } # Planet devoured
+					remove_country_flag = eater_sated
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = covenant_instrument_of_desire
+			}
+			random_list = {
+				40 = { country_event = { id = utopia.3340 } }	# Planet gets increased desire for consumer goods
+				40 = { country_event = { id = utopia.3338 } }	# Planet gets deviant ethics
+				20 = { country_event = { id = utopia.3339 } }	# Empire gets deviant ethics
+				5 = {
+					modifier = {
+						factor = 0
+						OR = {
+							is_ai = yes
+							has_country_flag = manifesti_spawned
+							is_regular_empire = no
+							is_at_war = yes
+							is_homicidal = yes
+							is_fanatic = yes
+							has_valid_civic = civic_warrior_culture #Keeps entertainers
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							is_occupied_flag = no
+							OR = {
+								has_building = building_holo_theatres
+								has_building = building_hyper_entertainment_forum
+								has_building = building_autochthon_monument
+								has_building = building_corporate_monument
+								has_building = building_noble_estates
+								has_building = building_commercial_zone
+								has_district = district_hab_cultural
+							}
+						}
+						planet_event = { id = manifesti.1 days = 1 random = 30 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = covenant_composer_of_strands
+			}
+			random_list = {
+				170 = { country_event = { id = utopia.3341 } }		# Composer messes with species traits
+				25 = {
+					modifier = {
+						factor = 0
+						NOT = {
+							any_owned_species = {
+								has_trait = trait_psionic
+								NOR = {
+									has_trait = trait_fertile
+									has_trait = trait_robust
+									has_trait = trait_erudite
+								}
+							}
+						}
+					}
+					country_event = { id = megamegaexpanded.27 }	# Composer grants advanced trait
+				}
+				5 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_megacorp = no
+							is_xenophobe = yes
+							NOT = {
+								any_owned_planet = {
+									count_species = {
+										count >= 2
+										limit = {
+											has_trait = trait_psionic
+											is_crossbreeding_possible = yes
+											NOT = { has_citizenship_type = { type = citizenship_slavery country = ROOT } }
+											NOT = { has_citizenship_type = { type = citizenship_purge country = ROOT } }
+										}
+									}
+								}
+							}
+						}
+					}
+					country_event = { id = megamegaexpanded.26 }	# Random Half-Species
+				}
+			}
+		}
+	}
+}

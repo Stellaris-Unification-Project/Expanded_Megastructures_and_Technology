@@ -1,0 +1,41 @@
+component_set = {
+	key = "DARK_MATTER_ARMOR"
+	
+	icon = "GFX_ship_part_dark_matter_armor"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "LIVING_METAL_REPAIR_CAT"
+	
+	icon = "GFX_ship_part_auto_repair"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "FIRE_CONTROL_2"
+	
+	icon = "GFX_ship_part_computer_line_advanced"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "REACTOR_BOOSTER_4"
+	
+	icon = "GFX_ship_part_reactor_booster_4"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "OBSERVATORY_5"
+
+	icon = "GFX_ship_part_sensor_4"
+	icon_frame = 1
+}
+
+component_set = {
+	key = "OBSERVATORY_6"
+
+	icon = "GFX_ship_part_sensor_4"
+	icon_frame = 1
+}

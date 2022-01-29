@@ -1,0 +1,12 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_evt_clones"
+		texturefile = "gfx/event_pictures/origins/origin_clones.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_hive_queen"
+		texturefile = "gfx/event_pictures/origins/origin_hive_queen.dds"
+		alwaystransparent = yes
+	}
+}

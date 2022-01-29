@@ -1,0 +1,335 @@
+##########################################################################
+# Decisions
+##########################################################################
+
+### Megastructures ###
+
+# Fortified Habitats
+decision_fortified_habitat = {
+	owned_planets_only = yes
+	icon = decision_satellite_in_orbit
+	prerequisites = {
+		"tech_fortified_habitats"		
+	}
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 100
+		}
+	}
+	
+	potential = {
+		is_capital = no
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		NOT = { has_modifier = fortified_habitat }
+		NOT = { has_modifier = pleasure_palace }
+		is_planet_class = pc_habitat
+	}
+	
+	allow = {
+		NOT = { has_district = district_hab_commercial }
+		NOT = { has_district = district_hab_energy }
+	}
+	
+	effect = {
+		custom_tooltip = decision_fortified_habitat_tooltip
+		add_modifier = {
+			modifier = fortified_habitat
+			days = -1
+		}	
+		hidden_effect = { validate_planet_buildings_and_districts = yes }
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.1
+			owner = {
+				any_owned_planet = { has_modifier = fortified_habitat }
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_designation = col_habitat_leisure
+				has_designation = col_habitat_trade
+				has_designation = col_habitat_research
+				has_designation = col_habitat_factory
+			}
+		}
+	}
+}
+
+decision_abolish_fortified_habitat = {
+	owned_planets_only = yes
+	icon = decision_satellite_in_orbit
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 250
+		}
+	}
+	
+	potential = {
+		has_modifier = fortified_habitat
+	}
+	
+	effect = {
+		remove_modifier = fortified_habitat
+		hidden_effect = { validate_planet_buildings_and_districts = yes }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+### Tech ###
+decision_create_life = {
+	owned_planets_only = yes
+	icon = decision_cybernetics
+	prerequisites = {
+		"tech_new_life"		
+	}
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = {
+			NOT = { has_country_flag = new_species_project }
+			is_homicidal = no
+		}
+	}
+	
+	effect = {
+		custom_tooltip = create_life_tooltip
+		hidden_effect = {
+			set_planet_flag = new_species_planet
+			owner = {
+				country_event = { id = megatech.20 }
+				if = {
+					limit = { is_ai = yes }
+					set_timed_country_flag = { flag = decision_create_life_timer days = 7200 }
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 1
+			owner = { NOT = { has_country_flag = decision_create_life_timer } }
+			free_housing >= 10
+			free_jobs >= 5
+			free_amenities >= 10
+		}
+	}
+}
+
+### Shroud Covenants ###
+
+decision_composer_pops = {
+	owned_planets_only = yes
+	icon = decision_surreal_visions
+
+	enactment_time = 720
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = no }
+			}
+			energy = 3000
+			food = 3000
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = yes }
+			}
+			energy = 3000
+			minerals = 3000
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = { has_modifier = covenant_composer_of_strands }
+	}
+	
+	effect = {
+		custom_tooltip = decision_composer_pops_tooltip
+		save_event_target_as = composer_planet
+		hidden_effect = {
+			random_list = {
+				99 = {
+					create_pop = {
+						species = owner
+					}
+					modify_species = {
+						species = last_created_species_pop
+						add_trait = trait_psionic
+						ideal_planet_class = event_target:composer_planet
+						change_scoped_species = yes # change only this pop's species
+					}
+					create_pop = {
+						species = owner
+					}
+					modify_species = {
+						species = last_created_species_pop
+						add_trait = trait_psionic
+						ideal_planet_class = event_target:composer_planet
+						change_scoped_species = yes # change only this pop's species
+					}
+				}
+				1 = {
+					create_species = {
+						name = random
+						class = random_non_machine
+						portrait = random
+						traits = {
+							trait = trait_psionic
+							trait = random_traits
+						}
+						homeworld = event_target:composer_planet
+						effect = {
+							save_event_target_as = composer_species
+						}
+					}
+					create_pop = {
+						species = event_target:composer_species
+					}
+					create_pop = {
+						species = event_target:composer_species
+					}
+					owner = { country_event = { id = megamegaexpanded.15 } }
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			NOR = {
+				free_amenities > 2
+				free_jobs > 2
+				free_housing > 2
+			}
+		}
+		modifier = {
+			factor = 0
+			exists = owner
+			owner = {
+				is_lithoid_empire = no
+				OR = {
+					NOT = { resource_stockpile_compare = { resource = energy value > 5000 } }
+					NOT = { resource_stockpile_compare = { resource = food value > 5000 } }
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			exists = owner
+			owner = {
+				is_lithoid_empire = yes
+				OR = {
+					NOT = { resource_stockpile_compare = { resource = energy value > 5000 } }
+					NOT = { resource_stockpile_compare = { resource = minerals value > 5000 } }
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			# should build up instead
+			OR = {
+				free_district_slots > 0
+				free_building_slots > 0
+			}
+		}
+	}	
+}
+
+decision_eater_sacrifice = {
+	owned_planets_only = yes
+	icon = decision_surreal_visions
+	potential = {
+		exists = owner
+		owner = {
+			has_modifier = covenant_eater_of_worlds
+			NOT = { has_country_flag = eater_sated }
+		}
+	}
+	
+	allow = {
+		count_owned_pop = {
+			limit = { NOT = { has_citizenship_type = { type = citizenship_full } } }
+			count > 3
+		}
+	}
+	
+	effect = {
+		custom_tooltip = decision_eater_sacrifice_tooltip
+		hidden_effect = {
+			owner = { set_country_flag = eater_sated }
+			random_list = {
+				1 = {
+					random_owned_pop = {
+						limit = { NOT = { has_citizenship_type = { type = citizenship_full } } }
+						kill_pop = yes
+					}
+				}
+				1 = {
+					random_owned_pop = {
+						limit = { NOT = { has_citizenship_type = { type = citizenship_full } } }
+						kill_pop = yes
+					}
+					random_owned_pop = {
+						limit = { NOT = { has_citizenship_type = { type = citizenship_full } } }
+						kill_pop = yes
+					}
+				}
+				1 = {
+					random_owned_pop = {
+						limit = { NOT = { has_citizenship_type = { type = citizenship_full } } }
+						kill_pop = yes
+					}
+					random_owned_pop = {
+						limit = { NOT = { has_citizenship_type = { type = citizenship_full } } }
+						kill_pop = yes
+					}
+					random_owned_pop = {
+						limit = { NOT = { has_citizenship_type = { type = citizenship_full } } }
+						kill_pop = yes
+					}
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 5
+			count_owned_pop = {
+				limit = {
+					NOT = { has_citizenship_type = { type = citizenship_full } }
+					is_unemployed = yes
+				}
+				count > 3
+			}
+		}
+	}	
+}

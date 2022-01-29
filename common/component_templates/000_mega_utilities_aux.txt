@@ -1,0 +1,38 @@
+#############################
+# Regenerative Hull Tissue  #
+#############################
+
+utility_component_template = {
+	key = "LIVING_METAL_REPAIR"
+	size = aux
+	icon = "GFX_ship_part_auto_repair"
+	icon_frame = 1
+	power = 0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 20
+			sr_living_metal = 1
+		}
+	}
+
+	modifier = {
+		ship_hull_regen_add_static = 3
+		ship_armor_regen_add_static = 4
+	}
+	
+	prerequisites = { tech_mine_living_metal }
+	component_set = "LIVING_METAL_REPAIR_CAT"
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 2.0
+			is_preferred_weapons = weapon_type_explosive
+		}
+		modifier = {
+			factor = 0
+			no_resource_for_component = { RESOURCE = sr_living_metal }
+		}
+	}
+}

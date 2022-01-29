@@ -1,0 +1,3649 @@
+############################
+#
+# Technology Events
+#
+############################
+
+namespace = megatech
+
+###   Dark Matter    ###
+### Reserved: 1 - 18 ###
+event = {
+	id = megatech.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = acot_activated }
+		end_game_years_passed >= 100
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				NOT = { has_country_flag = researching_dark_matter_power }
+				NOT = { has_technology = tech_dark_matter_power_core }
+				NOT = { has_tech_option = tech_dark_matter_power_core }
+				has_technology = tech_dark_matter_plant
+				has_technology = tech_zero_point_power
+				has_technology = tech_power_plant_4
+				has_technology = tech_hyper_drive_3
+				has_technology = tech_physics_3
+				has_technology = tech_basic_science_lab_3
+				has_technology = tech_galactic_administration
+				has_technology = tech_engineering_3
+				has_technology = tech_battleships
+				has_technology = tech_starbase_5
+			}
+			set_country_flag = researching_dark_matter_power
+			country_event = { id = megatech.2 days = 30 random = 300 }
+		}
+	}
+}
+
+country_event = {
+	id = megatech.2
+	title = megatech.2.name
+	desc = megatech.2.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_mystic_reveal
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_technology = tech_dark_matter_power_core }
+		NOT = { has_tech_option = tech_dark_matter_power_core }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = enclave
+					has_country_flag = curator_enclave_country
+				}
+			 }	
+			 random_country = {
+				limit = {
+					is_country_type = enclave
+					has_country_flag = curator_enclave_country
+				}
+				save_event_target_as = the_curators 
+			}	
+		}
+	}
+	
+	option = {
+		name = megatech.2.a
+		capital_scope = {
+			enable_special_project = {
+				name = "DARK_MATTER_SECRETS"
+				location = this
+				owner = root
+			}
+		}
+	}
+	option = {
+		name = megatech.2.b
+		trigger = {
+			exists = event_target:the_curators
+		}
+		allow = {
+			custom_tooltip = {
+				text = megatech.2.b.trust
+				event_target:the_curators = {
+					trust = {
+						who = root
+						value >= 100
+					}
+				}
+			}
+		}
+		country_event = { id = megatech.4 }
+	}
+}
+
+country_event = {
+	id = megatech.3
+	title = PROJECT_COMPLETE
+	desc = megatech.3.desc
+	picture = GFX_evt_physics_research
+	show_sound = event_laboratory_sound
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		add_research_option = tech_dark_matter_power_core
+		add_tech_progress = {
+			tech = tech_dark_matter_power_core
+			progress = 0.25
+		}
+	}
+}
+
+country_event = {
+	id = megatech.4
+	title = leviathans.500.name
+	desc = megatech.4.desc
+	is_triggered_only = yes
+	diplomatic = yes
+
+	custom_gui = "enclave_curator_window"
+
+	picture_event_data = {
+		portrait = event_target:the_curators
+		room = enclave_curator_room
+	}
+
+	option = {
+		name = megatech.4.a
+		is_dialog_only = yes
+		response_text = megatech.4.a.explain
+	}
+	option = {
+		name = megatech.4.b
+		response_text = megatech.4.b.explain
+		capital_scope = {
+			enable_special_project = {
+				name = "DARK_MATTER_SECRETS"
+				location = this
+				owner = root
+			}
+		}	
+	}
+
+	option = {
+		name = megatech.4.c
+		response_text = megatech.4.c.explain	
+		allow = {
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 10000	
+			}
+		}	
+		add_resource = {
+			energy = -10000
+		}
+		add_research_option = tech_dark_matter_power_core
+		add_tech_progress = {
+			tech = tech_dark_matter_power_core
+			progress = 0.25
+		}
+	}
+	
+	option = {
+		name = megatech.4.d
+		response_text = megatech.4.d.explain	
+		allow = {
+			resource_stockpile_compare = {
+				resource = influence
+				value >= 750
+			}
+		}	
+		add_resource = {
+			influence = -750
+		}
+		add_research_option = tech_dark_matter_power_core
+		add_tech_progress = {
+			tech = tech_dark_matter_power_core
+			progress = 0.25
+		}
+	}
+	
+	option = {
+		name = megatech.4.e
+		response_text = megatech.4.e.explain	
+		allow = {
+			resource_stockpile_compare = {
+				resource = sr_dark_matter
+				value >= 250
+			}
+		}	
+		add_resource = {
+			sr_dark_matter = -250
+		}
+		add_research_option = tech_dark_matter_power_core
+		add_tech_progress = {
+			tech = tech_dark_matter_power_core
+			progress = 0.25
+		}
+	}
+}
+
+### Species Creation  ###
+### Reserved: 20 - 39 ###
+
+country_event = {
+	id = megatech.20
+	title = megatech.20.name
+	desc = megatech.20.desc
+	picture = GFX_evt_cybernetics
+	show_sound = event_laboratory_sound
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = new_species_project
+	}
+	option = {
+		name = megatech.20.starborn
+		custom_tooltip = megatech.20.starborn.tooltip
+		hidden_effect = { set_country_flag = new_species_starborn }
+		# trait_created_life (-1)
+		# trait_presapient_starborn (1)
+		# trait_robust (4)
+		# trait_nomadic (1)
+	}
+	option = {
+		name = megatech.20.earthbound
+		custom_tooltip = megatech.20.earthbound.tooltip
+		hidden_effect = { set_country_flag = new_species_earthbound }
+		# trait_created_life (-1)
+		# trait_presapient_earthbound (1)
+		# trait_ingenious (2)
+		# trait_very_strong (3) / trait_titanic_strength (4)
+		# trait_resilient (1)
+		# trait_limited_regeneration (0) / trait_regeneration (1)
+	}
+	option = {
+		name = megatech.20.natural_intellectuals
+		custom_tooltip = megatech.20.natural_intellectuals.tooltip
+		hidden_effect = { set_country_flag = new_species_natural_intellectuals }
+		# trait_created_life (-1)
+		# trait_presapient_natural_intellectuals (1)
+		# trait_erudite (4)
+		# trait_talented (1)
+		# trait_quick_learners (1)
+		# trait_traditional (1)
+	}
+	option = {
+		name = megatech.20.proles
+		trigger = { is_xenophile = no }
+		custom_tooltip = megatech.20.proles.tooltip
+		hidden_effect = { set_country_flag = new_species_proles }
+		# trait_created_life (-1)
+		# trait_presapient_proles (1)
+		# trait_nerve_stapled (3)
+		# trait_very_strong (3) / trait_titanic_strength (4)
+	}
+	option = {
+		name = megatech.20.proles.phile
+		trigger = { is_xenophile = yes }
+		custom_tooltip = megatech.20.proles.tooltip.phile
+		hidden_effect = { set_country_flag = new_species_proles_phile }
+		# trait_created_life (-1)
+		# trait_presapient_proles (1)
+		# trait_conformists (2) / trait_obedient (3)
+		# trait_very_strong (3) / trait_titanic_strength (4)
+	}
+	option = {
+		name = megatech.20.conservative
+		custom_tooltip = megatech.20.conservative.tooltip
+		trigger = {
+			is_gestalt = no
+		}
+		hidden_effect = { set_country_flag = new_species_conservative }
+		# trait_created_life (-1)
+		# trait_presapient_conservative (1)
+		# trait_conformists (2) / trait_obedient (3)
+		# trait_charismatic (2) / trait_pheremones (3)
+		# trait_communal (1)
+		# trait_traditional (1)
+		# NA / trait_carefree (1)
+	}
+	option = {
+		name = megatech.20.irradiated
+		custom_tooltip = megatech.20.irradiated.tooltip
+		trigger = {
+			is_ai = no
+			any_planet_within_border = { is_planet_class = pc_nuked }
+		}
+		hidden_effect = { set_country_flag = new_species_irradiated }
+		# trait_created_life (-1)
+		# trait_presapient_irradiated (1)
+		# trait_robust (4)
+		# trait_venerable (4)
+	}
+	option = {
+		name = megatech.20.livestock
+		custom_tooltip = megatech.20.livestock.tooltip
+		trigger = {
+			host_has_dlc = "Utopia"
+			allows_slavery = yes
+			is_lithoid_empire = no
+			OR = {
+				is_xenophobe = yes
+				is_hive_empire = yes
+			}
+		}
+		hidden_effect = { set_country_flag = new_species_livestock }
+		# trait_created_life (-1)
+		# trait_presapient_docile_livestock (1)
+		# trait_delicious (2)
+		# trait_nerve_stapled (3)
+	}
+	option = {
+		name = megatech.20.nope
+		trigger = {
+			is_ai = no
+		}
+		hidden_effect = { remove_country_flag = new_species_project }
+		add_resource = { influence = 50 }
+	}
+	
+	after = {
+		hidden_effect = {
+			country_event = { id = megatech.21 }
+		}
+	}
+}
+
+country_event = {
+	id = megatech.21
+	title = megatech.20.name
+	desc = megatech.21.desc
+	picture = GFX_evt_cybernetics
+	show_sound = event_laboratory_sound
+	
+	trigger = {
+		has_country_flag = new_species_project
+	}
+	
+	is_triggered_only = yes
+	option = {
+		name = megatech.21.hum
+		trigger = {
+			OR = {
+				is_lithoid_empire = no
+				is_ai = no
+			}
+		}
+		hidden_effect = { set_country_flag = new_species_hum }
+	}
+	option = {
+		name = megatech.21.mam
+		trigger = {
+			OR = {
+				is_lithoid_empire = no
+				is_ai = no
+			}
+		}
+		hidden_effect = { set_country_flag = new_species_mam }
+	}
+	option = {
+		name = megatech.21.rep
+		trigger = {
+			OR = {
+				is_lithoid_empire = no
+				is_ai = no
+			}
+		}
+		hidden_effect = { set_country_flag = new_species_rep }
+	}
+	option = {
+		name = megatech.21.avi
+		trigger = {
+			OR = {
+				is_lithoid_empire = no
+				is_ai = no
+			}
+		}
+		hidden_effect = { set_country_flag = new_species_avi }
+	}
+	option = {
+		name = megatech.21.art
+		trigger = {
+			OR = {
+				is_lithoid_empire = no
+				is_ai = no
+			}
+		}
+		hidden_effect = { set_country_flag = new_species_art }
+	}
+	option = {
+		name = megatech.21.mol
+		trigger = {
+			OR = {
+				is_lithoid_empire = no
+				is_ai = no
+			}
+		}
+		hidden_effect = { set_country_flag = new_species_mol }
+	}
+	option = {
+		name = megatech.21.fun
+		trigger = {
+			OR = {
+				is_lithoid_empire = no
+				is_ai = no
+			}
+		}
+		hidden_effect = { set_country_flag = new_species_fun }
+	}
+	option = {
+		name = megatech.21.plant
+		trigger = {
+			host_has_dlc = "Plantoid"
+			OR = {
+				is_lithoid_empire = no
+				is_ai = no
+			}
+		}
+		hidden_effect = { set_country_flag = new_species_plant }
+	}
+	option = {
+		name = megatech.21.lithoid
+		trigger = {
+			has_lithoids = yes
+			NOT = { has_country_flag = new_species_livestock }
+		}
+		hidden_effect = { set_country_flag = new_species_lithoid }
+	}
+	option = {
+		name = megatech.21.necroid
+		trigger = {
+			has_necroids = yes
+		}
+		hidden_effect = { set_country_flag = new_species_necroid }
+	}
+	option = {
+		name = megatech.21.random
+		hidden_effect = { set_country_flag = new_species_random }
+	}
+	
+	after = {
+		capital_scope = {
+			enable_special_project = {
+				name = "NEW_LIFE_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+}
+
+country_event = {
+	id = megatech.22
+	title = PROJECT_COMPLETE
+	desc = megatech.22.desc
+	picture = GFX_evt_cybernetics
+	show_sound = event_laboratory_sound
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				any_owned_planet = {
+					has_planet_flag = new_species_planet
+					is_under_colonization = no
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					has_planet_flag = new_species_planet
+					is_under_colonization = no
+				}
+				remove_planet_flag = new_species_planet
+				save_event_target_as = new_species_planet_scope
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_planet = {
+					free_housing >= 4
+					free_jobs >= 4
+					free_amenities >= 4
+					is_under_colonization = no
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					free_housing >= 4
+					free_jobs >= 4
+					free_amenities >= 4
+					is_under_colonization = no
+				}
+				remove_planet_flag = new_species_planet
+				save_event_target_as = new_species_planet_scope
+			}
+		}
+		else = {
+			random_owned_planet = {
+				limit = { is_under_colonization = no }
+				save_event_target_as = new_species_planet_scope
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = new_life_created } }
+			set_country_flag = new_life_created
+		}
+	}
+	
+	option = {
+		name = megatech.22.a
+		custom_tooltip = megatech.22.a.tooltip
+		hidden_effect = {
+			switch = {
+				trigger = has_country_flag
+				new_species_hum = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = "HUM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_robust
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = "HUM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = "HUM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = "HUM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = "HUM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = "HUM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = "HUM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+								trait = trait_robust
+								trait = trait_venerable
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_livestock } }
+						create_species = {
+							name = random
+							class = "HUM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_docile_livestock
+								trait = trait_delicious
+								trait = trait_nerve_stapled
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+				}
+				new_species_mam = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = "MAM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_robust
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = "MAM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = "MAM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = "MAM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = "MAM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = "MAM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = "MAM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+								trait = trait_robust
+								trait = trait_venerable
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_livestock } }
+						create_species = {
+							name = random
+							class = "MAM"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_docile_livestock
+								trait = trait_delicious
+								trait = trait_nerve_stapled
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_mam
+				}
+				new_species_rep = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = "REP"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_robust
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = "REP"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = "REP"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = "REP"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = "REP"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = "REP"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = "REP"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+								trait = trait_robust
+								trait = trait_venerable
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_livestock } }
+						create_species = {
+							name = random
+							class = "REP"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_docile_livestock
+								trait = trait_delicious
+								trait = trait_nerve_stapled
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_rep
+				}
+				new_species_avi = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = "AVI"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_robust
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = "AVI"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = "AVI"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = "AVI"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = "AVI"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = "AVI"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = "AVI"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+								trait = trait_robust
+								trait = trait_venerable
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_livestock } }
+						create_species = {
+							name = random
+							class = "AVI"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_docile_livestock
+								trait = trait_delicious
+								trait = trait_nerve_stapled
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_avi
+				}
+				new_species_art = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = "ART"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_robust
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = "ART"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = "ART"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = "ART"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = "ART"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = "ART"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = "ART"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+								trait = trait_robust
+								trait = trait_venerable
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_livestock } }
+						create_species = {
+							name = random
+							class = "ART"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_docile_livestock
+								trait = trait_delicious
+								trait = trait_nerve_stapled
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_art
+				}
+				new_species_mol = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = "MOL"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_robust
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = "MOL"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = "MOL"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = "MOL"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = "MOL"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = "MOL"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = "MOL"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+								trait = trait_robust
+								trait = trait_venerable
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_livestock } }
+						create_species = {
+							name = random
+							class = "MOL"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_docile_livestock
+								trait = trait_delicious
+								trait = trait_nerve_stapled
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_mol
+				}
+				new_species_fun = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class ="FUN"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_robust
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class ="FUN"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class ="FUN"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class ="FUN"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class ="FUN"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class ="FUN"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class ="FUN"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+								trait = trait_robust
+								trait = trait_venerable
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_livestock } }
+						create_species = {
+							name = random
+							class ="FUN"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_docile_livestock
+								trait = trait_delicious
+								trait = trait_nerve_stapled
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_fun
+				}
+				new_species_plant = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = "PLANT"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_robust
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = "PLANT"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = "PLANT"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = "PLANT"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = "PLANT"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = "PLANT"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = "PLANT"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+								trait = trait_robust
+								trait = trait_venerable
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_livestock } }
+						create_species = {
+							name = random
+							class = "PLANT"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_docile_livestock
+								trait = trait_delicious
+								trait = trait_nerve_stapled
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_plant
+				}
+				new_species_lithoid = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = "LITHOID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = "LITHOID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = "LITHOID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = "LITHOID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = "LITHOID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = "LITHOID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = "LITHOID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_lithoid
+				}
+				new_species_necroid = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = "NECROID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = "NECROID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = "NECROID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = "NECROID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = "NECROID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = "NECROID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = "NECROID"
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_necroid
+				}
+				new_species_random = {
+					if = {
+						limit = { ROOT = { has_country_flag = new_species_starborn } }
+						create_species = {
+							name = random
+							class = random_non_machine
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_starborn
+								trait = trait_robust
+								trait = trait_nomadic
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_earthbound } }
+						create_species = {
+							name = random
+							class = random_non_machine
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_earthbound
+								trait = trait_ingenious
+								trait = trait_resilient
+								trait = trait_limited_regeneration
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_natural_intellectuals } }
+						create_species = {
+							name = random
+							class = random_non_machine
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_natural_intellectuals
+								trait = trait_erudite
+								trait = trait_quick_learners
+								trait = trait_traditional
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles } }
+						create_species = {
+							name = random
+							class = random_non_machine
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_nerve_stapled
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_proles_phile } }
+						create_species = {
+							name = random
+							class = random_non_machine
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_proles
+								trait = trait_conformists
+								trait = trait_very_strong
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_conservative } }
+						create_species = {
+							name = random
+							class = random_non_machine
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_conservative
+								trait = trait_conformists
+								trait = trait_charismatic
+								trait = trait_communal
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_irradiated } }
+						create_species = {
+							name = random
+							class = random_non_machine
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_irradiated
+								trait = trait_robust
+								trait = trait_venerable
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					else_if = {
+						limit = { ROOT = { has_country_flag = new_species_livestock } }
+						create_species = {
+							name = random
+							class = random_non_machine
+							portrait = random
+							traits = {
+								trait = trait_created_life
+								trait = trait_presapient_docile_livestock
+								trait = trait_delicious
+								trait = trait_nerve_stapled
+							}
+							homeworld = event_target:new_species_planet_scope
+							effect = {
+								rename_species = {
+									prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+									name_list = ascension_list
+								}
+								save_event_target_as = newly_created_species
+							}
+						}
+						remove_country_flag = new_species_hum
+					}
+					remove_country_flag = new_species_random
+				}
+			}
+			if = {
+				limit = { has_global_flag = expanded_pops_active }
+				last_created_species = {
+					if = {
+						limit = { needs_class_trait = yes }
+						add_class_trait_effect = yes
+					}
+				}
+			}
+			event_target:new_species_planet_scope = {
+				create_pop = { species = event_target:newly_created_species }
+				create_pop = { species = event_target:newly_created_species }
+				create_pop = { species = event_target:newly_created_species }
+				# trait_hive_mind
+				if = {
+					limit = {
+						ROOT = { is_hive_empire = yes }
+						NOT = { event_target:newly_created_species = { has_trait = trait_delicious } }
+					}
+					modify_species = {
+						species = event_target:newly_created_species
+						base = none
+						add_trait = trait_hive_mind
+						add_traits_at_start_of_list = yes
+					}
+				}
+			}
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			remove_country_flag = new_species_project
+			event_target:newly_created_species = {
+				if = {
+					limit = {
+						ROOT = { allows_slavery = yes }
+					}
+					set_citizenship_type = {
+						type = citizenship_slavery
+						country = root
+					}
+				}
+				else = {
+					set_citizenship_type = {
+						type = citizenship_limited
+						country = root
+					}
+				}
+			}
+		}
+	}
+}
+
+# Comes out wrong - strong, ugly monsters
+country_event = {
+	id = megatech.23
+	title = PROJECT_COMPLETE
+	desc = megatech.23.desc
+	picture = GFX_evt_ground_combat
+	show_sound = event_ground_battle
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				any_owned_planet = {
+					has_planet_flag = new_species_planet
+					is_under_colonization = no
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					has_planet_flag = new_species_planet
+					is_under_colonization = no
+				}
+				remove_planet_flag = new_species_planet
+				save_event_target_as = new_species_planet_scope
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_planet = {
+					free_housing >= 4
+					free_jobs >= 4
+					free_amenities >= 4
+					is_under_colonization = no
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					free_housing >= 4
+					free_jobs >= 4
+					free_amenities >= 4
+					is_under_colonization = no
+				}
+				remove_planet_flag = new_species_planet
+				save_event_target_as = new_species_planet_scope
+			}
+		}
+		else = {
+			random_owned_planet = {
+				limit = { is_under_colonization = no }
+				save_event_target_as = new_species_planet_scope
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = new_life_created } }
+			set_country_flag = new_life_created
+		}
+		set_country_flag = frankenstein_monsters
+		remove_country_flag = new_species_art
+		remove_country_flag = new_species_avi
+		remove_country_flag = new_species_fun
+		remove_country_flag = new_species_hum
+		remove_country_flag = new_species_mam
+		remove_country_flag = new_species_mol
+		remove_country_flag = new_species_plant
+		remove_country_flag = new_species_random
+		remove_country_flag = new_species_rep
+		remove_country_flag = new_species_lithoid
+		remove_country_flag = new_species_conservative
+		remove_country_flag = new_species_earthbound
+		remove_country_flag = new_species_irradiated
+		remove_country_flag = new_species_livestock
+		remove_country_flag = new_species_natural_intellectuals
+		remove_country_flag = new_species_proles
+		remove_country_flag = new_species_proles_phile
+		remove_country_flag = new_species_starborn
+	}
+	
+	option = {
+		name = megatech.23.a
+		trigger = {
+			is_homicidal = no
+		}
+		custom_tooltip = megatech.22.a.tooltip
+		hidden_effect = {
+			if = {
+				limit = { has_necroids = yes }
+				create_species = {
+					name = random
+					class = "NECROID"
+					portrait = random
+					traits = {
+						trait = trait_patchwork_life
+						trait = trait_very_strong
+						trait = trait_robust
+						trait = trait_natural_sociologists
+						trait = trait_quarrelsome
+						trait = trait_repugnant
+					}
+					homeworld = event_target:new_species_planet_scope
+					effect = {
+						rename_species = {
+							prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+							name_list = ascension_list
+						}
+						save_event_target_as = newly_created_species
+					}
+				}
+			}
+			else = {
+				create_species = {
+					name = random
+					class = "HUM"
+					portrait = random
+					traits = {
+						trait = trait_patchwork_life
+						trait = trait_very_strong
+						trait = trait_robust
+						trait = trait_natural_sociologists
+						trait = trait_quarrelsome
+						trait = trait_repugnant
+					}
+					homeworld = event_target:new_species_planet_scope
+					effect = {
+						rename_species = {
+							prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+							name_list = ascension_list
+						}
+						save_event_target_as = newly_created_species
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_hive_empire = yes
+				}
+				modify_species = {
+					species = event_target:newly_created_species
+					base = none
+					add_trait = trait_hive_mind
+					add_traits_at_start_of_list = yes
+				}
+			}
+			event_target:new_species_planet_scope = {
+				create_pop = { species = event_target:newly_created_species }
+				create_pop = { species = event_target:newly_created_species }
+				create_pop = { species = event_target:newly_created_species }
+			}
+		}
+	}
+	option = {
+		name = megatech.23.b
+		trigger = {
+			is_xenophile = no
+		}
+		add_resource = { society_research = 2000 }
+		hidden_effect = {
+			if = {
+				limit = { has_necroids = yes }
+				create_species = {
+					name = random
+					class = "NECROID"
+					portrait = random
+					traits = {
+						trait = trait_patchwork_life
+						trait = trait_very_strong
+						trait = trait_robust
+						trait = trait_natural_sociologists
+						trait = trait_quarrelsome
+						trait = trait_repugnant
+					}
+					homeworld = event_target:new_species_planet_scope
+					effect = {
+						rename_species = {
+							prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+							name_list = ascension_list
+						}
+						save_event_target_as = newly_created_species
+					}
+				}
+			}
+			else = {
+				create_species = {
+					name = random
+					class = "HUM"
+					portrait = random
+					traits = {
+						trait = trait_patchwork_life
+						trait = trait_very_strong
+						trait = trait_robust
+						trait = trait_natural_sociologists
+						trait = trait_quarrelsome
+						trait = trait_repugnant
+					}
+					homeworld = event_target:new_species_planet_scope
+					effect = {
+						rename_species = {
+							prompt_country = root #If targeted country is a player they will get a popup asking for a name/plural/adjective combo. Otherwise the species will get a random name from the specified name_list
+							name_list = ascension_list
+						}
+						save_event_target_as = newly_created_species
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_hive_empire = yes
+				}
+				modify_species = {
+					species = event_target:newly_created_species
+					base = none
+					add_trait = trait_hive_mind
+					add_traits_at_start_of_list = yes
+				}
+			}
+			event_target:new_species_planet_scope = {
+				create_pop = { species = event_target:newly_created_species }
+				create_pop = { species = event_target:newly_created_species }
+				create_pop = { species = event_target:newly_created_species }
+			}
+			event_target:newly_created_species = {
+				set_citizenship_type = {
+					country = root
+					type = citizenship_purge
+					cooldown = yes
+				}
+			}
+		}
+	}
+}
+
+# Zombies attack
+country_event = {
+	id = megatech.24
+	title = "megatech.24.name"
+	desc = "megatech.24.desc"
+	picture = GFX_evt_ground_combat
+	show_sound = event_ground_battle
+	location = ROOT
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				any_owned_planet = {
+					has_planet_flag = new_species_planet
+					is_under_colonization = no
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					has_planet_flag = new_species_planet
+					is_under_colonization = no
+				}
+				remove_planet_flag = new_species_planet
+				save_event_target_as = new_species_planet_scope
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_planet = {
+					free_housing >= 4
+					free_jobs >= 4
+					free_amenities >= 4
+					is_under_colonization = no
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					free_housing >= 4
+					free_jobs >= 4
+					free_amenities >= 4
+					is_under_colonization = no
+				}
+				remove_planet_flag = new_species_planet
+				save_event_target_as = new_species_planet_scope
+			}
+		}
+		else = {
+			random_owned_planet = {
+				limit = { is_under_colonization = no }
+				save_event_target_as = new_species_planet_scope
+			}
+		}
+		set_country_flag = frankenstein_monsters
+		remove_country_flag = new_species_art
+		remove_country_flag = new_species_avi
+		remove_country_flag = new_species_fun
+		remove_country_flag = new_species_hum
+		remove_country_flag = new_species_mam
+		remove_country_flag = new_species_mol
+		remove_country_flag = new_species_plant
+		remove_country_flag = new_species_random
+		remove_country_flag = new_species_rep
+		remove_country_flag = new_species_lithoid
+		remove_country_flag = new_species_conservative
+		remove_country_flag = new_species_earthbound
+		remove_country_flag = new_species_irradiated
+		remove_country_flag = new_species_livestock
+		remove_country_flag = new_species_natural_intellectuals
+		remove_country_flag = new_species_proles
+		remove_country_flag = new_species_proles_phile
+		remove_country_flag = new_species_starborn
+		event_target:new_species_planet_scope = {
+			set_planet_flag = zombies_invade_planet
+			random_owned_pop = {
+				limit = {
+					OR = {
+						has_job = researcher
+						has_job = brain_drone
+					}
+				}
+				kill_pop = yes
+			}
+			add_planet_devastation = 25
+			create_country = {
+				name = "NAME_Deformed_Creatures"
+				type = faction
+				effect = {
+					establish_communications_no_message = root.owner
+				}
+			}
+			create_army = {
+				name = "NAME_Deformed_Creatures"
+				owner = last_created
+				type = "mutant_army"
+			}
+			create_army = {
+				name = "NAME_Twisted_Beasts"
+				owner = last_created
+				type = "mutant_army"
+			}
+			create_army = {
+				name = "NAME_Mutated_Horrors"
+				owner = last_created
+				type = "mutant_army"
+			}
+			create_army = {
+				name = "NAME_Deformed_Creatures"
+				owner = last_created
+				type = "mutant_army"
+			}
+			create_army = {
+				name = "NAME_Twisted_Beasts"
+				owner = last_created
+				type = "mutant_army"
+			}
+			create_army = {
+				name = "NAME_Mutated_Horrors"
+				owner = last_created
+				type = "mutant_army"
+			}
+			create_army = {
+				name = "NAME_Deformed_Creatures"
+				owner = last_created
+				type = "mutant_army"
+			}
+			create_army = {
+				name = "NAME_Twisted_Beasts"
+				owner = last_created
+				type = "mutant_army"
+			}
+			create_army = {
+				name = "NAME_Mutated_Horrors"
+				owner = last_created
+				type = "mutant_army"
+			}
+		}
+	}
+	
+	option = {
+		name = colony.105.a
+		custom_tooltip = terraforming_mutants_attack
+		tooltip = {
+			event_target:new_species_planet_scope = {
+				random_owned_pop = {
+					limit = {
+						OR = {
+							has_job = researcher
+							has_job = brain_drone
+						}
+					}
+					kill_pop = yes
+				}
+				add_planet_devastation = 25
+			}
+		}
+	}
+}
+
+# Defeat fighting zombies
+country_event = {
+	id = megatech.25
+	title = "colony.113.name"
+	desc = "colony.113.desc"
+	picture = GFX_evt_burning_settlement
+	show_sound = event_ghost_town
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROMFROM = { has_planet_flag = zombies_invade_planet }
+	}
+	
+	immediate = {
+		FROMFROM = {
+			set_planet_flag = zombies_won
+			remove_planet_flag = zombies_invade_planet
+			every_owned_pop = {
+				set_pop_flag = event_purge
+				unemploy_pop = yes
+			}
+		}
+	}
+	
+	option = {
+		name = colony.113.a
+	}
+}
+
+# Liberated from zombies
+country_event = {
+	id = megatech.26
+	title = "colony.114.name"
+	desc = "colony.114.desc"
+	picture = GFX_evt_victorious_army
+	show_sound = event_ground_battle
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROMFROM = { has_planet_flag = zombies_won }
+	}
+	
+	immediate = {
+		FROMFROM = {
+			remove_planet_flag = zombies_won
+			set_owner = ROOT
+			every_owned_pop = {
+				remove_pop_flag = event_purge
+				unemploy_pop = yes
+			}
+
+			every_owned_pop = {
+				remove_modifier = "pop_recently_conquered"
+				add_modifier = {
+					modifier = "pop_liberation_fever"
+					days = 3600
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = colony.114.a
+	}
+}
+
+# Zombies defeated first try
+country_event = {
+	id = megatech.27
+	title = "colony.108.name"
+	desc = "colony.108.desc"
+	picture = GFX_evt_ground_combat
+	show_sound = event_ground_battle
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROMFROM = { has_planet_flag = zombies_invade_planet }
+	}
+	
+	immediate = {
+		FROMFROM = {
+			remove_planet_flag = zombies_invade_planet
+		}
+	}
+	option = {
+		name = EXCELLENT
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier5researchreward
+			min = @tier5researchmin
+			max = @tier5researchmax
+		}
+	}
+}
+
+# Project failed
+country_event = {
+	id = megatech.28
+	title = megatech.24.name
+	desc = megatech.28.desc
+	desc = megatech.28.desc.b
+	picture = GFX_evt_society_research
+	show_sound = event_laboratory_sound
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_country_flag = new_species_art
+		remove_country_flag = new_species_avi
+		remove_country_flag = new_species_fun
+		remove_country_flag = new_species_hum
+		remove_country_flag = new_species_mam
+		remove_country_flag = new_species_mol
+		remove_country_flag = new_species_plant
+		remove_country_flag = new_species_random
+		remove_country_flag = new_species_rep
+		remove_country_flag = new_species_lithoid
+		remove_country_flag = new_species_conservative
+		remove_country_flag = new_species_earthbound
+		remove_country_flag = new_species_irradiated
+		remove_country_flag = new_species_livestock
+		remove_country_flag = new_species_natural_intellectuals
+		remove_country_flag = new_species_proles
+		remove_country_flag = new_species_proles_phile
+		remove_country_flag = new_species_starborn
+	}
+	
+	option = {
+		name = UNFORTUNATE
+		add_resource = {
+			food = 500
+			society_research = 5000
+		}
+		IF = {
+			limit = { any_owned_leader = { is_researching_area = society } }
+			random_owned_leader = {
+				limit = { is_researching_area = society }
+				add_skill = 1
+			}
+		}
+	}
+}
+
+# Revive Awoken
+country_event = {
+	id = megatech.29
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		last_increased_tech = "tech_new_life"
+		has_country_flag = limbo_downloaded
+	}
+	
+	immediate = { country_event = { id = megatech.30 days = 20 random = 20 } }
+}
+
+country_event = {
+	id = megatech.30
+	title = "anomaly.1194.name"
+	desc = "megatech.30.desc"
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_robot_assembly_plant
+	location = capital_scope
+	trackable = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_country_flag = project_limbo_2_enabled
+		}
+	}
+
+	immediate = {
+		set_country_flag = project_limbo_2_enabled
+	}
+
+	option = {
+		name = anomaly.1194.a
+		capital_scope = {
+			enable_special_project = {
+				name = "LIMBO_3_PROJECT"
+				location = this
+				owner = root
+			}	
+		}					
+	}
+
+	# Ends the event chain
+	option = {
+		name = anomaly.186.a
+		custom_tooltip = anomaly.186.a.alt.tooltip
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = @tier4researchreward
+			min = @tier4researchmin
+			max = @tier4researchmax
+		}
+		hidden_effect = {
+			remove_country_flag = limbo_downloaded
+			remove_country_flag = project_limbo_2_enabled
+		}
+	}
+}
+
+# The synths make a colony, inside or outside of the player's borders
+country_event = {
+	id = megatech.31
+	title = "anomaly.189.name"
+	desc = {
+		text = "megatech.31.desc"
+		trigger = {
+			any_planet_within_border = {
+				habitable_planet = yes
+				is_colony = no 
+				has_anomaly = no
+				is_capital = no
+			}
+		}
+	}
+	desc = {
+		text = "megatech.31.desc_b"
+		trigger = {
+			NOT = {
+				any_planet_within_border = {
+					habitable_planet = yes
+					is_colony = no 
+					has_anomaly = no
+					is_capital = no
+				}
+			}
+		}
+	}
+	picture = GFX_evt_genetic_modification
+	#show_sound = event_engineered_evolution
+	show_sound = event_radio_chatter
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_planet_within_border = {
+			limit = {
+				habitable_planet = yes
+				is_colony = no	
+				has_anomaly = no
+				is_capital = no
+			}
+			save_event_target_as = new_colony
+		}		
+	}
+
+	# build a colony within our borders option
+	option = {
+		name = anomaly.189.a
+		custom_tooltip = anomaly.189.a.tooltip
+		trigger = {
+			any_planet_within_border = {
+				habitable_planet = yes
+				is_colony = no 
+				has_anomaly = no
+				is_capital = no
+			}
+		}
+		allow = {
+			any_planet_within_border = {
+				habitable_planet = yes
+				is_colony = no 
+				has_anomaly = no
+				is_capital = no
+			}
+		}
+		hidden_effect = {
+			event_target:new_colony = {
+				set_owner = root
+				set_controller = root
+				prevent_anomaly = yes 
+				create_species = {
+					name = random
+					class = FUN
+					portrait = random
+					traits = {
+						trait = trait_erudite
+						trait = trait_solitary
+						trait = trait_decadent
+					}
+					homeworld = event_target:new_colony
+					#allow_negative_traits = no
+					extra_trait_points = 1			
+				}
+				while = {
+					count = 3
+					create_pop = {
+						species = last_created_species
+					}					
+				}
+			}
+		}
+	}
+
+	# They're on their own (the droids colonize a planet outside the borders if available or "just disappear")
+	option = {
+		name = anomaly.189.b
+		custom_tooltip = anomaly.189.b.tooltip
+		
+		trigger = {
+			any_system = {
+				NOR = {
+					exists = space_owner
+					has_star_flag = hostile_system
+					has_star_flag = guardian
+					has_star_flag = enclave
+				}
+				any_system_planet = {
+					habitable_planet = yes 
+					has_anomaly = no
+					is_colony = no
+					is_capital = no
+				}
+			}
+		}
+		allow = {
+			any_system = {
+				NOR = {
+					exists = space_owner
+					has_star_flag = hostile_system
+					has_star_flag = guardian
+					has_star_flag = enclave
+				}
+				any_system_planet = {
+					habitable_planet = yes 
+					has_anomaly = no
+					is_colony = no
+					is_capital = no
+				}
+			}	
+		}
+		hidden_effect = {
+			country_event = { id = megatech.32 }
+		}
+	}
+}
+
+# continuation of option anomaly.189.b
+country_event = {
+	id = megatech.32
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				any_system = {
+					NOR = {
+						exists = space_owner
+						has_star_flag = hostile_system
+						has_star_flag = guardian
+						has_star_flag = enclave
+						has_star_flag = primitive_system
+					}
+					any_system_planet = {
+						habitable_planet = yes 
+						has_anomaly = no
+						is_colony = no
+						is_capital = no
+						NOR = {
+							exists = owner
+							exists = controller
+						}
+					}
+				}
+			}
+			random_system = {
+				limit = {
+					NOR = {
+						exists = space_owner
+						has_star_flag = hostile_system
+						has_star_flag = guardian
+						has_star_flag = enclave
+						has_star_flag = primitive_system
+					}
+					any_system_planet = {
+						habitable_planet = yes
+						has_anomaly = no
+						is_colony = no
+						is_capital = no
+						NOR = {
+							exists = owner
+							exists = controller
+						}
+					}
+				}
+	
+				random_system_planet = {
+					limit = {
+						habitable_planet = yes
+						has_owner = no
+						is_capital = no
+					}
+					save_event_target_as = colonized_planet
+    				set_surveyed = {
+    					surveyed = yes
+    					surveyor = root
+    				}
+    				prevent_anomaly = yes
+    				create_species = {
+						name = random
+						class = FUN
+						portrait = random
+						traits = {
+							trait = trait_erudite
+							trait = trait_solitary
+							trait = trait_decadent
+						}
+						homeworld = event_target:colonized_planet
+						#allow_negative_traits = no
+						extra_trait_points = 1			
+					}
+					create_country = {
+						name = "NAME_Awoken"
+						name_list = FUN3
+						species = last_created_species
+						type = default
+						ethos = {
+							ethic = ethic_fanatic_materialist
+							ethic = ethic_xenophile
+						}
+						authority = random
+						civics = random
+						auto_delete = no
+						flag = {
+							icon = {
+								category = "blocky"
+								file = "flag_blocky_21.dds"
+							}
+							background = {
+								category = "backgrounds"
+								file = "new_dawn.dds"
+							}
+							colors = {
+								"black"
+								"dark_blue"
+								"null"
+								"null"
+							}
+						}
+						exclude_day_zero_contact = root
+						effect = {
+							establish_communications_no_message = root
+							root = {
+								every_federation_ally = {
+									establish_communications = prevprev
+								}
+							}
+							set_country_flag = limbo_country
+							create_leader = {
+								class = ruler
+								species = owner_main_species
+								name = random
+								skill = 5
+							}
+							set_leader = last_created_leader
+							copy_techs_from = {
+								target = root
+								except = {
+									# Horizon Signal
+									tech_akx_worm_1
+									tech_akx_worm_2
+									tech_akx_worm_3
+								}
+							}
+						}		
+					}
+					set_owner = last_created_country
+					set_capital = yes
+					while = {
+						count = 20
+						create_pop = {
+							species = last_created_species
+						}					
+					}
+					add_district = district_generator
+					add_district = district_generator
+					add_district = district_mining
+					add_district = district_mining
+					add_district = district_farming
+					add_district = district_farming
+					add_district = district_city
+					add_district = district_city
+					while = {
+						count = 2
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_industrial
+						}
+					}
+					add_building = building_research_lab_1
+					root = { country_event = { id = megatech.34 days = 10 } }
+				}
+			}
+		}
+		else_if = {
+			# There are no colonizable planets outside the player's borders
+			country_event = { id = megatech.33 days = 40 }
+		}
+	}
+}
+
+# Notification: The synths are gone without a trace. Ends the event chain.
+country_event = {
+	id = megatech.33
+	title = "anomaly.1195.name"
+	desc = "megatech.33.desc"
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_genetic_modification
+	location = capital_scope
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}
+
+# Notification: the synths have colonized a planet
+country_event = {
+	id = megatech.34
+	title = "anomaly.1196.name"
+	desc = "megatech.34.desc"
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_big_landing_ship
+	location = event_target:colonized_planet
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}
+
+country_event = {
+	id = megatech.35
+	title = "anomaly.1190.name"
+	desc = "megatech.35"
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_sapient_AI
+	location = from
+
+	is_triggered_only = yes
+
+	option = {
+		name = anomaly.1190.a
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = @tier3researchreward
+			min = @tier3researchmin
+			max = @tier3researchmax
+		}
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier3researchreward
+			min = @tier3researchmin
+			max = @tier3researchmax
+		}
+	}
+}
+
+###   Lithoid Techs   ###
+### Reserved: 40 - 49 ###
+
+country_event = {
+	id = megatech.40
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_lithoid_empire = yes
+		last_increased_tech = tech_lithoid_blockers
+	}
+	
+	immediate = {
+		home_planet = {
+			while = {
+				count = 3
+				add_deposit = d_hibernating_lithoids
+			}
+		}
+	}
+}
+
+country_event = {
+	id = megatech.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_lithoid_empire = yes
+		last_increased_tech = tech_lithoid_blockers_2
+	}
+	
+	immediate = {
+		home_planet = {
+			while = {
+				count = 5
+				add_deposit = d_hibernating_lithoids
+			}
+		}
+	}
+}
+
+country_event = {
+	id = megatech.42
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_lithoid_empire = yes
+		last_increased_tech = tech_lithoid_blockers_3
+	}
+	
+	immediate = {
+		home_planet = {
+			while = {
+				count = 8
+				add_deposit = d_hibernating_lithoids
+			}
+		}
+	}
+}

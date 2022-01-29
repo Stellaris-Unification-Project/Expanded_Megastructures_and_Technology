@@ -1,0 +1,373 @@
+## Possible Deposit Variables ##
+# resources, resource and amount
+# potential trigger (planet scope)
+# planet_modifier - applied to planet only when deposit blocker has been cleared
+# constant_modifier - applied to planet always
+# blocker = <key/any/none> - default any
+# station = station class in orbit to gather
+
+@high = 16
+@med = 8
+@low = 4
+
+@high_rare = 2
+@med_rare = 1
+@low_rare = 0.5
+
+d_hab_zro_4 = {
+	icon = "unused/d_space_walk"
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = {
+		can_have_habitable_deposits = yes
+		is_planet_class = pc_habitat
+	}
+
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_technology = tech_mine_zro }
+			}
+			sr_zro = 4
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_hab_zro_5 = {
+	icon = "unused/d_space_walk"
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = {
+		can_have_habitable_deposits = yes
+		is_planet_class = pc_habitat
+	}
+
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_technology = tech_mine_zro }
+			}
+			sr_zro = 5
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_hab_dark_matter_10 = {
+	icon = "unused/d_space_walk"
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = {
+		can_have_habitable_deposits = yes
+		is_planet_class = pc_habitat
+	}
+
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_technology = tech_mine_dark_matter }
+			}
+			sr_dark_matter = 10
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_hab_science = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+	
+	icon = d_city
+	
+	planet_modifier = {
+		planet_researchers_produces_mult = 0.10
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_head_researcher_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_brain_drone_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 1
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_hab_trade = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+	
+	icon = d_city
+	
+	planet_modifier = {
+		trade_value_mult = 0.10
+		job_merchant_add = 1
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_hab_energy = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+	
+	icon = d_city
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_technician_produces_mult = 0.05
+			job_technician_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			planet_technician_produces_mult = 0.05
+			job_technician_drone_add = 2
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_hab_minerals = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+	
+	icon = d_city
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_miners_produces_mult = 0.05
+			job_miner_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			planet_miners_produces_mult = 0.05
+			job_mining_drone_add = 2
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_hab_unity = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+	
+	icon = d_city
+	
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.05
+		planet_stability_add = 5
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_spiritualist = no
+				NOT = { is_megacorp = yes }
+				NOT = { has_civic = civic_aristocratic_elite }
+			}
+		}
+		modifier = {
+			job_administrator_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_spiritualist = no
+				NOT = { is_megacorp = yes }
+				has_civic = civic_aristocratic_elite
+			}
+		}
+		modifier = {
+			job_noble_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_megacorp = yes
+				is_spiritualist = no
+			}
+		}
+		modifier = {
+			job_executive_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_spiritualist = yes
+			}
+		}
+		modifier = {
+			job_high_priest_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			job_synapse_drone_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_evaluator_add = 1
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_hab_foundry = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+	
+	icon = d_city
+	
+	planet_modifier = {
+		planet_metallurgists_produces_mult = 0.05
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_artisans_produces_mult = 0.05
+			job_administrator_add = 1
+			job_foundry_add = 1
+			job_artisan_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		modifier = {
+			planet_metallurgists_produces_mult = 0.10
+			job_alloy_drone_add = 1
+			job_maintenance_drone_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			planet_metallurgists_produces_mult = 0.10
+			job_fabricator_add = 1
+			job_maintenance_drone_add = 1
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}

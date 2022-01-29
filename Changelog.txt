@@ -1,0 +1,521 @@
+1.2.3.1
+Bug Fixes:
+- Added missing vanilla component
+
+1.2.3
+Updated for 3.2
+
+Additions:
+- NEW: Dark Matter Afterburners
+
+Tweaks:
+- Some new technologies are more likely to be drawn if you have certain traditions
+- Spawning Pools are now grouped under pop assembly
+- Building the highest level habitat will no longer add an extra building slot if Expanded Pops is active (that mod already does something similar)
+- Cloning vats will only support 40 clone army pops (down from 60)
+
+Bug Fixes:
+- Improved compatibility with Plentiful Traditions
+- Fixed new sensors not showing up
+
+1.2.2
+Updated for 3.1.1
+Additions:
+- Habitat designations buffed to be similar to their equivalent designations
+- Cloning Vats now require minerals when building lithoids (replacing the previous system)
+- Clone Armies cannot build normal cloning vats until you either finish the Genetic Crossroads event chain or adopt the Engineered Evolution perk
+- Cloning Vats can support up to 60 clone army pops (80 with the Accelerated Embryonics tech)
+- Shattered Ring gives +25% pop growth
+- Pleasure Seekers: Leisure Habitats give +20% culture worker output
+
+Tweaks:
+- Leisure Districts built by Rogue Servitors get +1 housing
+
+Bug Fixes
+- Accelerated Embryonics no longer adds more jobs, for real this time
+
+1.2.1.7
+Additions:
+- Regenerative Hull Tissue cost now split between food and alloys
+
+Bug Fixes:
+- Fixed double jobs from habitat leisure districts
+
+1.2.1.6
+Additions:
+- NEW: Dark Matter Reactor Boosters
+- Nanite Transmutation can be researched if you have the Nanite Construction tech
+- Added new icons for ship components
+
+Tweaks:
+- Coordination Districts only give 2 maintenance drone jobs
+- Living Hull now gives same bonus as Nanite Repair Systems
+
+Removals:
+- Changes to City World districts moved to Expanded Pops
+
+1.2.1.5
+Additions:
+- Repeatables for encryption/codebreaking
+
+Tweaks:
+- Shroud Patrons give +20% diplomatic weight in their respective categories
+- Eyes in the Void modifier now also gives extra intel
+- Whisperers in the Void secrets event now also gives +20 intel on two random empires
+- Composer of Strands gives +20% pop assembly speed
+
+1.2.1.4
+Additions:
+- Enigmatic Encoder/Decoder gives +2 encryption/codebreaking
+- Enigmatic Encoder/Decoder can be researched normally with the Enigmatic Engineering perk
+
+Bug Fixes:
+- No longer accidentally overwrite the entire special decision file
+
+1.2.1.3
+Updated to 3.0.3
+
+Additions:
+- Habitats built over gases/crystals/motes allow mining/research/energy districts
+- Habitats built over trade deposits get extra trade value from commercial districts
+- Added missing rare resource habitat deposits (such as zro 4 and 5)
+
+Tweaks:
+- Accelerated Embryonics modifies cloning vats rather than adds more jobs
+- Advanced rare resource techs no longer give +1 rare resource refinery jobs from buildings, doubling output and upkeep instead
+- Hive Mind extra spawning drones from Hive Worlds added to spawning pools, for capability with Hive Queens origin
+
+Removals:
+- Special resource deposits work as in vanilla (to balance for less pops)
+
+1.2.1.2
+Additions:
+- Xeno-Compatability gives +1 pop production from cloning vats and +1 biological trait point
+
+Tweaks:
+- Mental Manipulations renamed Empathic Diplomacy, now gives +1 envoy
+- With Expanded Pops, Hive Queen jobs give +2% habitability, to match bonus added to spawning drones
+
+Bug Fixes:
+- AI should, hopefully, make use of fortress districts now
+
+Removals:
+- Removed Psionic Propaganda decision (now redundant)
+
+1.2.1.1
+Tweaks
+- Genesis Project and Hive Queen gives an extra farming/mining district and +4 pops
+- Hive Queens get +1/+2 base pop production from spawning pools
+
+Bug Fixes:
+- Accidentally left in base pop production on cloning vats
+
+1.2.1
+Updated to 3.0
+Additions:
+- Fully expanded habitats gain +1 building slot
+- Reworked how Cloning Vats work, in light of the changes in the 3.0 patch.
+- Mineral Purification Hubs give +1 mining jobs to Crystal Farms
+- Synthetic Lifeforms will allow you to resurrect the Awoken as organic lifeforms, assuming you haven't already resurrected them as synths.
+- Subspace Telepathy gives +10 base intel
+- The Instrument of Desire can spawn the Manifesti event chain, assuming you are elegible for it
+- Buffed the Reckoning
+
+Tweaks:
+- Genesis Project now allows you to build robots
+- Hive Queens can use Cloning Vats
+- Hive Queen jobs give +1 pop assembly on low population planets
+- Nanite Machinists now require 1 living metal and 40 minerals (was 3 and 30)
+- Zro Distillers now only give -10% pop growth (was -15%)
+- Accelerated Embryonics now available to hive minds and servitors
+- Advanced Drone Cloning renamed Spawning Vats, only unlocks the building
+- Living Metal Cultivation can now be researched if you do not have the Living Metal tech, but a neighbor does
+- Nanite Construction requires either you or a neighbor has researched Nanite Transmutation
+- Nanite Construction requires either Living Metal or Living Metal Cultivation
+- Mining laser techs now only give +20% space mining production each
+- Can now choose necroid portraits when creating synthetic lifeforms
+- Coordination Districts give 8 jobs, in line with changes to the Leisure Districts
+- Habitation District give +1 housing to all gestalts (not just hive minds)
+- Habitats with deposits can become Militarize Habitats
+- Gaia, Machine, and Hive Worlds now give +20% resource from jobs, to match to the bonus on city worlds
+- Ring Worlds give +25% pop growth
+- Psionic Life decision now creates 2 pops at a time
+
+Removals:
+- Removed changes to carrier ship behavior
+- No longer modifies the Droids, Binary Motivators, and Nanite Assemblers techs
+- Jobs and Housing from habitats restored to their vanilla values
+- Habitation Districts no longer benefit from the Public Work's tradition
+- Ringworlds restored to their vanilla size (may size them back up again later)
+
+Bug Fixes:
+- Fixed missing building icon
+- Fixed some broken localizations
+
+1.2.0.1
+Additions:
+New Whisperers in the Void event
+Patchwork Life pops will use Necroid Portraits if you have the DLC
+
+Removals:
+- Changes to Penal Colonies moved to upcoming diplomacy mod
+
+1.2.0
+Updated for 2.8.1
+
+Additions:
+- New events for the Composer of Strands
+- Zero-G Foundries under Rogue Servitors provide 2 fabricator and 2 artisan drone jobs
+- Necrophages are not as good at cloning (base pop production of 1.5 instead of 2)
+
+Bug Fixes:
+- Colony Type file now modifies the colony types that it needs to
+
+Removals:
+- Changes to Grasp the Void moved to Expanded Starbases
+
+1.1.9.1
+Bug Fixes:
+- Cloning jobs produce pops faster when under the last three Divinity of Life resolutions, to balance out slower pop assembly speed
+
+1.1.9
+Updated for 2.7
+Additions:
+- NEW: Genesis Project origin
+- NEW: Hive Queen origin
+- NEW: Advanced Drone Cloning technology
+- Habitat housing districts now get +1 maintenance drones with second housing tech (same as normal housing districts)
+- Coordination districts now gives +3 maintenance drones  and only 1 synapse drone/evaluator
+- New events for Whisperers in the Void (both good and bad)
+- L-Gate Activation is now marked as a dangerous technology (you know why)
+
+Tweaks:
+- Cloning techs now cost less food/minerals, more consumer goods (Gestalt cloning techs remain unchanged)
+- Modular Components and Intelligent Factories now gives -10% roboticist upkeep instead of previous bonus
+- Grasp the Void now unlocks the tech option for the next starbase tech
+- Eater of Worlds is half as likely to be ravenous if you've made sacrifices to it
+
+Bug Fixes:
+- Cloning Techs won't give pop production when they shouln't
+- Fixed buying dark mater reactor tech from curators not working
+- Fixed error in new species creation
+- Fixed lithoid blocker techs
+
+Removals:
+- Removed habitat expansion decision (now redundant)
+- Removed mini-habitat (now redundant)
+
+1.1.8.1
+Additions:
+- If you have living metal in your borders but no living metal tech option, it can be researched normally as a rare level 5 tech
+
+Bug Fixes:
+- Completely rewrote the code for creating artifical life
+- Creating artifical life will properly add all intended traits
+- Fixed not being able to use Create Artificial Life again in some circumstances
+- Creating artificial life will not enslave your main species
+- Fixed minor typos in the code
+- Added missing localization
+
+1.1.8
+Additions:
+- Interstellar Franchising gives habitat city districts +1 clerk jobs
+
+Tweaks:
+- Compact Architecture gives -2.5% housing usage (down from -5%)
+- Gaia, Hive, and Machine Worlds give +15% resources from jobs (down from +25%)
+- Grasp the Void once again gives the Habitat tech option
+
+1.1.7
+Updated to 2.6
+Additions:
+- NEW: Compact Architecture technology
+- NEW: Crystal Farming
+- Penal Colony gives +5% technician, miner, and farmer output
+- Two new lithoid techs that give additional monoliths on the homeworld
+- Buffed Shroud Covenants
+- Eater of Worlds won't contact pacifist empires
+- The End of the Cycle is more likely to contact empires with the Doomsday Origin
+
+Tweaks:
+- Defense Grid Computing now only gives +2 defense platform capacity (was +3)
+- Communication Protocols now gives -5% empire size from colonies, can be researched 5 times
+- Sapient Resource Management, gives +5% to ruler, synapse drone, and evaluator production, no longer gives +2.5% to specialist/complex drone production
+- Mental Manipulations now gives +10% diplomatic weight from pops, unlocks Psionic Propaganda decision
+- Subspace Telepathy now gives +5% admin cap
+- Creating your first lifeform from scratch will be more likely to fail, new failure event
+- Mini Habitats now builtable by Void Dwellers
+- Rebalanced jobs from habitat specialization deposits
+
+Bug Fixes:
+- Minor bug fixes
+- Patchwork Life will only be hive mind if your empire is a hive mind
+- Fixed gestalts not building coordination districts
+- Fixed Fortified Habitats taking more orbital damage instead of less
+- Fixed bug with Cloning Tech upkeep
+
+Removals:
+- Voidborne Civic removed (now redundant)
+- Ascension Perks no longer give megastructure techs
+- Administrative Efficiency restorded to its vanilla value
+- No longer modifies Positronic AI
+
+1.1.6
+Updated to 2.5
+Additions:
+- NEW: Monolith Excavation technology
+- NEW: Mental Manipulations technology
+- NEW: Subspace Telepathy technology
+- NEW: Telekinetic Construction technology
+- NEW: Psionic Barriers technology
+- NEW: Telekinetic Megaconstruction edict, gives +20% megastructure construction speed for 100 zro, requires Telekinetic Construction
+
+Tweaks:
+- Cloning tech upkeep reduced to 8 (was 9)
+- Communication Protocols can be researched 4 times (was 5)
+- Synthetic Lifeforms is now a dangerous technology (I'll leave it up to you to find out why)
+
+Bug Fix:
+- Added some missing icons
+
+1.1.5.1
+Updated for 2.4
+Bug Fixes:
+- Fixed requirements for ruined interstellar assembly
+- AI shouldn't spam habitats without colonizing them first
+
+1.1.5
+Additions:
+- Voidborne civic, can build habitats at half the size for half the cost, can expand to normal size later
+
+Tweaks:
+- Accelerated Embryonics now tier 4
+- Building pops now unlocked by vanilla cloning tech
+- Gaia and Hive worlds also get +25% pop growth
+
+Bug Fixes:
+- Warrior Culture will get duelist jobs from habitat and city world districts
+
+1.1.4
+- Better compatibility with Ancient Cache of Technologies
+
+Additions:
+- NEW: Voidborne Civic
+- NEW: Predictive Tactical Intelligence repeatable technology
+- NEW: Synthetic Lifeforms technology
+- (Without Ancient Cache of Technologies) After researching a long list of technologies, you can gain access to Dark Matter Power
+- Once you research Dark Matter Power and Dark Matter Generation, you can research FE ship components. With Zenith of Fallen Empires, they will also require the Galactic Ascendency perk.
+- Habitats built over very rare resource (zro, ext) will give special mining jobs that give +2 of that resource, deposits no longer produce that resource directly
+- Habitats over moons or asteroids will spawn with a closer orbit
+
+Tweaks:
+- Habitats over alloy deposits get 1-5 alloy miner jobs, which gives +2 alloys each, no longer gives foundry jobs or produces alloys directly
+- Trade Districts give 5 housing (up from 4), +5% trade value, no longer gives an additional clerk job
+- Defense Grid Computing can now be researched an unlimited number of times
+
+Bug Fixes:
+- Living Metal Farms now have their proper building icon
+- Frequency Tuning II has a proper cooldown
+- Hopefully fixed the cooldown of the other new weapons (let me know if it worked)
+
+1.1.3
+Additions:
+- NEW: Accelerated Embryonics technology, Ability to Grow Pops
+- NEW: Galactic Trade Empire technology
+- NEW: Integrated Fire-Control technology
+- NEW: Automated FTL Protocols technology
+- NEW: Dynamic Resettlement Protocols technology
+- NEW: Dark Matter Generation technology
+- NEW: Living Metal Cultivation technology
+- NEW: Nanite Construction technology
+- NEW: Talent Acquisition repeatable technology
+- Restored Communication Protocols technology
+- Restored Defense Grid Computing technology
+- Added foundry specialization for habitats
+
+Tweaks:
+- Enigmatic Decoder gives +10% accuracy (up from 5%)
+- Living Hull now costs 20 alloys (up from 10)
+- Administrative Efficiency now gives +20 admin cap (up from +15)
+- Zro Distiller now has upkeep of 2 exotic gases (instead of 10 energy)
+- Sapient Resource Management gives +2.5% specialist/complex drone production, no longer gives bonuses to leader upkeep
+- Cloning Technician give 5 society research, upkeep increased to 9 food
+
+Bug Fixes:
+- Fixed localization of Mega-Architecture
+- Matter Decompressor can now be built in any system with a black hole (including wormed systems)
+- Fixed some weights on rare techs
+- Leisure districts give +4 housing, as intended
+
+1.1.2
+Additions:
+- NEW: Mega-Logistics Technology
+- NEW: Fortified Habitat Technology
+- NEW: Intergalactic Vassalage Technology
+
+1.1.1.1
+Compatability with 2.2.3
+Tweaks:
+Modular Components and Intelligent Factories give +10%/20% pop assembly speed to assembly planets
+
+1.1.1
+Additions:
+- NEW: Miniaturized Art Emitter tech
+- Habitats not build over deposits can build foundry districts
+- Habitats over alloy deposits give extra foundry jobs
+
+Tweaks:
+- Leisure Districts give +1 culture worker instead of artisan jobs
+- Artificial Zro jobs now have an upkeep up 10 energy and -15% pop growth
+
+Bug Fixes:
+- Lithoid Crystal Plant will no longer show up as a tech unlock until you complete the relevant dig site
+
+1.1.0
+No longer explicitly dependent on Glavius AI
+Additions:
+- NEW: Regenerative Meditation tech
+- NEW: Zro Syphoning tech
+- Ring Worlds are size 8 (up from 5)
+- Gaia, Hive, and Machine Worlds give +25% resources from jobs (up from +10%)
+- Gaia Worlds give +10% biological happiness (up from 5%)
+- Machine Worlds give -15% housing requirements
+- Hive Worlds give +100% defensive army damage and -25% bombardment damage
+- Habitats can build over planets with mining and research stations. Stations will dismantle when construction start
+- Technological Ascendency perk greatly increases the chance of drawing megastructure techs
+
+Tweaks:
+- Modular Components for non-machine now a tier 3 tech and requires droids tech
+- Modular Components for machine empires is now a tier 2 tech
+- Intelligent Factories is now a tier 3 tech
+- Mining weapon techs give +25% station production (was +10%)
+- Updated tech icons
+
+Bug Fixes:
+- Science Nexus counts as complete without brain in a jar, as per 2.3.2 patch)
+- Removed old tech and building icons that were no longer used
+- tech_space_cloud_weapon_1 not having a prerequisite
+- Lithoid Crystal Plant benefit from Advanced Rare Crystal Production tech
+- Updated Cloning Tech job to 2.3.*
+
+1.0.9
+Additions:
+- Habitats can be built around moons and asteroids
+- Restored Coordination Districts for city worlds, gives +5 synapse drone/coordinator and +5 brain drone/calculator jobs
+
+Tweak:
+- Habitat expantion decisions give +2 districts (down from +3)
+- Imperial Prerogative gives -10% empire size penalty
+- Matter Decompressor only produces minerals and dark matter
+
+Bugfixes:
+- Fixed megastructure files
+- Fixed Coordination Districts
+
+1.0.8
+Compatibility with Stellaris Patch 2.3.0 (Wolfe)
+Additions:
+- Imperial Prerogative gives +50 admin cap
+- Megastructure techs can be unlocked by various perks (see description for details)
+- Changed around habitat districts to accomidate 2.3 (see description for details)
+- Techs for Science Nexus, Interstellar Assembly, and Mega Art Installation have more relaxed requirements
+
+Removals:
+- Removed Astro-Mining Facilities and Solar Power Processors habitat buildings
+- Removed coordination district, as gestalts cannot build city worlds anyway
+
+1.0.7.2
+Bug Fixes:
+- Restored Animal Evaluation Laboratories, which somehow got deleted
+
+1.0.7.1
+Tweaks:
+- Changed some tech ai weights to better match up with Glavius AI
+
+Bug Fixes:
+- Cleaned up custom modifier descriptions for technologies
+
+Removals:
+- Synthetic empires can no longer research Intelligent Factories
+
+1.0.7
+Additions:
+- Restored Modular Components and Intelligent Factories techs, which each give +1 replicator job to assembly plants
+- Regular empires can research Modular Components as a tier 2 technology, giving +1 roboticist jobs to assembly plants
+- Synthetic empires can research Intelligent Factories as a tier 3 technology, giving +1 roboticist jobs to assembly plants
+- Restored Hyperlane Mapping, which now gives +6 hyperlane sensor range and -10% hyperdrive windup and winddown
+- Clone Vats now give +10% pop growth and 1 cloning tech / cloning drone job
+- Cloning techs and drones give +25% pop growth, 5 ammenities, and 3 society research
+
+Tweaks:
+- Dyson Sphere now gives up to 4000 energy
+- Matter Decompressor gives up to 2000 minerals
+- Replicator upkeep reduced to +0.5 dark matter (was +1 monthly)
+
+1.0.6.1
+Tweaks:
+- Sanctuary Districts provide +2 Coordinator Jobs (up from +1)
+- With !Expanded Traits, Civics, Pops, and More, Sanctuary Districts provide +2 Caretaker Jobs and no Maintenance Drone jobs (was 1 each)
+
+
+1.0.6
+Additions:
+- Mining Drone Drills tech, gives +10% mining station output, mining drill weapons
+- Void Lighning Conduits tech, requires cloud lightning conduits
+
+Tweaks:
+- Mining Laser tech gives +10% mining station output (was +20%)
+
+Bug Fix:
+- Fixed new weapons not having a power cost
+
+1.0.5
+Additions:
+- Advanced Null Void Beam techs
+- Gestalts can build Animal Evaluation Laboratories, which provide +2 brain drone/calculator and +2 synapse drones/coordinators
+
+Tweaks:
+- Alien Zoo gives +25% immigration attraction
+
+1.0.4
+Compatability with Zenith of a Fallen Empire
+
+Additions:
+- Can spend 50000 unity to build another dyson sphere or matter compressor
+- Districts that give culture workers will now give priests of manager jobs instead, when appropriate
+
+Tweaks:
+- Habitat expanding decisions increase districts by +3 (up from +2)
+
+1.0.3
+Additions:
+- Restored Hull Integrity tech
+- Restored Sapient Resource Management tech
+- New Gene Splicing repeatable tech
+- New Modular Construction repeatable tech
+- New Advanced Nanite Assemblers repeatable tech
+- Living Hull auxilary component
+
+Tweaks:
+- Ability to build trade buildings on habitats moved to !Expanded Traits, Civics, Pops, and More mod
+
+Bug Fixes:
+- Fixed Psionic Senors tech not showing up
+
+1.0.2.1
+Bug Fixes:
+- Fixed rare resource buildings not showing up
+
+1.0.2
+Tweaks:
+Matter Decompressor gives additional rare resources
+
+Bug Fixes:
+- Fixed improved energy siphon not showing up in the ship designer
+
+1.0.1
+Additions:
+- 3 tier 4 techs that double the jobs from rare resource manufacturing and mining buildings
+
+1.0
+Initial Release

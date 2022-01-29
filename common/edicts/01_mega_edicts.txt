@@ -1,0 +1,98 @@
+##########################################################################
+# Empire edicts
+##########################################################################
+
+@Edict1Cost = 100
+@Edict2Cost = 200
+@Edict3Cost = 300
+
+@EdictDuration = 3600
+
+more_dyson = {
+	potential = {
+		has_country_flag = built_dyson_sphere
+	}
+	allow = {
+		NOR = {
+			has_megastructure = dyson_sphere_0
+			has_megastructure = dyson_sphere_1
+			has_megastructure = dyson_sphere_2
+			has_megastructure = dyson_sphere_3
+			has_megastructure = dyson_sphere_4
+		}
+	}
+	resources = {
+		category = edicts
+		cost = {
+			unity = 50000
+		}
+	}
+	
+	effect = {
+		custom_tooltip = more_dyson_effects
+		hidden_effect = {
+			remove_country_flag = built_dyson_sphere
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}
+
+more_matter = {
+	potential = {
+		has_country_flag = built_matter_decompressor_site
+	}
+	allow = {
+		NOR = {
+			has_megastructure = matter_decompressor_0
+			has_megastructure = matter_decompressor_1
+			has_megastructure = matter_decompressor_2
+			has_megastructure = matter_decompressor_3
+		}
+	}
+	resources = {
+		category = edicts
+		cost = {
+			unity = 50000
+		}
+	}
+	
+	effect = {
+		custom_tooltip = more_matter_effects
+		hidden_effect = {
+			remove_country_flag = built_matter_decompressor_site
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}
+
+zro_mega_telekinetics = {
+	length = @EdictDuration
+	resources = {
+		category = rare_edicts
+		cost = {
+			sr_zro = 100
+		}
+	}
+	
+	show_tech_unlock_if = {
+		is_robot_empire = no
+	}
+
+	modifier = {
+		megastructure_build_speed_mult = 0.20
+	}
+	
+	prerequisites = {
+		"tech_telekinetic_construction"
+	}
+	
+	ai_weight = {
+		weight = @EdictMedPrio
+	}
+}

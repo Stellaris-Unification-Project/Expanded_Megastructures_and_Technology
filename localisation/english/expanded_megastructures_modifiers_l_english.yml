@@ -1,0 +1,60 @@
+﻿l_english:
+
+####################################
+# 	Deposits
+####################################
+
+d_hab_zro_4:0 "$d_hab_zro_1$"
+d_hab_zro_4_desc:0 "$d_hab_zro_1_desc$"
+d_hab_zro_5:0 "$d_hab_zro_1$"
+d_hab_zro_5_desc:0 "$d_hab_zro_1_desc$"
+d_hab_dark_matter_10:0 "$d_hab_dark_matter_1$"
+d_hab_dark_matter_10_desc:0 "$d_hab_dark_matter_1_desc$"
+d_hab_science:0 "Science Specialization"
+d_hab_science_desc:0 "This habitat is specialized in scientific research"
+d_hab_trade:0 "Trade Specialization"
+d_hab_trade_desc:0 "This habitat is specialized in commerce"
+d_hab_minerals:0 "Mineral Specialization"
+d_hab_desc:0 "This habitat is specialized in the production of minerals"
+d_hab_energy:0 "Energy Specialization"
+d_hab_energy_desc:0 "This habitat is specialized in the generation of energy"
+d_hab_unity:0 "Unity Specialization"
+d_hab_unity_desc:0 "This habitat is specialized in unity and amenities"
+d_hab_foundry:0 "Foundry Specialization"
+d_hab_foundry_desc:0 "This habitat is specialized in the production of manufactured goods"
+mod_building_animal_evaluation_laboratory_max:0 "Max $building_animal_evaluation_laboratory$"
+mod_building_animal_evaluation_laboratory_hive_max:0 "$mod_building_animal_evaluation_laboratory_max$"
+
+####################################
+# 	Modifiers
+####################################
+
+whisper_sensors:0 "Eyes in the Void"
+
+fortified_habitat:0 "Fortified Habitat"
+fortified_habitat_desc:0 "Our military has turned this $pc_habitat$ into a fortified bastion."
+habitat_two_building:0 "$tech_habitat_3$"
+habitat_two_building_desc:0 "$tech_habitat_3_desc$"
+whisper_abuse:0 "Rampate Substance Abuse"
+whisper_abuse_desc:0 "The local population has turned to substance abuse to cope with the terrible secrets imparted by the Whisperers in the Void"
+
+covenant_composer_of_strands_tooltip:0 "\nUnlocks the $decision_composer_pops$ planetary decision"
+covenant_eater_of_worlds_tooltip:0 "\nUnlocks the Avatar Project"
+covenant_end_of_the_cycle_tooltip:0 "\nUnlocks the Avatar Project"
+ 
+mod_megastructures_cost_mult:0 "Megastructure Cost:"
+mod_planet_synapse_drones_produces_mult:0 "£job_synapse_drone£ $job_synapse_drone$ Output"
+mod_planet_entertainers_produces_mult:0 "£job_entertainer£ $job_entertainer$ Output"
+
+mod_torpedo_speed_mult:0 "Torpedo Flight Speed"
+mod_torpedo_weapon_damage_mult:0 "Torpedo Weapon Damage"
+mod_extra_large_weapon_damage_mult:0 "Extra Large Weapon Damage"
+mod_large_weapon_damage_mult:0 "Large Weapon Damage"
+mod_medium_weapon_damage_mult:0 "Medium Weapon Damage"
+mod_small_weapon_damage_mult:0 "Small Weapon Damage"
+
+mod_torpedo_weapon_fire_rate_mult:0 "Torpedo Weapon Fire Rate"
+mod_extra_large_weapon_fire_rate_mult:0 "Extra Large Weapon Fire Rate"
+mod_large_weapon_fire_rate_mult:0 "Large Weapon Fire Rate"
+mod_medium_weapon_fire_rate_mult:0 "Medium Weapon Fire Rate"
+mod_small_weapon_fire_rate_mult:0 "Small Weapon Fire Rate"

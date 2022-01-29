@@ -1,0 +1,206 @@
+#############
+# Resource buildings
+#############
+
+building_crystal_farm = {
+	base_buildtime = 360
+
+	category = resource
+	
+	potential = {
+		exists = owner
+		planet = {
+			owner = {
+				is_lithoid_empire = yes
+			}
+		}
+		NOT = { is_planet_class = pc_machine }
+		NOT = { has_modifier = resort_colony }
+	}
+	
+	allow = {
+		buildings_simple_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			planet = {
+				NOT = { is_planet_class = pc_habitat }
+				free_building_slots = 0
+				owner = {
+					is_ai = yes
+					has_monthly_income = {
+						resource = minerals
+						value > 100
+					}
+				}
+			}
+			planet = {
+				owner = { is_lithoid_empire = no }
+			}
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		modifier = {
+			job_miner_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_fe_acolyte_mine_add = @b1_jobs
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_mining_drone_add = @b1_jobs
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_void_dwellers
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_miner_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_void_dwellers
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_mining_drone_add = 1
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 300
+		}
+		upkeep = {
+			energy = 2
+		}
+	}	
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_miner_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		text = job_fe_acolyte_mine_effect_desc
+	}
+	
+	prerequisites = {
+		"tech_crystal_farms"
+	}
+	
+	ai_resource_production = {
+		minerals = 1
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+building_replicator = {
+
+	base_buildtime = 720
+	
+	category = resource
+	
+	potential = {
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					has_monthly_income = { resource = energy  value >= 50 }
+					has_monthly_income = { resource = sr_dark_matter  value >= 1 }
+				}
+			}
+		}
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		buildings_simple_allow = yes
+	}
+		
+	planet_modifier = {
+	}
+	
+	prerequisites = {
+		"tech_matter_generator"
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+			sr_dark_matter = 50
+		}
+		produces = {
+			minerals = 50
+			rare_crystals = 1
+			exotic_gases = 1
+			volatile_motes = 1
+		}
+		upkeep = {
+			energy = 40
+			sr_dark_matter = 0.5
+		}
+	}
+		
+	upgrades = {
+		"building_fe_dimensional_fabricator"
+	}
+	
+	# higher so ai will build it
+	ai_resource_production = {
+		minerals = 6
+		rare_crystals = 1
+		exotic_gases = 1
+		volatile_motes = 1
+		trigger = {
+			always = yes
+		}
+	}
+}

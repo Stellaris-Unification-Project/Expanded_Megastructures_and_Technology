@@ -1,0 +1,261 @@
+﻿l_english:
+
+####################################
+# 	Special Projects
+####################################
+
+DARK_MATTER_SECRETS:0 "Dark Matter Power"
+DARK_MATTER_SECRETS_DESC:0 "The Stagnant Ascendancies are able to use dark matter in ways that we can hardly dream of. We will convene a conference of the brightest minds from across our empire to puzzle out how they do it."
+NEW_LIFE_PROJECT:0 "Species Creation"
+NEW_LIFE_PROJECT_DESC:0 "A Special Project to create a brand-new species from scratch."
+LIMBO_3_PROJECT:0 "$LIMBO_2_PROJECT$"
+LIMBO_3_PROJECT_DESC:0 "We could give an extinct species of ancient aliens a second chance at life by uploading their neural scans to new organic bodies."
+
+####################################
+# 	Megastructures
+####################################
+
+requires_citadel_tech:0 "Requires Citadel Technology"
+requires_min_tech:0 "Requires the $tech_antimatter_power$, $tech_starbase_4$, and $tech_cruisers$ Technologies"
+
+avatar_project:0 "Avatar Project"
+avatar_project_MEGASTRUCTURE_DETAILS:0 "The Eater of Worlds has taught us how to draw psionic avatars from the shroud. §RNot all avatars will come willingly, and must be subdued before they will serve.§!"
+avatar_project_DESC:0 "$avatar_project_MEGASTRUCTURE_DETAILS$"
+
+avatar_project_end:0 "Avatar Project"
+avatar_project_end_MEGASTRUCTURE_DETAILS:0 "§RThe End of the Cycle§! has taught us how to draw psionic avatars from the shroud."
+avatar_project_end_DESC:0 "$avatar_project_end_MEGASTRUCTURE_DETAILS$"
+
+
+####################################
+# 	Components
+####################################
+
+DARK_MATTER_ARMOR:0 "Dark Matter Armor"
+DARK_MATTER_ARMOR_DESC:0 "$tech_dark_matter_armor_desc$"
+SMALL_DARK_MATTER_ARMOR:0 "Small Dark Matter Armor"
+SMALL_DARK_MATTER_ARMOR_desc:0 "$DARK_MATTER_ARMOR_DESC$"
+MEDIUM_DARK_MATTER_ARMOR:0 "Medium Dark Matter Armor"
+MEDIUM_DARK_MATTER_ARMOR_desc:0 "$DARK_MATTER_ARMOR_DESC$"
+LARGE_DARK_MATTER_ARMOR:0 "Large Dark Matter Armor"
+LARGE_DARK_MATTER_ARMOR_desc:0 "$DARK_MATTER_ARMOR_DESC$"
+
+SENSOR_5:0 "Psionic Sensors"
+SENSOR_5_DESC:0 "$TECH_UNLOCK_SENSORS_5_DESC$"
+SENSOR_FE:0 "Dark Energy Sensors"
+SENSOR_FE_desc:0 "$tech_sensors_FE_DESC$"
+
+SPACE_WHALE_WEAPON_2:0 "Frequency Tuning II"
+SPACE_WHALE_WEAPON_2_desc:0 "$tech_space_whale_weapon_1_desc$"
+SPACE_WHALE_WEAPON_2_CAT:0 "$SPACE_WHALE_WEAPON_2$"
+SPACE_WHALE_WEAPON_2_CAT_DESC:0 "$tech_space_whale_weapon_2_desc$"
+NULL_VOID_2:0 "$null_void_beam_2$"
+NULL_VOID_2_DESC:0 "$null_void_beam_desc$"
+SMALL_NV_WEAPON_2:0 "Small Advanced Null Void Beam"
+SMALL_NV_WEAPON_2_desc:0 "$null_void_beam_2_desc$"
+MEDIUM_NV_WEAPON_2:0 "Medium Advanced Null Void Beam"
+MEDIUM_NV_WEAPON_2_desc:0 "$null_void_beam_2_desc$"
+LARGE_NV_WEAPON_2:0 "Large Advanced Null Void Beam"
+LARGE_NV_WEAPON_2_desc:0 "$null_void_beam_2_desc$"
+MINING_DRONE_LASER_2:0 "Mining Drill"
+MINING_DRONE_LASER_2_DESC:0 "$tech_mining_drone_weapon_2_desc$"
+SMALL_MINING_LASER_2:0 "Small Mining Drill"
+SMALL_MINING_LASER_2_desc:0 "$tech_mining_drone_weapon_2_desc$"
+MEDIUM_MINING_LASER_2:0 "Medium Mining Drill"
+MEDIUM_MINING_LASER_2_desc:0 "$tech_mining_drone_weapon_2_desc$"
+SPACE_CLOUD_WEAPON_2:0 "Void Lignting"
+SPACE_CLOUD_WEAPON_2_DESC:0 "$tech_space_cloud_weapon_2_desc$"
+SPACE_CLOUD_LIGHTNING_2:0 "$SPACE_CLOUD_WEAPON_2$"
+SPACE_CLOUD_LIGHTNING_2_desc:0 "$tech_space_cloud_weapon_2_desc$"
+MINI_ART_EMITTER:0 "$tech_mini_arc_emitter_1$"
+MINI_ART_EMITTER_DESC:0 "$tech_mini_arc_emitter_1_desc$"
+MINI_ART_EMITTER_CAT:0 "$tech_mini_arc_emitter_1$"
+MINI_ART_EMITTER_CAT_DESC:0 "$tech_mini_arc_emitter_1_desc$"
+
+FIRE_CONTROL_2:0 "$tech_auxiliary_fire_control_2$"
+FIRE_CONTROL_2_DESC:0 "$tech_auxiliary_fire_control_2_desc$"
+LIVING_METAL_REPAIR:0 "Living Hull"
+LIVING_METAL_REPAIR_desc:0 "By infusing the hull of our ships with living metal, we can make use of its unusual regenerative properties."
+LIVING_METAL_REPAIR_CAT:0 "$LIVING_METAL_REPAIR$"
+LIVING_METAL_REPAIR_CAT_DESC:0 "$LIVING_METAL_REPAIR_desc$"
+REACTOR_BOOSTER_4:0 "Dark Matter Reactor Boosters"
+REACTOR_BOOSTER_4_DESC:0 "The Stagnant Ascendancies use these devices to boost the output of their dark matter power cores, although we are still not entirely sure how they work."
+AFTERBURNER_3:0 "Dark Matter Afterburners"
+AFTERBURNER_3_DESC:0 "This arcane device uses the mysterious properties of dark matter to provide a massive boost to a ship's combat speed."
+
+
+####################################
+# 	Ascension Perks
+####################################
+
+requires_technology_zero_point_power_mod:0 "$TRIGGER_FAIL$Requires the £engineering §Y$tech_starbase_5$§!, £engineering §Y$tech_battleships$§!, and £physics  §Y$tech_zero_point_power$§! technologies."
+faster_cloning:0 "§Y$building_clone_vats$§! buildings produce §G+1§! §Y$MOD_PLANET_POP_ASSEMBLY_ORGANIC_ADD$§!"
+
+
+####################################
+# 	Buildings and Districts
+####################################
+
+building_spawning_pool_2:0 "Spawning Vats"
+building_spawning_pool_2_desc:0 "Tended by the specific and gentle care of specialists, these cloning vats stimulate rapid growth in our spawn."
+building_replicator:0 "Resource Replicator"
+building_replicator_desc:0 "A facility where energy is converted into valuable raw materials on an industrial scale."
+building_zro_plant:0 "Zro Syphoning Facility"
+building_zro_plant_desc:0 "Delicate rituals are preformed here to extract psionic potential from gifted subjects and refine it as zro."
+building_dark_matter_plant:0 "Dark Matter Laboratory"
+building_dark_matter_plant_desc:0 "A dedicated laboratory for the creation of artificial dark matter - an intensive procedure that frequently damages the required crystalline components."
+building_living_metal_plant:0 "Living Metal Farms"
+building_living_metal_plant_desc:0 "Samples of living metal are cultivated and grown into useful materials."
+building_nanite_plant:0 "Nanite Factory"
+building_nanite_plant_desc:0 "A facility where tiny micro-machines are mass-produced."
+building_animal_evaluation_laboratory_hive:0 "$building_animal_evaluation_laboratory$"
+building_animal_evaluation_laboratory_hive_desc:0 "This laboratory will study the properties of the unique animal strain that inhabits this region, and how they could potentially be applied to our biological research."
+building_crystal_farm:0 "Crystal Farms"
+building_crystal_farm_desc:0 "These facilities cultivate fast-growing crystals tailored for consumption by local lithoids."
+building_temple_instrument_of_desire:0 "Temple of Desire"
+building_temple_instrument_of_desire_desc:0 "A temple complex dedicated to the Instrument of Desire. It is a place of excess and debauchery."
+requires_not_basic_clone_army:0 "Until we complete the Genetic Crossroads event chain or adopt the Engineered Evolution perk, we must rely on our ancient cloning vats."
+building_clone_vats_clone_army_effects_desc:0 "Produces and sustains §Y40§! £pops£ §Y$clone_soldier$§! Pops."
+building_clone_vats_adv_clone_army_effects_desc:0 "Produces and sustains §Y60§! £pops£ §Y$clone_soldier$§! Pops."
+
+
+district_hab_fortress:0 "Fortified Barrack"
+district_hab_fortress_plural:0 "Fortified Barracks"
+district_hab_fortress_desc:1 " A fortified stronghold housing a substantial garrison force to protect the habitat from invasion and rebellion."
+district_hab_foundry:0 "Zero-G Foundry"
+district_hab_foundry_plural:0 "Zero-G Foundries"
+district_hab_foundry_desc:1 "Workshops churn out industrial and civilian goods, using novel techniques to take advantage of the local micro-gravity."
+district_hab_coordination:0 "Coordination District"
+district_hab_coordination_plural:0 "Coordination Districts"
+district_hab_coordination_desc:0 "Centralized hubs from where the operations of the habitat can be organized."
+
+####################################
+# 	Decisions and Edicts
+####################################
+
+decision_fortified_habitat:0 "Militarize Habitat"
+decision_fortified_habitat_desc:0 "$tech_fortified_habitats_desc$"
+decision_fortified_habitat_tooltip:0 "Allows the construction of $district_hab_fortress$ districts.\n\n§YIndustrial Districts§! will shift one job from Consumer Goods to Alloy production if possible. This will not stack with the effects of the $col_habitat_foundry$ designation."
+decision_abolish_fortified_habitat:0 "Demilitarize Habitat"
+decision_abolish_fortified_habitat_desc:0 "Convert this habitat into a regular civilian station."
+
+decision_create_life:0 "Create an artificial lifeform"
+decision_create_life_desc:0 "Advances in biological engineering has allowed us to create life from scratch."
+create_life_tooltip:0 "Starts a special project that will create 3 pops of a new species on this world"
+decision_composer_pops:0 "Psionic Life"
+decision_composer_pops_desc:0 "The Composer of Strands has given us instructions on how to create life from psionic energy."
+decision_composer_pops_tooltip:0 "Creates a pop of your species on this world"
+decision_eater_sacrifice:0 "Sacrifice to the Eater of Worlds"
+decision_eater_sacrifice_desc:0 "An offering may sate the Eater of Worlds... For a time."
+decision_eater_sacrifice_tooltip:0 "Up to three non-citizen pops will be sacrificed. The Eater of Worlds is less likely to eat our pops."
+
+edict_more_dyson:0 "Dyson Sphere Construction"
+edict_more_dyson_desc:0 "Make plans for the construction of an additional Dyson Sphere"
+more_dyson_effects:0 "Can build one additional Dyson Sphere"
+edict_more_matter:0 "Matter Decompressor Construction"
+edict_more_matter_desc:0 "Make plans for the construction of an additional Matter Decompressor"
+more_matter_effects:0 "Can build one additional Matter Decompressor"
+edict_zro_mega_telekinetics:0 "Telekinetic Megaconstruction"
+edict_zro_mega_telekinetics_desc:0 "With enough zro, anything is possible"
+
+####################################
+# 	Jobs
+####################################
+
+job_hive_queen:0 "Hive Queen"
+job_hive_queen_plural:0 "Hive Queens"
+job_hive_queen_desc:1 "All drones in the hive are birthed by the queens."
+job_hive_queen_effect_desc:0 "£job_spawning_drone£ $job_hive_queen_plural$ turns £food£ §Y$food$§! into new £pop£ §YDrones§!"
+mod_job_hive_queen_add:0 "$job_hive_queen$ Jobs"
+
+job_cloning_tech:0 "Cloning Technician"
+job_cloning_tech_plural:0 "Cloning Technicians"
+job_cloning_tech_desc:0 "These trained technicians oversee the cloning process."
+job_cloning_tech_effect_desc:0 "£job_healthcare£ $job_cloning_tech_plural$ produce £society£ §Y$society_research$§! and increase £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and £mod_pop_growth_speed£ §Y$MOD_POP_GROWTH_SPEED$§!"
+mod_job_cloning_tech_add:0 "$job_cloning_tech$ Jobs"
+
+job_zro_syphon:0 "Zro Distiller"
+job_zro_syphon_plural:0 "Zro Distillers"
+job_zro_syphon_desc:0 "The syphoning and distillation of pure psionic potential into usable Zro is is left to these specialists."
+job_zro_syphon_effect_desc:0 "£job_telepath£ $job_zro_syphon$ turn £exotic_gases£ §Y$exotic_gases$§! and £mod_pop_growth_speed£ §Y$MOD_POP_GROWTH_SPEED$§! into £sr_zro£ §Y$sr_zro$§!"
+mod_job_zro_syphon_add:0 "$job_zro_syphon$ Jobs"
+
+job_dark_matter_tech:0 "Dark Matter Lab Technician"
+job_dark_matter_tech_plural:0 "Dark Matter Lab Technicians"
+job_dark_matter_tech_desc:0 "These technicians manage the delicate and volatile equipment responsible for the synthesizing of Dark Matter"
+job_dark_matter_tech_effect_desc:0 "£job_gas_refiner£ $job_dark_matter_tech$ turn £rare_crystals£ §Y$rare_crystals$§! and £energy£ §YEnergy§! into £sr_dark_matter£ §Y$sr_dark_matter$§!"
+mod_job_dark_matter_tech_add:0 "$job_dark_matter_tech$ Jobs"
+
+job_dark_matter_tech_drone:0 "Dark Matter Translucer Drone"
+job_dark_matter_tech_drone_plural:0 "Dark Matter Translucer Drones"
+job_dark_matter_tech_drone_desc:0 "These specialized drones manage the delicate and volatile equipment responsible for the synthesizing of Dark Matter"
+job_dark_matter_tech_drone_effect_desc:0 "£job_gas_refiner£ $job_dark_matter_tech_drone$ turn £rare_crystals£ §Y$rare_crystals$§! and £energy£ §YEnergy§! into £sr_dark_matter£ §Y$sr_dark_matter$§!"
+mod_job_dark_matter_tech_drone_add:0 "$job_dark_matter_tech_drone$ Jobs"
+
+job_living_metal_farmer:0 "Living Metal Horticulturist"
+job_living_metal_farmer_plural:0 "Living Metal Horticulturists"
+job_living_metal_farmer_desc:0 "These specialists oversee the growth of living metal from culture to usable ingots."
+job_living_metal_farmer_effect_desc:0 "£job_job_living_metal_farmer£ $job_living_metal_farmer$ turn £volatile_motes£ §Y$volatile_motes$§! and £minerals£ §YMinerals§! into £sr_living_metal£ §Y$sr_living_metal$§!"
+mod_job_living_metal_farmer_add:0 "$job_living_metal_farmer$ Jobs"
+
+job_living_metal_farmer_drone:0 "Living Metal Horticulture Drone"
+job_living_metal_farmer_drone_plural:0 "Living Metal Horticulture Drones"
+job_living_metal_farmer_drone_desc:0 "These specialized drones oversee the growth of living metal from culture to usable ingots."
+job_living_metal_farmer_drone_effect_desc:0 "£job_job_living_metal_farmer£ $job_living_metal_farmer_drone$ turn £volatile_motes£ §Y$volatile_motes$§! and £minerals£ §YMinerals§! into £sr_living_metal£ §Y$sr_living_metal$§!"
+mod_job_living_metal_farmer_drone_add:0 "$job_living_metal_farmer_drone$ Jobs"
+
+job_nanite_builder:0 "Nanite Machinist"
+job_nanite_builder_plural:0 "Nanite Machinists"
+job_nanite_builder_desc:0 "These workers specialize in the construction of tiny micromachines."
+job_nanite_builder_effect_desc:0 "£job_job_nanite_builder£ $job_nanite_builder$ turn £sr_living_metal£ §Y$sr_living_metal$§! and £minerals£ §YMinerals§! into £nanites£ §Y$nanites$§!"
+mod_job_nanite_builder_add:0 "$job_nanite_builder$ Jobs"
+
+job_nanite_builder_drone:0 "Nanite Machinist Drone"
+job_nanite_builder_drone_plural:0 "Nanite Machinists Drones"
+job_nanite_builder_drone_desc:0 "These specialized drones oversee the construction of tiny micromachines."
+job_nanite_builder_drone_effect_desc:0 "£job_job_nanite_builder£ $job_nanite_builder_drone$ turn £sr_living_metal£ §Y$sr_living_metal$§! and £minerals£ §YMinerals§! into £nanites£ §Y$nanites$§!"
+mod_job_nanite_builder_drone_add:0 "$job_nanite_builder_drone$ Jobs"
+
+job_cloning_drone:0 "Cloning Drone"
+job_cloning_drone_plural:0 "Cloning Drones"
+job_cloning_drone_desc:0 "By careful management of temperatures, nutrition, and infection prevention, these drones tend to the cloning vats that replicate young."
+job_cloning_drone_effect_desc:0 "£job_spawning_drone£ $job_cloning_drone_plural$ produce £society£ §Y$society_research$§! and increase £mod_planet_amenities_no_happiness_add£ §Y$PLANET_AMENITIES_TITLE$§! and £mod_pop_growth_speed£ §Y$MOD_POP_GROWTH_SPEED$§!"
+mod_job_cloning_drone_add:0 "$job_cloning_drone$ Jobs"
+
+####################################
+# 	Policies
+####################################
+
+policy_leader_enhancement_machine:0 "$policy_leader_enhancement_hive$"
+policy_leader_enhancement_machine_desc:0 "$policy_leader_enhancement_hive_desc$"
+leader_enhancement_natural_selection_machine:0 "Normal Production Standards"
+leader_enhancement_natural_selection_machine_name:0 "No Drone Enhancement"
+leader_enhancement_natural_selection_machine_desc:0 "Continue using our normal factory standards, without any cost-adding additional requirements.\n\n§ELeaders gain no additional bonuses§!"
+leader_enhancement_selected_lineages_machine:0 "$tech_selected_lineages_machine$"
+leader_enhancement_selected_lineages_machine_name:0 "Selective Drone Spawning"
+leader_enhancement_selected_lineages_machine_desc:0 "$tech_selected_lineages_machine_desc$\n\n§HWhile active our Empire gains:§!"
+leader_enhancement_capacity_boosters_machine:0 "$tech_capacity_boosters_machine$"
+leader_enhancement_capacity_boosters_machine_name:0 "Capacity-Boosted Drones"
+leader_enhancement_capacity_boosters_machine_desc:0 "$tech_capacity_boosters_machine_desc$\n\n§HIf active our Empire gains:§!"
+
+####################################
+# 	Government
+####################################
+
+origin_clones:0 "Genesis Project"
+origin_clones_desc:0 "Faced with an ever decreasing birth rate, this society expended vast resources to develop true cloning technology. While their natural fertility is now almost nonexistent, they will live on through their replicants."
+origin_tooltip_clones_effects:0 "Starts with the technology to clone new pops.\nCloning Vats are fully effective without the $ap_engineered_evolution$ perk.\nStarts with the §Y$trait_clones$§! trait, vastly decreasing fertility.\nStart the game with an additional §Y4§! £pop£ Pops and §Y1§! additional District."
+origin_hive_queen:0 "Hive Queen"
+origin_hive_queen_desc:0 "Every drone in this hive is birthed by the Queens. They are the closest thing to a central authority: the will of the hive made manifest."
+origin_tooltip_hive_queen_effects:0 "Pops cannot grow normally, instead being birthed by £job_spawning_drone£ §Y$job_hive_queen_plural$§! jobs.\nStart the game with an additional §Y4§! £pop£ Pops and §Y1§! additional District."
+
+####################################
+# 	Traits
+####################################
+
+trait_created_life:0 "Artificial Life"
+trait_created_life_desc:0 "§LThis species was artificially engineered§!\n"
+trait_patchwork_life:0 "Patchwork Life"
+trait_patchwork_life_desc:0 "§LThis species was artificially engineered§!\n"
+trait_clones:0 "Replicant"
+trait_clones_desc:0 "§LHeavy use of cloning has almost completely degraded this species' natural fertility.§!\n"

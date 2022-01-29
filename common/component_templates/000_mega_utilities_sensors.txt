@@ -1,0 +1,92 @@
+@hit2 = 5
+@hit3 = 10
+@hit4 = 15
+@hit5 = 20
+@hit6 = 25
+
+@cost1 = 2
+@cost2 = 4
+@cost3 = 6
+@cost4 = 8
+@cost5 = 10
+
+@power1 = -5
+@power2 = -10
+@power3 = -15
+@power4 = -20
+@power5 = -25
+
+@sensor1 = 1
+@sensor2 = 2
+@sensor3 = 3
+@sensor4 = 4
+@sensor5 = 5
+
+@hyperlane1 = 2
+@hyperlane2 = 3
+@hyperlane3 = 4
+@hyperlane4 = 5
+@hyperlane5 = 6
+
+utility_component_template = {
+	key = "SENSOR_5"
+	size = medium
+	icon = "GFX_ship_part_sensor_4"
+	icon_frame = 1
+	power = @power5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost4
+			sr_zro = 0.056
+		}
+	}
+	sensor_range = @sensor5
+	hyperlane_range = @hyperlane5
+	
+	modifier = {
+		ship_evasion_mult = 0.05
+	}
+	ship_modifier = {
+		ship_tracking_add = @hit5
+	}
+	
+	prerequisites = { "tech_sensors_5" }
+	component_set = "sensor_components"
+	
+	ai_weight = {
+		weight = 5000
+		modifier = {
+			factor = 2
+			is_spiritualist = yes
+		}
+	}	
+}
+
+utility_component_template = {
+	key = "SENSOR_FE"
+	size = medium
+	icon = "GFX_ship_part_sensor_4"
+	icon_frame = 1
+	power = @power5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost4
+			sr_dark_matter = 0.056
+		}
+	}
+	sensor_range = @sensor5
+	hyperlane_range = @hyperlane5
+	
+	ship_modifier = {
+		ship_tracking_add = @hit6
+	}
+	
+	prerequisites = { "tech_sensors_FE" }
+	component_set = "sensor_components"
+	
+	ai_weight = {
+		weight = 5000
+	}
+}

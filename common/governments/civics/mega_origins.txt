@@ -1,0 +1,63 @@
+origin_clones = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_clones.dds"
+	picture = GFX_evt_clones
+	max_once_global = yes
+
+	potential = {
+		always = yes
+	}
+
+	possible = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+	}
+
+	random_weight = {
+		base = 5
+	}
+	
+	modifier = { job_cloning_tech_add = 1 }
+	
+	description = "origin_tooltip_clones_effects"
+	#flags = { custom_start_screen }
+	
+	traits = {
+		trait = trait_clones
+	}
+
+	advanced_start = yes
+}
+
+origin_hive_queen = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_hive_queen.dds"
+	picture = GFX_evt_hive_queen
+	max_once_global = yes
+
+	potential = {
+		always = yes
+	}
+
+	possible = {
+		authority = { value = auth_hive_mind }	
+	}
+
+	random_weight = {
+		base = 5
+	}
+	
+	modifier = {
+		job_hive_queen_add = 1
+		ruler_skill_levels = 1
+		governor_skill_levels = 1
+	}
+	
+	description = "origin_tooltip_hive_queen_effects"
+	#flags = { custom_start_screen }
+
+	advanced_start = yes
+}

@@ -1,0 +1,975 @@
+############################
+#
+# Expanded Megastructure Events
+#
+############################
+
+namespace = megamegaexpanded
+
+### Habitats ###
+# add specialization
+planet_event = {
+	id = megamegaexpanded.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_planet_class = pc_habitat
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				num_districts = { type = district_hab_science value > 3 }
+				NOT = { has_deposit = d_hab_science }
+			}
+			add_deposit = d_hab_science
+		}
+		if = {
+			limit = {
+				NOT = { num_districts = { type = district_hab_science value > 3 } }
+				has_deposit = d_hab_science
+			}
+			remove_deposit = d_hab_science
+		}
+		if = {
+			limit = {
+				OR = {
+					num_districts = { type = district_hab_commercial value > 3 }
+					num_districts = { type = district_starborn_hab_commercial value > 3 }
+				}
+				NOT = { has_deposit = d_hab_trade }
+			}
+			add_deposit = d_hab_trade
+		}
+		if = {
+			limit = {
+				NOR = {
+					num_districts = { type = district_hab_commercial value > 3 }
+					num_districts = { type = district_starborn_hab_commercial value > 3 }
+				}
+				has_deposit = d_hab_trade
+			}
+			remove_deposit = d_hab_trade
+		}
+		if = {
+			limit = {
+				OR = {
+					num_districts = { type = district_hab_mining value > 3 }
+					num_districts = { type = district_starborn_starting_scavenger value > 3 }
+				}
+				NOT = { has_deposit = d_hab_minerals }
+			}
+			add_deposit = d_hab_minerals
+		}
+		if = {
+			limit = {
+				NOR = {
+					num_districts = { type = district_hab_mining value > 3 }
+					num_districts = { type = district_starborn_starting_scavenger value > 3 }
+				}
+				has_deposit = d_hab_minerals
+			}
+			remove_deposit = d_hab_minerals
+		}
+		if = {
+			limit = {
+				OR = {
+					num_districts = { type = district_hab_energy value > 3 }
+					num_districts = { type = district_starborn_starting_solar value > 3 }
+				}
+				NOT = { has_deposit = d_hab_energy }
+			}
+			add_deposit = d_hab_energy
+		}
+		if = {
+			limit = {
+				NOR = {
+					num_districts = { type = district_hab_energy value > 3 }
+					num_districts = { type = district_starborn_starting_solar value > 3 }
+				}
+				has_deposit = d_hab_energy
+			}
+			remove_deposit = d_hab_energy
+		}
+		if = {
+			limit = {
+				num_districts = { type = district_hab_industrial value > 3 }
+				NOT = { has_deposit = d_hab_foundry }
+			}
+			add_deposit = d_hab_foundry
+		}
+		if = {
+			limit = {
+				NOT = { num_districts = { type = district_hab_industrial value > 3 } }
+				has_deposit = d_hab_foundry
+			}
+			remove_deposit = d_hab_foundry
+		}
+		if = {
+			limit = {
+				OR = {
+					num_districts = { type = district_hab_cultural value > 3 }
+					num_districts = { type = district_hab_coordination value > 3 }
+				}
+				NOT = { has_deposit = d_hab_unity }
+			}
+			add_deposit = d_hab_unity
+		}
+		if = {
+			limit = {
+				NOR = {
+					num_districts = { type = district_hab_cultural value > 3 }
+					num_districts = { type = district_hab_coordination value > 3 }
+				}
+				has_deposit = d_hab_unity
+			}
+			remove_deposit = d_hab_unity
+		}
+	}
+}
+
+### Psionic ###
+# Avatar Project
+country_event = {
+	id = megamegaexpanded.10
+	title = "megamegaexpanded.10.name"
+	desc = "megamegaexpanded.10.desc"
+	picture = GFX_evt_psionics
+	show_sound = event_psionic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Shroud Incursion
+country_event = {
+	id = megamegaexpanded.11
+	title = "megamegaexpanded.11.name"
+	desc = "megamegaexpanded.11.desc"
+	picture = GFX_evt_psionics
+	show_sound = event_psionic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = utopia.3024.a
+	}
+}
+
+# Shroud Avatar Banished (HIDDEN)
+fleet_event = {
+	id = megamegaexpanded.12
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_fleet_flag = corrupted_avatar
+	}
+	
+	immediate = {
+		fromfrom = {
+			country_event = { id = utopia.3026 }
+		}
+		destroy_fleet = this
+	}
+}
+
+ship_event = {
+	id = megamegaexpanded.13
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_ship_flag = shroud_ship
+		FROM = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+					is_country_type = lost_empire
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		FROM = { owner = { country_event = { id = megamegaexpanded.14 } } }
+	}
+}
+
+country_event = {
+	id = megamegaexpanded.14
+	title = "megamegaexpanded.14.name"
+	desc = "megamegaexpanded.14.desc"
+	picture = GFX_evt_psionics
+	show_sound = event_psionic
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_fleet = {
+			name = "NAME_Psionic_Avatar"
+			settings = { 
+				can_upgrade = no 
+				can_change_composition = no 
+				spawn_debris = no
+			}			
+			effect = {
+				set_owner = ROOT
+				create_ship = {
+					name = "NAME_Avatar"
+					design = "NAME_Shroud_Avatar"
+					prefix = no
+					upgradable = no
+				}
+				set_location = {
+					target = from
+					distance = 0
+					angle = 0
+				}
+			}
+		}
+		from = {
+			fleet = { destroy_fleet = this }
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = megamegaexpanded.15
+	title = "megamegaexpanded.15.name"
+	desc = "megamegaexpanded.15.desc"
+	picture = GFX_evt_alien_segregation
+	show_sound = event_mystic_reveal
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = UNFORTUNATE
+	}
+}
+
+country_event = {
+	id = megamegaexpanded.16
+	title = "megamegaexpanded.16.name"
+	desc = "megamegaexpanded.16.desc"
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = DISCONCERTING
+		custom_tooltip = megamegaexpanded.16.tooltip
+	}
+}
+
+# Whisperers - Secrets
+country_event = {
+	id = megamegaexpanded.17
+	title = "megamegaexpanded.17.name"
+	desc = "megamegaexpanded.17.desc"
+	picture = GFX_evt_arguing_senate
+	show_sound = event_psionic
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_relation = {
+			limit = {
+				has_communications = root
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+					is_country_type = lost_empire
+				}
+			}
+			save_event_target_as = whispered_targer_1
+		}
+		random_relation = {
+			limit = {
+				has_communications = root
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+					is_country_type = lost_empire
+				}
+				NOT = { is_same_value = event_target:whispered_targer_1 }
+			}
+			save_event_target_as = whispered_targer_2
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+		if = {
+			limit = { is_homicidal = yes }
+			add_resource = { influence = 200 }
+		}
+		else = {
+			add_favors = {
+				target = event_target:whispered_targer_1
+				value = 1
+			}
+			add_favors = {
+				target = event_target:whispered_targer_2
+				value = 1
+			}
+		}
+		add_intel = {
+			amount = 20
+			who = event_target:whispered_targer_1
+		}
+		add_intel = {
+			amount = 20
+			who = event_target:whispered_targer_2
+		}
+	}
+}
+
+# Whisperers - Secrets
+country_event = {
+	id = megamegaexpanded.18
+	title = "megamegaexpanded.17.name"
+	desc = "megamegaexpanded.18.desc"
+	picture = GFX_evt_ancient_databank
+	show_sound = event_psionic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		locked_random_list = {
+			5 = {
+				add_monthly_resource_mult = {
+                    resource = physics_research
+                    value = @tier4researchreward
+                    min = @tier4researchmin
+                    max = @tier4researchmax
+                }
+			}
+			5 = {
+				add_monthly_resource_mult = {
+                    resource = society_research
+                    value = @tier4researchreward
+                    min = @tier4researchmin
+                    max = @tier4researchmax
+                }
+			}
+			5 = {
+				add_monthly_resource_mult = {
+                    resource = engineering_research
+                    value = @tier4researchreward
+                    min = @tier4researchmin
+                    max = @tier4researchmax
+                }
+			}
+			1 = {
+				add_monthly_resource_mult = {
+                    resource = physics_research
+                    value = @tier5researchreward
+                    min = @tier5researchmin
+                    max = @tier5researchmax
+                }
+			}
+			1 = {
+				add_monthly_resource_mult = {
+                    resource = society_research
+                    value = @tier5researchreward
+                    min = @tier5researchmin
+                    max = @tier5researchmax
+                }
+			}
+			1 = {
+				add_monthly_resource_mult = {
+                    resource = engineering_research
+                    value = @tier5researchreward
+                    min = @tier5researchmin
+                    max = @tier5researchmax
+                }
+			}
+		}
+	}
+}
+
+# Whisperers - Suicide
+country_event = {
+	id = megamegaexpanded.19
+	title = "megamegaexpanded.19.name"
+	desc = "megamegaexpanded.19.desc"
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_leader = {
+			has_trait = "leader_trait_scientist_psionic"
+		}
+	}
+	
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				has_trait = "leader_trait_scientist_psionic"
+			}
+			save_event_target_as = leader_target
+		}
+	}
+	
+	option = {
+		name = CURIOUS
+		event_target:leader_target = {
+			kill_leader = { show_notification = no }
+		}
+		add_random_research_option = {
+			add_progress = 0.25
+			ignore_prereqs = no
+			fail_effects = {
+				add_monthly_resource_mult = {
+					resource = physics_research
+					value = @tier3researchreward
+					min = @tier3researchmin
+					max = @tier3researchmax
+				}
+				add_monthly_resource_mult = {
+					resource = society_research
+					value = @tier3researchreward
+					min = @tier3researchmin
+					max = @tier3researchmax
+				}
+				add_monthly_resource_mult = {
+					resource = engineering_research
+					value = @tier3researchreward
+					min = @tier3researchmin
+					max = @tier3researchmax
+				}
+			}
+		}
+	}
+}
+
+# Whisperers - Sensors
+country_event = {
+	id = megamegaexpanded.20
+	title = "megamegaexpanded.20.name"
+	desc = "megamegaexpanded.20.desc"
+	picture = GFX_evt_unidentified_monster
+	show_sound = event_psionic
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_leader = {
+			has_trait = "leader_trait_scientist_psionic"
+			NOT = { has_trait = "leader_trait_scientist_psionic" }
+		}
+		NOT = { has_country_flag = whisper_sensors }
+		NOT = { has_modifier = whisper_sensors }
+	}
+	
+	immediate = {
+		set_country_flag = whisper_sensors
+	}
+	
+	after = {
+		random_owned_leader = {
+			limit = {
+				has_trait = "leader_trait_scientist_psionic"
+				NOT = { has_trait = "leader_trait_paranoid" }
+			}
+			add_trait = "leader_trait_paranoid"
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+		add_modifier = { modifier = "whisper_sensors" days = -1 }
+	}
+}
+
+# Whisperers - Corrupt
+country_event = {
+	id = megamegaexpanded.21
+	title = "megamegaexpanded.21.name"
+	desc = "megamegaexpanded.21.desc"
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_leader = {
+			has_trait = "leader_trait_governor_psionic"
+			NOT = { has_trait = "leader_trait_corrupt" }
+			NOT = { has_trait = "leader_trait_righteous" }
+		}
+	}
+	
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				has_trait = "leader_trait_governor_psionic"
+				NOT = { has_trait = "leader_trait_corrupt" }
+				NOT = { has_trait = "leader_trait_righteous" }
+			}
+			save_event_target_as = leader_target
+		}
+	}
+	
+	option = {
+		name = "utopia.3331.opt.a"
+		event_target:leader_target = {
+			add_trait = "leader_trait_corrupt"
+		}
+	}
+}
+
+# Whisperers - Paranoia
+country_event = {
+	id = megamegaexpanded.22
+	title = "megamegaexpanded.22.name"
+	desc = "megamegaexpanded.22.desc"
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_leader = {
+			has_trait = "leader_trait_scientist_psionic"
+			NOT = { has_trait = "leader_trait_paranoid" }
+		}
+	}
+	
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				has_trait = "leader_trait_scientist_psionic"
+				NOT = { has_trait = "leader_trait_paranoid" }
+			}
+			save_event_target_as = leader_target
+		}
+	}
+	
+	after = {
+		event_target:leader_target = {
+			add_trait = "leader_trait_paranoid"
+		}
+	}
+	
+	option = {
+		name = "utopia.3331.opt.a"
+	}
+}
+
+# Whisperers - Nervous
+country_event = {
+	id = megamegaexpanded.23
+	title = "megamegaexpanded.23.name"
+	desc = "megamegaexpanded.23.desc"
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_leader = {
+			has_trait = "leader_trait_admiral_psionic"
+			NOT = { has_trait = "leader_trait_nervous" }
+			NOT = { has_trait = "leader_trait_unyielding" }
+			NOT = { has_trait = "leader_trait_cautious" }
+			NOT = { has_trait = "leader_trait_foredoomed_to_a_rendezvous" }
+		}
+	}
+	
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				has_trait = "leader_trait_admiral_psionic"
+				NOT = { has_trait = "leader_trait_nervous" }
+				NOT = { has_trait = "leader_trait_unyielding" }
+				NOT = { has_trait = "leader_trait_cautious" }
+				NOT = { has_trait = "leader_trait_foredoomed_to_a_rendezvous" }
+			}
+			save_event_target_as = leader_target
+		}
+	}
+	
+	option = {
+		name = "utopia.3331.opt.a"
+		event_target:leader_target = {
+			add_trait = "leader_trait_nervous"
+		}
+	}
+}
+
+# Whisperers - Armchair
+country_event = {
+	id = megamegaexpanded.24
+	title = "megamegaexpanded.23.name"
+	desc = "megamegaexpanded.23.desc"
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_leader = {
+			has_trait = "leader_trait_general_psionic"
+			NOT = { has_trait = "leader_trait_armchair_commander" }
+			NOT = { has_trait = "leader_trait_glory_seeker" }
+			NOT = { has_trait = "leader_trait_butcher" }
+			NOT = { has_trait = "leader_trait_restrained" }
+		}
+	}
+	
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				has_trait = "leader_trait_general_psionic"
+				NOT = { has_trait = "leader_trait_armchair_commander" }
+				NOT = { has_trait = "leader_trait_glory_seeker" }
+				NOT = { has_trait = "leader_trait_butcher" }
+				NOT = { has_trait = "leader_trait_restrained" }
+			}
+			save_event_target_as = leader_target
+		}
+	}
+	
+	option = {
+		name = "utopia.3331.opt.a"
+		event_target:leader_target = {
+			add_trait = "leader_trait_armchair_commander"
+		}
+	}
+}
+
+# Whisperers - Improvements
+country_event = {
+	id = megamegaexpanded.25
+	title = "megamegaexpanded.25.name"
+	desc = "megamegaexpanded.25.desc"
+	picture = GFX_evt_psionics
+	show_sound = event_psionic
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_leader = {
+			OR = {
+				has_trait = leader_trait_admiral_chosen
+				has_trait = leader_trait_general_chosen
+				has_trait = leader_trait_governor_chosen
+				has_trait = leader_trait_ruler_chosen
+				has_trait = leader_trait_scientist_chosen
+				has_trait = leader_trait_admiral_psionic
+				has_trait = leader_trait_general_psionic
+				has_trait = leader_trait_governor_psionic
+				has_trait = leader_trait_ruler_psionic
+				has_trait = leader_trait_scientist_psionic
+			}
+			has_level < 10
+			num_traits < 4
+		}
+	}
+	
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				OR = {
+					has_trait = leader_trait_admiral_chosen
+					has_trait = leader_trait_general_chosen
+					has_trait = leader_trait_governor_chosen
+					has_trait = leader_trait_ruler_chosen
+					has_trait = leader_trait_scientist_chosen
+					has_trait = leader_trait_admiral_psionic
+					has_trait = leader_trait_general_psionic
+					has_trait = leader_trait_governor_psionic
+					has_trait = leader_trait_ruler_psionic
+					has_trait = leader_trait_scientist_psionic
+				}
+				has_level < 10
+				num_traits < 4
+			}
+			save_event_target_as = leader_target
+		}
+	}
+	
+	option = {
+		name = "EXCELLENT"
+		event_target:leader_target = {
+			if = {
+				limit = { has_level < 6 }
+				add_skill = 2
+			}
+			else = {
+				add_skill = 1
+			}
+			hidden_effect = { add_random_leader_trait = yes }
+		}
+	}
+}
+
+# Composer - Half-Species
+country_event = {
+	id = megamegaexpanded.26
+	title = "megamegaexpanded.26.name"
+	desc = "megamegaexpanded.26.desc"
+	picture = GFX_evt_psionics
+	show_sound = event_psionic
+	location = root
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_megacorp = yes
+		is_xenophobe = no
+		any_owned_planet = {
+			count_species = {
+				count >= 2
+				limit = {
+					has_trait = trait_psionic
+					is_crossbreeding_possible = yes
+					NOT = { has_citizenship_type = { type = citizenship_slavery country = ROOT } }
+					NOT = { has_citizenship_type = { type = citizenship_purge country = ROOT } }
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_owned_planet = {
+			limit = {
+				count_species = {
+					count >= 2
+					limit = {
+						has_trait = trait_psionic
+						is_crossbreeding_possible = yes
+						NOT = { has_citizenship_type = { type = citizenship_slavery country = ROOT } }
+						NOT = { has_citizenship_type = { type = citizenship_purge country = ROOT } }
+					}
+				}
+			}
+			save_event_target_as = composer_half_species_planet
+			random_owned_pop = {
+				limit = {
+					species = {
+						has_trait = trait_psionic
+						is_crossbreeding_possible = yes
+						NOT = { has_citizenship_type = { type = citizenship_slavery country = ROOT } }
+						NOT = { has_citizenship_type = { type = citizenship_purge country = ROOT } }
+					}
+				}
+				save_event_target_as = composer_half_species_one
+			}
+			random_owned_pop = {
+				limit = {
+					species = {
+						has_trait = trait_psionic
+						is_crossbreeding_possible = yes
+						NOT = { has_citizenship_type = { type = citizenship_slavery country = ROOT } }
+						NOT = { has_citizenship_type = { type = citizenship_purge country = ROOT } }
+						NOT = { is_same_species = event_target:composer_half_species_one.species }
+					}
+				}
+				save_event_target_as = composer_half_species_two
+			}
+			create_half_species = { species_one = event_target:composer_half_species_one.species species_two = event_target:composer_half_species_two.species }
+			create_pop = {
+				species = last_created_species
+			}
+		}
+	}
+	
+	option = {
+		name = "cara.4041.phile"
+		trigger = { is_xenophile = yes }
+		tooltip = {
+			event_target:composer_half_species_planet = {
+				create_pop = {
+					species = last_created_species
+				}
+			}
+		}
+	}
+	option = {
+		name = "cara.4041.a"
+		trigger = { is_xenophile = no }
+		tooltip = {
+			event_target:composer_half_species_planet = {
+				create_pop = {
+					species = last_created_species
+				}
+			}
+		}
+	}
+}
+# Composer - Advanced Trait
+country_event = {
+	id = megamegaexpanded.27
+	title = "megamegaexpanded.27.name"
+	desc = "megamegaexpanded.27.desc"
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	location = root
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_owned_planet = {
+			limit = {
+				any_owned_pop = {
+					has_trait = trait_psionic
+					NOR = {
+						has_trait = trait_fertile
+						has_trait = trait_robust
+						has_trait = trait_erudite
+					}
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					has_trait = trait_psionic
+					NOR = {
+						has_trait = trait_fertile
+						has_trait = trait_robust
+						has_trait = trait_erudite
+					}
+				}
+				save_event_target_as = species_target
+			}		
+		}
+	}
+	
+	option = {
+		name = "utopia.3341.opt.a"
+		if = {
+			limit = {
+				event_target:species_target = { is_lithoid = yes }
+			}
+			custom_tooltip = megamegaexpanded.27.erudite.tooltip
+			hidden_effect = {
+				every_owned_pop = {
+					limit = { is_same_species = event_target:species_target.species }
+					modify_species = {
+						species = event_target:species_target.species
+						remove_trait = trait_intelligent
+						remove_trait = trait_uninventive
+						add_trait = trait_erudite
+					}
+				}
+			}
+		}
+		else = {
+			locked_random_list = {
+				33 = {
+					modifier = {
+						factor = 0
+						event_target:species_target = {
+							OR = {
+								has_trait = trait_fungal_colony
+								has_trait = trait_plantoid_budding
+								has_trait = trait_clones
+							}
+						}
+					}
+					custom_tooltip = megamegaexpanded.27.fertile.tooltip
+					hidden_effect = {
+						every_owned_pop = {
+							limit = { is_same_species = event_target:species_target.species }
+							modify_species = {
+								species = event_target:species_target.species
+								remove_trait = trait_slow_breeders
+								remove_trait = trait_rapid_breeders
+								add_trait = trait_fertile
+							}
+						}
+					}
+				}
+				33 = {
+					custom_tooltip = megamegaexpanded.27.robust.tooltip
+					hidden_effect = {
+						every_owned_pop = {
+							limit = { is_same_species = event_target:species_target.species }
+							modify_species = {
+								species = event_target:species_target.species
+								remove_trait = trait_nonadaptive
+								remove_trait = trait_adaptive
+								remove_trait = trait_extremely_adaptive
+								remove_trait = trait_endemic
+								add_trait = trait_robust
+							}
+						}
+					}
+				}
+				33 = {
+					custom_tooltip = megamegaexpanded.27.erudite.tooltip
+					hidden_effect = {
+						every_owned_pop = {
+							limit = { is_same_species = event_target:species_target.species }
+							modify_species = {
+								species = event_target:species_target.species
+								remove_trait = trait_intelligent
+								remove_trait = trait_uninventive
+								add_trait = trait_erudite
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Whisperers: Coping Planet
+country_event = {
+	id = megamegaexpanded.28
+	title = "megamegaexpanded.28.name"
+	desc = "megamegaexpanded.28.desc"
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	location = event_target:whisper_abuse_planet
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_planet = {
+			NOT = { has_modifier = whisper_abuse }
+		}
+	}
+	
+	immediate = {
+		random_owned_planet = {
+			limit = { NOT = { has_modifier = whisper_abuse } }
+			save_event_target_as = whisper_abuse_planet
+			add_modifier = { modifier = whisper_abuse days = 3600 }
+		}
+	}
+	
+	option = {
+		name = "utopia.3331.opt.a"
+		tooltip = {
+			event_target:whisper_abuse_planet = {
+				add_modifier = { modifier = whisper_abuse days = 3600 }
+			}
+		}
+	}
+}

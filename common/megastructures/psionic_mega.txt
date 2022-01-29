@@ -1,0 +1,182 @@
+@phase_0_entity_x = -7
+@phase_0_entity_y = 0
+@entity_x = 0
+@entity_y = 0
+
+avatar_project = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = @phase_0_entity_x y = @phase_0_entity_y }
+	build_time = 720
+	
+	resources = {
+		category = megastructures
+		cost = {
+			energy = 4000
+		}
+	}
+	potential = {
+		has_modifier = covenant_eater_of_worlds
+	}
+	
+	ai_weight = {
+		factor = 100
+		modifier = {
+			factor = 1
+		}
+	}
+	
+	on_build_start = {}
+	on_build_cancel = {}
+	on_build_complete = {
+		random_list = {
+			90 = {
+				create_fleet = {
+					name = "NAME_Psionic_Avatar"
+					settings = { 
+						can_upgrade = no 
+						can_change_composition = no 
+						spawn_debris = no
+					}			
+					effect = {
+						set_owner = from
+						create_ship = {
+							name = "NAME_Avatar"
+							design = "NAME_Shroud_Avatar"
+							prefix = no
+							upgradable = no
+						}
+						set_location = {
+							target = fromfrom
+							distance = 0
+							angle = 0
+						}
+					}
+				}
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					from = { is_ai = yes }
+				}
+				if = {
+					limit = { NOT = { exists = event_target:shroud_country } }
+					create_country = {
+						name = "NAME_Creatures_of_the_Shroud"
+						type = shroud_spirits
+						flag = {
+							icon = {
+								category = "special"
+								file = "the_shroud.dds"
+							}
+							background= {
+								category = "backgrounds"
+								file = "00_solid.dds"
+							}
+							colors={
+								"dark_purple"
+								"black"
+								"null"
+								"null"
+							}
+						}
+					}
+					last_created_country = {
+						establish_communications_no_message = root
+						save_global_event_target_as = shroud_country
+					}
+				}
+				create_fleet = {
+					name = "NAME_Corrupted_Avatar"
+					settings = { 
+						can_upgrade = no 
+						can_change_composition = no 
+						spawn_debris = no
+					}			
+					effect = {
+						set_owner = event_target:shroud_country
+						set_fleet_flag = corrupted_avatar
+						create_ship = {
+							name = "NAME_Corrupted_Avatar"
+							design = "NAME_Corrupted_Avatar"
+							prefix = no
+							upgradable = no
+							effect = {
+								set_ship_flag = shroud_ship
+								set_disable_at_health = 0.33
+							}
+						}
+						set_location = {
+							target = fromfrom
+							distance = 0
+							angle = 0
+						}
+						set_fleet_stance = aggressive
+						set_aggro_range_measure_from = return_point
+						set_aggro_range = 300
+					}
+				}
+				last_created_fleet = { # Despawn if enough time passes without being destroyed
+					fleet_event = { id = megamegaexpanded.12 days = 3600 }
+				}
+			}
+		}
+		remove_megastructure = fromfrom
+	}
+}
+
+avatar_project_end = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = @phase_0_entity_x y = @phase_0_entity_y }
+	build_time = 180
+	
+	resources = {
+		category = megastructures
+		cost = {
+			energy = 3000
+		}
+	}
+	potential = {
+		has_modifier = covenant_end_of_the_cycle
+	}
+	
+	ai_weight = {
+		factor = 100
+		modifier = {
+			factor = 1
+		}
+	}
+	
+	on_build_start = {}
+	on_build_cancel = {}
+	on_build_complete = {
+		create_fleet = {
+			name = "NAME_Psionic_Avatar"
+			settings = { 
+				can_upgrade = no 
+				can_change_composition = no 
+				spawn_debris = no
+			}			
+			effect = {
+				set_owner = from
+				create_ship = {
+					name = "NAME_Avatar"
+					design = "NAME_Shroud_Avatar"
+					prefix = no
+					upgradable = no
+				}
+				set_location = {
+					target = fromfrom
+					distance = 0
+					angle = 0
+				}
+			}
+		}
+		remove_megastructure = fromfrom
+	}
+}

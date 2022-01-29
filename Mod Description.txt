@@ -1,0 +1,19 @@
+A mod designed to improve the desirability of megastructures, as well as add new many technologies. Please see the discussion post for a full list of features.
+
+[b]Main Features Include:[/b]
+New and better districts for Habitats and City Worlds
+Better Gaia, Hive, and Machine Worlds
+Cloning Vats more readily available (but nerfed without the Engineered Evolution perk)
+New cloning-related origin
+Create a synthetic lifeform
+Improved Motes, Crystal, and Gas job techs
+Zro, Dark Matter, Living Metal manufacturing techs
+Improved Shroud Covenants
+A long list of other new technologies
+
+[h1]Available Comp Patches[/h1]
+Real Space Scaling (Hard): https://steamcommunity.com/sharedfiles/filedetails/?id=2374803433
+
+[h1]Donations[/h1]
+[url=https://www.patreon.com/user?u=32677412] [img]https://c5.patreon.com/external/logo/become_a_patron_button@2x.png[/img] [/url]
+I have recently launched a [url=https://www.patreon.com/user?u=32677412]patreon[/url] page. I have a lot of future plans for my mods, but they will rely on your support to see fruition. I'm not planning on delaying releases for non-patreons or anything like that, but my patreons will get behind the scenes looks into upcoming content. If you enjoy my mods, I hope you consider donating a little.

@@ -1,0 +1,628 @@
+@attack_range = 10
+@engagement_range = 100
+@launch_time = 1.5
+@count = 8
+@regen = 1
+
+# ####################
+#  Large
+# ####################
+
+# Anti-Hull
+weapon_component_template = {
+	key = "MINI_ART_EMITTER"
+
+	size = large
+	entity = "invisible_turret_entity"
+	type = instant
+	icon = "GFX_ship_part_mini_arc_emitter"
+	icon_frame = 1
+	projectile_gfx = "arc_emitter"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_hull }
+	ai_tag_weight = 3
+	
+	component_set = "MINI_ART_EMITTER_CAT"
+	prerequisites = { "tech_mini_arc_emitter_1" }
+	power = -65
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t5_cost
+			rare_crystals = @l_t5_rare
+		}		
+		upkeep = {
+			energy = @l_t5_upkeep_energy
+			alloys = @l_t5_upkeep_alloys
+		}
+	}
+	
+	damage = { min = 1 max = 255 }
+	windup = { min = 19 max = 50 }
+	total_fire_time = 50
+	
+	range = 70.0
+	accuracy = 1.0
+	tracking = 0.3
+	
+	hull_damage = 1.0
+	shield_damage = 1.0
+	shield_penetration = 1.0
+	armor_damage = 1.0
+	armor_penetration = 1.0
+}
+
+# ####################
+#  Critter Weapons
+# ####################
+
+### Whale Weapon
+weapon_component_template = {
+	key = "SPACE_WHALE_WEAPON"
+
+	size = small
+	entity = "small_space_whale_weapon_entity"
+	type = instant
+	icon = "GFX_ship_part_space_whale_weapon_1"
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+		
+	component_set = "SPACE_WHALE_WEAPON_1"
+	prerequisites = { "tech_space_whale_weapon_1" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 10
+			food = 10
+		}
+	}
+	upgrades_to = "SPACE_WHALE_WEAPON_2"
+}
+weapon_component_template = {
+	key = "SPACE_WHALE_WEAPON_2"
+
+	size = small
+	entity = "small_space_whale_weapon_entity"
+	type = instant
+	icon = "GFX_ship_part_space_whale_weapon_2"
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+		
+	component_set = "SPACE_WHALE_WEAPON_2_CAT"
+	prerequisites = { "tech_space_whale_weapon_2" }
+	
+	power = -20
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 15
+			food = 15
+		}
+	}
+	
+	damage = { min = 18 max = 38 }
+	windup = { min = 1.0 max = 19 }
+	total_fire_time = 30
+	
+	range = 50.0
+	accuracy = 0.75
+	tracking = 0.5
+	
+	hull_damage = 1.00
+	shield_damage = 2.00
+	shield_penetration = 0
+	armor_damage = 0.25
+	armor_penetration = 0
+}
+
+strike_craft_component_template = {
+	key = "AMOEBA_STRIKE_CRAFT"
+
+	size = LARGE
+	entity = "space_amoeba_small_entity"
+	power = -30
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 30
+			food = 30
+		}
+	}
+
+	count = @count
+	regeneration_per_day = @regen
+	launch_time = @launch_time
+
+	damage = { min = 20 max = 30 }
+	cooldown = 5
+	range = @attack_range
+	engagement_range = @engagement_range
+	accuracy = 0.70
+	tracking = 0.50
+
+	health = 50
+	armor = 0
+	shield = 0
+	evasion = 0.50
+
+	speed = 500
+	rotation_speed = 0.8
+	acceleration = 1
+
+	shield_damage = 1.0
+	shield_penetration = 1
+	armor_damage = 1.5
+
+	ship_behavior = "bombers_behavior"
+
+	weapon_type = instant # Not PD, unlike other strike craft
+	projectile_gfx = "small_space_amoeba_weapon"
+
+	component_set = "AMOEBA_STRIKE_CRAFT_1"
+	prerequisites = { "tech_amoeba_strike_craft_1" }
+
+	icon = "GFX_ship_part_amoeba_strike_craft_1"
+	icon_frame = 1
+	tags = { weapon_type_strike_craft }
+	ai_tags = { weapon_role_anti_shield }
+}
+
+# Standard Scourge Missile
+weapon_component_template = {
+	key = "LARGE_SCOURGE_MISSILE_1"
+	size = torpedo
+	entity = "turret_missile_large_entity"
+	
+	icon = "GFX_ship_part_scourge_missile_1"
+	icon_frame = 1
+	type = missile
+	
+	prerequisites = { "tech_scourge_missile_1" }
+	component_set = "SCOURGE_MISSILE_1"
+	projectile_gfx = "scourge_missile"
+	tags = { weapon_type_explosive }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 45
+			food = 40
+		}
+	}
+}
+
+#######################
+#  Critter Weapons - Mining Drones
+#######################
+
+weapon_component_template = {
+	key = "SMALL_MINING_LASER"
+	
+	size = small
+	entity = "small_mining_drone_weapon_entity"
+	type = instant
+	icon = "GFX_ship_part_mining_drone_laser_1"
+	icon_frame = 1
+	projectile_gfx = "gamma_laser_s"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor }
+	
+	component_set = "MINING_DRONE_LASER_1"
+	prerequisites = { "tech_mining_drone_weapon_1" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t2_cost
+		}		
+		upkeep = {
+			energy = @s_t2_upkeep_energy
+			alloys = @s_t2_upkeep_alloys
+		}
+	}
+	upgrades_to = "SMALL_MINING_LASER_2"
+}
+
+weapon_component_template = {
+	key = "MEDIUM_MINING_LASER"
+	
+	size = medium
+	entity = "medium_mining_drone_weapon_entity"
+	type = instant
+	icon = "GFX_ship_part_mining_drone_laser_1"
+	icon_frame = 1
+	projectile_gfx = "gamma_laser_m"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor }
+	
+	component_set = "MINING_DRONE_LASER_1"
+	prerequisites = { "tech_mining_drone_weapon_1" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t2_cost
+		}		
+		upkeep = {
+			energy = @m_t2_upkeep_energy
+			alloys = @m_t2_upkeep_alloys
+		}
+	}
+	upgrades_to = "MEDIUM_MINING_LASER_2"
+}
+
+#######################
+#  Critter Weapons - Mining Drills
+#######################
+
+weapon_component_template = {
+	key = "SMALL_MINING_LASER_2"
+	
+	size = small
+	entity = "small_mining_drone_weapon_entity"
+	type = instant
+	icon = "GFX_ship_part_mining_drone_laser_1"
+	icon_frame = 1
+	projectile_gfx = "gamma_laser_s"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor }
+	
+	component_set = "MINING_DRONE_LASER_2"
+	prerequisites = { "tech_mining_drone_weapon_2" }
+	power = -13
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t4_cost
+			rare_crystals = @s_t4_rare
+		}		
+		upkeep = {
+			energy = @s_t4_upkeep_energy
+			alloys = @s_t4_upkeep_alloys
+		}
+	}
+	
+	damage = { min = 14 max = 33 }
+	windup = { min = 1 max = 19 }
+	total_fire_time = 30
+	
+	range = 30.0
+	accuracy = 0.75
+	tracking = 0.4
+	
+	hull_damage = 1.75
+	shield_damage = 0.5
+	shield_penetration = 0
+	armor_damage = 1.25
+	armor_penetration = 0
+}
+
+weapon_component_template = {
+	key = "MEDIUM_MINING_LASER_2"
+	
+	size = medium
+	entity = "medium_mining_drone_weapon_entity"
+	type = instant
+	icon = "GFX_ship_part_mining_drone_laser_1"
+	icon_frame = 1
+	projectile_gfx = "gamma_laser_m"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor }
+	
+	component_set = "MINING_DRONE_LASER_2"
+	prerequisites = { "tech_mining_drone_weapon_2" }
+	power = -23
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t4_cost
+			rare_crystals = @m_t4_rare
+		}		
+		upkeep = {
+			energy = @m_t4_upkeep_energy
+			alloys = @m_t4_upkeep_alloys
+		}
+	}
+	
+	damage = { min = 35 max = 91 }
+	windup = { min = 1 max = 19 }
+	total_fire_time = 30
+	
+	range = 60.0
+	accuracy = 0.75
+	tracking = 0.4
+	
+	hull_damage = 1.75
+	shield_damage = 0.5
+	shield_penetration = 0
+	armor_damage = 1.25
+	armor_penetration = 0
+}
+
+### Standard Cloud Weapon
+
+weapon_component_template = {
+	key = "SPACE_CLOUD_LIGHTNING"
+
+	size = large
+	entity = "large_space_cloud_weapon_entity"
+	type = instant
+	icon = "GFX_ship_part_space_cloud_weapon_1"
+	icon_frame = 1
+	projectile_gfx = "arc_emitter"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_hull }
+	
+	component_set = "SPACE_CLOUD_WEAPON_1"
+	prerequisites = { "tech_space_cloud_weapon_1" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t3_cost
+		}		
+		upkeep = {
+			energy = @s_t3_upkeep_energy
+			alloys = @s_t3_upkeep_alloys
+		}
+	}
+	upgrades_to = "SPACE_CLOUD_LIGHTNING_2"
+}
+
+weapon_component_template = {
+	key = "SPACE_CLOUD_LIGHTNING_2"
+
+	size = large
+	entity = "large_space_cloud_weapon_entity"
+	type = instant
+	icon = "GFX_ship_part_space_cloud_weapon_2"
+	icon_frame = 1
+	projectile_gfx = "arc_emitter"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_hull }
+	
+	component_set = "SPACE_CLOUD_WEAPON_2"
+	prerequisites = { "tech_space_cloud_weapon_2" }
+	power = -65
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t5_cost
+			exotic_gases = @m_t5_rare
+		}		
+		upkeep = {
+			energy = @s_t5_upkeep_energy
+			alloys = @s_t5_upkeep_alloys
+		}
+	}
+	
+	damage = { min = 1 max = 201 }
+	windup = { min = 19 max = 50 }
+	total_fire_time = 50
+	
+	range = 60.0
+	accuracy = 1.0
+	tracking = 0.3
+	
+	hull_damage = 1.0
+	shield_damage = 1.0
+	shield_penetration = 1.0
+	armor_damage = 1.0
+	armor_penetration = 1.0
+}
+
+###################
+# Null void beam
+###################
+
+weapon_component_template = {
+	key = "SMALL_NV_WEAPON"
+
+	size = small
+	entity = "small_kinetic_gun_entity"
+	type = instant
+	icon = "GFX_ship_part_null_void_weapon" #
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	
+	component_set = "NULL_VOID"
+	prerequisites = { "null_void_beam" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t2_cost
+		}		
+		upkeep = {
+			energy = @s_t2_upkeep_energy
+			alloys = @s_t2_upkeep_alloys
+		}
+	}
+	upgrades_to = "SMALL_NV_WEAPON_2"
+}
+
+weapon_component_template = {
+	key = "MEDIUM_NV_WEAPON"
+
+	size = medium
+	entity = "medium_kinetic_gun_entity"
+	type = instant
+	icon = "GFX_ship_part_null_void_weapon"
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	
+	component_set = "NULL_VOID"
+	prerequisites = { "null_void_beam" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t2_cost
+		}		
+		upkeep = {
+			energy = @m_t2_upkeep_energy
+			alloys = @m_t2_upkeep_alloys
+		}
+	}
+	upgrades_to = "MEDIUM_NV_WEAPON_2"
+}
+
+weapon_component_template = {
+	key = "LARGE_NV_WEAPON"
+
+	size = large
+	entity = "large_kinetic_gun_entity"
+	type = instant
+	icon = "GFX_ship_part_null_void_weapon"
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	
+	component_set = "NULL_VOID"
+	prerequisites = { "null_void_beam" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t2_cost
+		}		
+		upkeep = {
+			energy = @l_t2_upkeep_energy
+			alloys = @l_t2_upkeep_alloys
+		}
+	}
+	upgrades_to = "LARGE_NV_WEAPON_2"
+}
+
+###################
+# Adv null void beam
+###################
+
+weapon_component_template = {
+	key = "SMALL_NV_WEAPON_2"
+
+	size = small
+	entity = "small_kinetic_gun_entity"
+	type = instant
+	icon = "GFX_ship_part_null_void_weapon_2"
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	
+	component_set = "NULL_VOID_2"
+	prerequisites = { "null_void_beam_2" }
+	power = -13
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t4_cost
+			rare_crystals = @s_t4_rare
+		}		
+		upkeep = {
+			energy = @s_t4_upkeep_energy
+			alloys = @s_t4_upkeep_alloys
+		}
+	}
+	damage = { min = 8 max = 20 }
+	windup = { min = 0 max = 18 }
+	total_fire_time = 35
+	
+	range = 60.0
+	accuracy = 0.9
+	tracking = 0.6
+	
+	hull_damage = 0.25
+	shield_damage = 5.00
+	shield_penetration = 0
+	armor_damage = 0.25
+	armor_penetration = 0
+}
+
+weapon_component_template = {
+	key = "MEDIUM_NV_WEAPON_2"
+
+	size = medium
+	entity = "medium_kinetic_gun_entity"
+	type = instant
+	icon = "GFX_ship_part_null_void_weapon_2"
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	
+	component_set = "NULL_VOID_2"
+	prerequisites = { "null_void_beam_2" }
+	power = -23
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t4_cost
+			rare_crystals = @m_t4_rare
+		}		
+		upkeep = {
+			energy = @m_t4_upkeep_energy
+			alloys = @m_t4_upkeep_alloys
+		}
+	}
+	
+	damage = { min = 18 max = 48 }
+	windup = { min = 0 max = 18 }
+	total_fire_time = 35
+	
+	range = 90.0
+	accuracy = 0.9
+	tracking = 0.3
+	
+	hull_damage = 0.25
+	shield_damage = 5.00
+	shield_penetration = 0
+	armor_damage = 0.25
+	armor_penetration = 0
+}
+
+weapon_component_template = {
+	key = "LARGE_NV_WEAPON_2"
+
+	size = large
+	entity = "large_kinetic_gun_entity"
+	type = instant
+	icon = "GFX_ship_part_null_void_weapon_2"
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	
+	component_set = "NULL_VOID_2"
+	prerequisites = { "null_void_beam_2" }
+	power = -45
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t4_cost
+			rare_crystals = @l_t4_rare
+		}		
+		upkeep = {
+			energy = @l_t4_upkeep_energy
+			alloys = @l_t4_upkeep_alloys
+		}
+	}
+	
+	damage = { min = 45 max = 118 }
+	windup = { min = 0 max = 18 }
+	total_fire_time = 35
+	
+	range = 90.0
+	accuracy = 0.9
+	tracking = 0.05
+	
+	hull_damage = 0.25
+	shield_damage = 5.00
+	shield_penetration = 0
+	armor_damage = 0.25
+	armor_penetration = 0
+}

@@ -1,0 +1,339 @@
+#############
+# Amenities buildings
+#############
+
+building_spawning_pool = {
+
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	category = pop_assembly
+	
+	potential = {
+		owner = { is_hive_empire = yes }
+		OR = {
+			num_buildings = { type = any value < 15 }
+			owner = { is_ai = no }
+		}
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_hive_empire = no }
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOT = { has_origin = origin_hive_queen }
+			}					
+		}
+		modifier = {
+			job_spawning_drone_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_hive_queen
+			}					
+		}
+		modifier = {
+			job_hive_queen_add = 1
+			planet_pop_assembly_organic_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			is_planet_class = pc_hive
+			exists = owner
+			owner = {
+				NOT = { has_origin = origin_hive_queen }
+			}					
+		}
+		modifier = {
+			job_spawning_drone_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			is_planet_class = pc_hive
+			exists = owner
+			owner = {
+				has_origin = origin_hive_queen
+			}					
+		}
+		modifier = {
+			job_hive_queen_add = 1
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			minerals = @b1_minerals
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					NOT = { has_valid_civic = civic_integrated_bioarchitecture }
+					is_lithoid_empire = no
+				}
+			}
+			minerals = @b1_hive_minerals
+			food = @b1_hive_food
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_valid_civic = civic_integrated_bioarchitecture
+					is_lithoid_empire = no
+				}
+			}
+			food = @b1_minerals
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = no
+				}
+			}
+			energy = @b1_upkeep_hive
+			food = @b1_upkeep_food
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			energy = @b1_upkeep
+		}
+	}
+	
+	upgrades = {
+		"building_spawning_pool_2"
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_origin = origin_hive_queen }
+			}
+		}
+		text = job_spawning_drone_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_hive_queen
+			}
+		}
+		text = job_hive_queen_effect_desc
+	}
+	
+	ai_resource_production = {
+		unity = 10
+		trigger = { 
+			num_pops > 10
+		}
+	}
+}
+
+### Modded Buildings ###
+# Spawning Vats
+building_spawning_pool_2 = {
+
+	base_buildtime = @b2_time
+	category = pop_assembly
+	
+	potential = {
+		has_building = building_spawning_pool
+	}
+	
+	allow = {
+		has_upgraded_capital = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_hive_empire = no }
+
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOT = { has_origin = origin_hive_queen }
+			}					
+		}
+		modifier = {
+			job_spawning_drone_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_hive_queen
+			}					
+		}
+		modifier = {
+			job_hive_queen_add = 2
+			planet_pop_assembly_organic_add = 2
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			is_planet_class = pc_hive
+			exists = owner
+			owner = {
+				NOT = { has_origin = origin_hive_queen }
+			}					
+		}
+		modifier = {
+			job_spawning_drone_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			is_planet_class = pc_hive
+			exists = owner
+			owner = {
+				has_origin = origin_hive_queen
+			}					
+		}
+		modifier = {
+			job_hive_queen_add = 1
+		}
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = {
+					NOT = { has_valid_civic = civic_integrated_bioarchitecture } is_lithoid_empire = no
+				}
+			}
+			minerals = @b2_hive_minerals
+			food = @b2_hive_food
+			exotic_gases = @b2_rare_cost
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = { has_valid_civic = civic_integrated_bioarchitecture is_lithoid_empire = no }
+			}
+			food = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = no
+				}
+			}
+			energy = @b2_upkeep_hive
+			food = @b2_upkeep_food
+			exotic_gases = @b2_rare_upkeep
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_lithoid_empire = yes
+				}
+			}
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+	
+	prerequisites = {
+		"tech_spawning_pool_2" 
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_origin = origin_hive_queen }
+			}
+		}
+		text = job_spawning_drone_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_hive_queen
+			}
+		}
+		text = job_hive_queen_effect_desc
+	}
+	
+	ai_resource_production = {
+		unity = 15
+		trigger = { 
+			num_pops > 10
+		}
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 390 } }
+		}
+		else = {
+			planet = {
+				owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 510 } }
+			}
+		}
+	}
+}

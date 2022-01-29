@@ -1,0 +1,79 @@
+# Buildings from other mods that have to be disabled to play nice with this one
+
+#############
+# Resource buildings
+#############
+## Matter Generator
+building_matter_generator = {
+	base_buildtime = 720
+	can_build = yes
+	can_demolish = yes
+	
+	category = manufacturing
+	
+	potential = {
+		always = no
+	}
+	
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			minerals = 40
+		}
+		upkeep = {
+			energy = 50
+		}
+	}
+	
+	prerequisites = {
+		"tech_matter_generator"
+	}
+	
+	show_tech_unlock_if = { 
+		always = no
+	}
+}
+
+#############
+# Manufacuring buildings
+#############
+
+building_synthetic_zro = {
+	base_buildtime = 360
+	can_build = yes
+	can_demolish = yes
+	
+	category = manufacturing
+	
+	potential = {
+		always = no
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			sr_zro = 1
+		}
+		upkeep = {
+			energy = 100
+		}
+	}
+
+	prerequisites = {
+		"tech_synthetic_zro"
+	}
+	
+	show_tech_unlock_if = { 
+		always = no
+	}
+}

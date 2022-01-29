@@ -1,0 +1,73 @@
+Become the Crisis
+- Can choose options:
+- assimilators can gray-goo the galaxy, assimilates entire galaxy, crisis sphere spawns gray-goo ships instead of shroud ships
+
+Tech:
+- Terravores, tech that gives + space mining bonus, chance to find more mineral deposits in systems
+- Mark nanite techs as dangerous: nanite late-game crisis (may require expanded events to actually fire the crisis)
+	- warning signs before nanites strike
+	- idea: nanites spawn new ships with each enemy ship destroyed, enemy planet conquered
+	- gray-goos systems under its control, spawning nanite deposits and new ships
+- Dark Matter Singularity, gives 125 energy, costs 1 dark matter, uses fe singularity building image
+- Psionic Capacitors, +15% shields, +5% Evasion, costs 20 alloys and 1 zro, requires Psionic Shields
+- Dark Matter Ordinance, gives +20% orbital bombardment damage, costs 10 alloys and 0.5 dark matter
+- Nanite Hull Plating, gives 185 / 465 / 1110 hull points, costs 0.25 / 0.5 / 1 nanite
+- Nanite Replicator, converts 30 minerals into 15 alloys, upkeep of 6 energy and 1 nanite
+- Nanite Fabricator, converts 30 minerals into 30 consumer goods, upkeep of 6 energy and 1 nanite
+- Fallen Empire building techs, disabled with Zenith of a Fallen Empires 
+
+Megastructures:
+- Mega factory (not final name?)
+- Turns huge amounts of minerals into alloys and consumer goods (gestalts only get alloys unless servitor)
+- Will automatically turn off during a mineral deficit
+
+- Can build enigmatic fortress
+- tech requires both enigmatic techs and mega-engineering
+- tech very unlikely to spawn without the enigmatic technology perk
+- can only be built once, requires large amounts of unity to build another
+- ai will prefer to build them in their capital system first, followed by other important colonies, followed by border systems
+
+Perks:
+- Enigmatic Engineering, access to unique engineering techs:
+	Auxiliary Components:
+	+5% Fire Rate
+	+20% Orbital Bombardment
+
+Psionics:
+New Covenant Effects:
+	- The Whisperers in the Void
+		- Edict that gives +2 encryption
+	- The Composer of Strands
+		- Edict that gives +1 pop assembly
+		- random psionic slave species gets delicious (dense if lithoid, with expanded pops)
+	- The Eater of Worlds
+		- Edict that increases army strength and ship fire rate
+	- The Instrument of Desire
+		- Maybe other unique buildings
+		- Edict that increases trade value
+	- The End of the Cycle
+		- higher encryption and codebreaking
+	
+- Patrons (except Eater and Cycle) will leave you once crisis sphere gets built up enough and starts really damaging the shroud
+
+Old tech icons to look at reusing for something
+tech_deep_scan (science ships)
+tech_ethical_equations
+tech_frontier_commissars (colony development or other young colony benefits, authoritarian(?) )
+tech_frontier_traditions (colony development or other young colony benefits, non-authoritarian(?) )
+tech_improved_databank_uplinks (science ships)
+tech_mine_rare_resources_t1
+tech_mining_station_improvement_1 (and 2)
+tech_mining_terminal
+tech_purity_campaigns (purity building from old adaptability traditions?)
+tech_replicators
+tech_space_defense_station_2 (and 3)
+tech_tb_infestation (was used for removing infested blockers, presumably)
+tech_warp_drive_2 (and 3)
+tech_will_to_power (for authoritarians?)
+tech_xeno_diplomacy (diplomacy - federations?)
+tech_xeno_integration (for xenophiles, many pops)
+tech_xeno_relations (diplomacy)
+tech_repeatable_improved_planet_sensor_range (was used for planet sensors)
+tech_repeatable_improved_slave_mineral_output
+tech_synchronized_work_patterns (robot or assembly-line related) (originally + minerals, probably)

@@ -1,0 +1,30 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_ship_part_dark_matter_armor"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_dark_matter_armor.dds"
+	}
+	spriteType = {
+		name = "GFX_ship_part_reactor_booster_4"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_reactor_booster_4.dds"
+	}
+	spriteType = {
+		name = "GFX_ship_part_mini_arc_emitter"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_mini_arc_emitter.dds"
+	}
+	spriteType = {
+		name = "GFX_ship_part_space_whale_weapon_2"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_space_whale_weapon_2.dds"
+	}
+	spriteType = {
+		name = "GFX_ship_part_space_cloud_weapon_2"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_space_cloud_weapon_2.dds"
+	}
+	spriteType = {
+		name = "GFX_ship_part_null_void_weapon_2"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_null_void_weapon_2.dds"
+	}
+	spriteType = {
+		name = "GFX_ship_part_afterburner_3"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_afterburners_3.dds"
+	}
+}

@@ -1,0 +1,89 @@
+############################
+#
+# Expanded Game Start Events
+#
+############################
+
+namespace = gamestartmega
+
+# Start-Up Events
+event = {
+	id = gamestartmega.1
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = expanded_megastructures_installed }
+	}
+	
+	immediate = {
+		set_global_flag = expanded_megastructures_installed
+	}
+}
+
+# Government Events
+country_event = {
+	id = gamestartmega.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_origin = origin_clones }
+			give_technology = { tech = "tech_genome_mapping" message = no }
+			give_technology = { tech = "tech_cloning" message = no }
+			every_owned_planet = {
+				add_building = building_clone_vats
+				if = {
+					limit = { owner = { is_lithoid_empire = yes } }
+					add_district_and_planet_size_if_needed_effect = { district = district_mining }
+				}
+				else = {
+					add_district_and_planet_size_if_needed_effect = { district = district_farming }
+				}
+				while = {
+					count = 4
+					create_pop = {
+						species = owner_main_species
+						ethos = random
+					}
+				}
+				if = {
+					limit = { owner = { NOT = { has_civic = civic_agrarian_idyll } } }
+					remove_district = district_city
+					if = {
+						limit = { owner = { is_lithoid_empire = yes } }
+						add_district_and_planet_size_if_needed_effect = { district = district_mining }
+					}
+					else = {
+						add_district_and_planet_size_if_needed_effect = { district = district_farming }
+					}
+				}
+				check_planet_employment = yes
+			}
+		}
+		if = {
+			limit = { has_origin = origin_hive_queen }
+			every_owned_planet = {
+				if = {
+					limit = { owner = { is_lithoid_empire = no } }
+					remove_district = district_mining
+					add_district_and_planet_size_if_needed_effect = { district = district_farming }
+					add_district_and_planet_size_if_needed_effect = { district = district_farming }
+				}
+				else = {
+					add_district_and_planet_size_if_needed_effect = { district = district_mining }
+				}
+				while = {
+					count = 4
+					create_pop = {
+						species = owner_main_species
+						ethos = random
+					}
+				}
+				check_planet_employment = yes
+			}
+		}
+	}
+}

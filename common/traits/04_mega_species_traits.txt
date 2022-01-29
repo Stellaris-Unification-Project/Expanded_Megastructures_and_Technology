@@ -1,0 +1,56 @@
+trait_created_life = {
+	cost = -1
+	icon = "gfx/interface/icons/traits/trait_uplifted.dds"
+
+	initial = no
+	randomized = no
+	modification = no
+
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	
+	modifier = {
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
+
+trait_patchwork_life = {
+	cost = -1
+	icon = "gfx/interface/icons/traits/trait_uplifted.dds"
+
+	initial = no
+	randomized = no
+	modification = no
+
+	allowed_archetypes = { BIOLOGICAL }
+	
+	modifier = {
+		planet_pops_organics_food_upkeep_mult = 0.25
+		pop_government_ethic_attraction = -0.25
+		pop_happiness = -0.05
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
+
+trait_clones = {
+	cost = 0
+	icon = "gfx/interface/icons/traits/trait_uplifted.dds"
+
+	initial = no
+	randomized = no
+	modification = no
+
+	opposites = { "trait_slow_breeders" "trait_rapid_breeders" "trait_fertile" "trait_fungal_colony" "trait_plantoid_budding" "trait_lithoid_crystal" "trait_rapid_breeders_lithoid" }
+	
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	
+	modifier = {
+		pop_growth_speed = -1.0
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
