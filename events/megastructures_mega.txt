@@ -598,8 +598,6 @@ country_event = {
 			NOR = {
 				has_trait = "leader_trait_nervous"
 				has_trait = "leader_trait_unyielding"
-			}
-			NOR = {
 				has_trait = "leader_trait_cautious"
 				has_trait = "leader_trait_foredoomed_to_a_rendezvous"
 			}
@@ -613,8 +611,6 @@ country_event = {
 				NOR = {
 					has_trait = "leader_trait_nervous"
 					has_trait = "leader_trait_unyielding"
-				}
-				NOR = {
 					has_trait = "leader_trait_cautious"
 					has_trait = "leader_trait_foredoomed_to_a_rendezvous"
 				}
@@ -648,8 +644,6 @@ country_event = {
 			NOR = {
 				has_trait = "leader_trait_armchair_commander"
 				has_trait = "leader_trait_glory_seeker"
-			}
-			NOR = {
 				has_trait = "leader_trait_butcher"
 				has_trait = "leader_trait_restrained"
 			}
@@ -663,8 +657,6 @@ country_event = {
 				NOR = {
 					has_trait = "leader_trait_armchair_commander"
 					has_trait = "leader_trait_glory_seeker"
-				}
-				NOR = {
 					has_trait = "leader_trait_butcher"
 					has_trait = "leader_trait_restrained"
 				}

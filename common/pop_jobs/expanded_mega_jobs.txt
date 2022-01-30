@@ -579,8 +579,8 @@ cloning_drone = {
 		NOR = {
 			has_trait = trait_syncretic_proles
 			has_trait = trait_nerve_stapled
-		}
-		NOT = { has_trait = trait_presapient_docile_livestock }	
+			has_trait = trait_presapient_docile_livestock
+		}	
 	}
 	
 	planet_modifier = {
@@ -701,8 +701,8 @@ hive_queen = {
 		NOR = {
 			has_trait = trait_syncretic_proles
 			has_trait = trait_nerve_stapled
-		}
-		NOT = { has_trait = trait_presapient_docile_livestock }	
+			has_trait = trait_presapient_docile_livestock
+		}	
 	}
 	
 	planet_modifier = {
@@ -1019,8 +1019,8 @@ dark_matter_tech_drone = {
 		NOR = {
 			has_trait = trait_syncretic_proles
 			has_trait = trait_nerve_stapled
-		}
-		NOT = { has_trait = trait_presapient_docile_livestock }	
+			has_trait = trait_presapient_docile_livestock
+		}	
 	}
 	
 	resources = {
@@ -1088,8 +1088,8 @@ living_metal_farmer_drone = {
 		NOR = {
 			has_trait = trait_syncretic_proles
 			has_trait = trait_nerve_stapled
-		}
-		NOT = { has_trait = trait_presapient_docile_livestock }	
+			has_trait = trait_presapient_docile_livestock
+		}	
 	}
 	
 	resources = {
@@ -1157,8 +1157,8 @@ nanite_builder_drone = {
 		NOR = {
 			has_trait = trait_syncretic_proles
 			has_trait = trait_nerve_stapled
-		}
-		NOT = { has_trait = trait_presapient_docile_livestock }	
+			has_trait = trait_presapient_docile_livestock
+		}	
 	}
 	
 	resources = {
