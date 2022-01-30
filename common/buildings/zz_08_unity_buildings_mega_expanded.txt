@@ -17,8 +17,10 @@ building_temple_instrument_of_desire = {
 		custom_tooltip = {
 			text = EMPIRE_UNIQUE_BUILDING
 			owner = {
-				NOT = { has_country_flag = building_temple_instrument_of_desire }
-				NOT = { has_country_flag = built_one_temple_instrument_of_desire }
+				NOR = {
+					has_country_flag = building_temple_instrument_of_desire
+					has_country_flag = built_one_temple_instrument_of_desire
+				}
 			}
 		}
 	}

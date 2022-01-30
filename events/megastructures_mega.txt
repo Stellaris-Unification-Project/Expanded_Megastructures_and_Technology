@@ -514,8 +514,10 @@ country_event = {
 	trigger = {
 		any_owned_leader = {
 			has_trait = "leader_trait_governor_psionic"
-			NOT = { has_trait = "leader_trait_corrupt" }
-			NOT = { has_trait = "leader_trait_righteous" }
+			NOR = {
+				has_trait = "leader_trait_corrupt"
+				has_trait = "leader_trait_righteous"
+			}
 		}
 	}
 	
@@ -523,8 +525,10 @@ country_event = {
 		random_owned_leader = {
 			limit = {
 				has_trait = "leader_trait_governor_psionic"
-				NOT = { has_trait = "leader_trait_corrupt" }
-				NOT = { has_trait = "leader_trait_righteous" }
+				NOR = {
+					has_trait = "leader_trait_corrupt"
+					has_trait = "leader_trait_righteous"
+				}
 			}
 			save_event_target_as = leader_target
 		}
@@ -591,10 +595,14 @@ country_event = {
 	trigger = {
 		any_owned_leader = {
 			has_trait = "leader_trait_admiral_psionic"
-			NOT = { has_trait = "leader_trait_nervous" }
-			NOT = { has_trait = "leader_trait_unyielding" }
-			NOT = { has_trait = "leader_trait_cautious" }
-			NOT = { has_trait = "leader_trait_foredoomed_to_a_rendezvous" }
+			NOR = {
+				has_trait = "leader_trait_nervous"
+				has_trait = "leader_trait_unyielding"
+			}
+			NOR = {
+				has_trait = "leader_trait_cautious"
+				has_trait = "leader_trait_foredoomed_to_a_rendezvous"
+			}
 		}
 	}
 	
@@ -602,10 +610,14 @@ country_event = {
 		random_owned_leader = {
 			limit = {
 				has_trait = "leader_trait_admiral_psionic"
-				NOT = { has_trait = "leader_trait_nervous" }
-				NOT = { has_trait = "leader_trait_unyielding" }
-				NOT = { has_trait = "leader_trait_cautious" }
-				NOT = { has_trait = "leader_trait_foredoomed_to_a_rendezvous" }
+				NOR = {
+					has_trait = "leader_trait_nervous"
+					has_trait = "leader_trait_unyielding"
+				}
+				NOR = {
+					has_trait = "leader_trait_cautious"
+					has_trait = "leader_trait_foredoomed_to_a_rendezvous"
+				}
 			}
 			save_event_target_as = leader_target
 		}
@@ -633,10 +645,14 @@ country_event = {
 	trigger = {
 		any_owned_leader = {
 			has_trait = "leader_trait_general_psionic"
-			NOT = { has_trait = "leader_trait_armchair_commander" }
-			NOT = { has_trait = "leader_trait_glory_seeker" }
-			NOT = { has_trait = "leader_trait_butcher" }
-			NOT = { has_trait = "leader_trait_restrained" }
+			NOR = {
+				has_trait = "leader_trait_armchair_commander"
+				has_trait = "leader_trait_glory_seeker"
+			}
+			NOR = {
+				has_trait = "leader_trait_butcher"
+				has_trait = "leader_trait_restrained"
+			}
 		}
 	}
 	
@@ -644,10 +660,14 @@ country_event = {
 		random_owned_leader = {
 			limit = {
 				has_trait = "leader_trait_general_psionic"
-				NOT = { has_trait = "leader_trait_armchair_commander" }
-				NOT = { has_trait = "leader_trait_glory_seeker" }
-				NOT = { has_trait = "leader_trait_butcher" }
-				NOT = { has_trait = "leader_trait_restrained" }
+				NOR = {
+					has_trait = "leader_trait_armchair_commander"
+					has_trait = "leader_trait_glory_seeker"
+				}
+				NOR = {
+					has_trait = "leader_trait_butcher"
+					has_trait = "leader_trait_restrained"
+				}
 			}
 			save_event_target_as = leader_target
 		}

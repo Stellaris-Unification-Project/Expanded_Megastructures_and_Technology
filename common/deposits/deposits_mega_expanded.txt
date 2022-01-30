@@ -244,7 +244,7 @@ d_hab_unity = {
 			owner = {
 				is_regular_empire = yes
 				is_spiritualist = no
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 				NOT = { has_civic = civic_aristocratic_elite }
 			}
 		}
@@ -258,7 +258,7 @@ d_hab_unity = {
 			owner = {
 				is_regular_empire = yes
 				is_spiritualist = no
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 				has_civic = civic_aristocratic_elite
 			}
 		}

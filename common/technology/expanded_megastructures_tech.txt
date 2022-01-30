@@ -297,17 +297,11 @@ tech_modular_components_regular = {
 		}		
 		modifier = {
 			factor = 0.5
-			OR = {
-				has_ethic = "ethic_spiritualist"
-				has_ethic = "ethic_fanatic_spiritualist"
-			}
+			is_spiritualist = yes
 		}
 		modifier = {
 			factor = 2
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_materialist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -322,10 +316,7 @@ tech_modular_components_regular = {
 		weight = 2
 		modifier = {
 			factor = 2
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_materialist = yes
 		}
 		modifier = {
 			factor = 0
@@ -375,9 +366,9 @@ tech_resettlement_costs = {
 				is_gestalt = yes
 				has_policy_flag = resettlement_allowed
 				allows_slavery = yes
-				AND = {
-					NOT = { has_policy_flag = robots_outlawed }
-					NOT = { has_policy_flag = ai_full_rights }
+				NOR = {
+					has_policy_flag = robots_outlawed 
+					has_policy_flag = ai_full_rights 
 				}
 			}
 		}
@@ -1223,8 +1214,8 @@ tech_dark_matter_plant = {
 		factor = 0.5
 		modifier = {
 			factor = 0
-			NOT = { has_global_flag = acot_activated }
 			NOR = {
+				has_global_flag = acot_activated
 				has_technology = tech_mine_rare_crystals
 				has_technology = tech_rare_crystals
 				has_country_flag = has_market_access
@@ -2310,10 +2301,7 @@ tech_sensors_5 = {
 		factor = 4 #rare tech
 		modifier = {
 			factor = 1.5
-			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
-			}
+			is_spiritualist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -2457,8 +2445,10 @@ tech_psionic_mind_control = {
 	}
 
 	potential = {
-		NOT = { has_ethic = ethic_gestalt_consciousness }
-		NOT = { has_civic = civic_fanatic_purifiers }
+		NOR = {
+			has_ethic = ethic_gestalt_consciousness
+			has_civic = civic_fanatic_purifiers
+		}
 		has_ascension_perk = ap_mind_over_matter
 	}
 	
@@ -3379,8 +3369,7 @@ tech_dark_matter_armor = {
 		modifier = {
 			factor = 0
 			NOR = { 
-				is_country_type = fallen_empire 
-				is_country_type = awakened_fallen_empire
+				is_fallen_empire = yes
 				AND = {
 					has_technology = tech_dark_matter_power_core
 					has_technology = tech_dark_matter_plant
@@ -3521,8 +3510,7 @@ tech_sensors_FE = {
 		modifier = {
 			factor = 0
 			NOR = { 
-				is_country_type = fallen_empire 
-				is_country_type = awakened_fallen_empire
+				is_fallen_empire = yes
 				AND = {
 					has_technology = tech_dark_matter_power_core
 					has_technology = tech_dark_matter_plant
@@ -3670,8 +3658,7 @@ tech_afterburners_3 = {
 		modifier = {
 			factor = 0
 			NOR = { 
-				is_country_type = fallen_empire 
-				is_country_type = awakened_fallen_empire
+				is_fallen_empire = yes
 				AND = {
 					has_technology = tech_dark_matter_power_core
 					has_technology = tech_dark_matter_plant

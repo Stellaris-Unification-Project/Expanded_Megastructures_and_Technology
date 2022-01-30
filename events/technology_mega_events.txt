@@ -21,8 +21,10 @@ event = {
 	immediate = {
 		random_country = {
 			limit = {
-				NOT = { has_country_flag = researching_dark_matter_power }
-				NOT = { has_technology = tech_dark_matter_power_core }
+				NOR = {
+					has_country_flag = researching_dark_matter_power
+					has_technology = tech_dark_matter_power_core
+				}
 				NOT = { has_tech_option = tech_dark_matter_power_core }
 				has_technology = tech_dark_matter_plant
 				has_technology = tech_zero_point_power
@@ -51,8 +53,10 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		NOT = { has_technology = tech_dark_matter_power_core }
-		NOT = { has_tech_option = tech_dark_matter_power_core }
+		NOR = {
+			has_technology = tech_dark_matter_power_core
+			has_tech_option = tech_dark_matter_power_core
+		}
 	}
 
 	immediate = {
@@ -2944,47 +2948,47 @@ country_event = {
 			}
 			create_army = {
 				name = "NAME_Deformed_Creatures"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Twisted_Beasts"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Mutated_Horrors"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Deformed_Creatures"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Twisted_Beasts"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Mutated_Horrors"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Deformed_Creatures"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Twisted_Beasts"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Mutated_Horrors"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 		}

@@ -540,8 +540,10 @@ country_event = {
 		random_country = {
 			limit = {
 				is_country_type = fallen_empire
-				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = { is_at_war_with = root }
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_at_war_with = root
+				}
 				has_communications = root
 			}
 			save_event_target_as = fallen_empire

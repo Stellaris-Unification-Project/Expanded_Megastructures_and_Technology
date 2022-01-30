@@ -270,7 +270,7 @@ tech_nanite_transmutation = {
 		modifier = {
 			factor = 0
 			NOR = {
-				any_system_within_border = { any_system_planet = { has_resource = { type = nanites amount > 0 } } }
+				any_planet_within_border = { has_resource = { type = nanites amount > 0 } } }
 				has_technology = tech_nanite_plant
 			}
 		}

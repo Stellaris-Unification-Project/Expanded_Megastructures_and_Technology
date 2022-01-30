@@ -21,16 +21,22 @@ decision_fortified_habitat = {
 	
 	potential = {
 		is_capital = no
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
-		NOT = { has_modifier = fortified_habitat }
-		NOT = { has_modifier = pleasure_palace }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+		NOR = {
+			has_modifier = fortified_habitat
+			has_modifier = pleasure_palace
+		}
 		is_planet_class = pc_habitat
 	}
 	
 	allow = {
-		NOT = { has_district = district_hab_commercial }
-		NOT = { has_district = district_hab_energy }
+		NOR = {
+			has_district = district_hab_commercial
+			has_district = district_hab_energy
+		}
 	}
 	
 	effect = {

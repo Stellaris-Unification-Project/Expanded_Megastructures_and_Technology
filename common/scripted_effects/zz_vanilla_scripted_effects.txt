@@ -147,7 +147,7 @@ destroy_star_system = {
 					is_mobile = yes
 					owner = {
 						is_ai = yes
-						is_same_value = from.owner
+						is_same_empire = from.owner
 					}
 				}
 			}

@@ -9,8 +9,10 @@ building_zro_plant = {
 	category = manufacturing
 	
 	potential = {
-		NOT = { has_modifier = resort_colony }	
-		NOT = { has_modifier = slave_colony }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
 		building_basic_income_check = yes
 		exists = owner
 		owner = { is_gestalt = no }
@@ -95,8 +97,10 @@ building_dark_matter_plant = {
 	category = manufacturing
 	
 	potential = {
-		NOT = { has_modifier = resort_colony }	
-		NOT = { has_modifier = slave_colony }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
 		building_basic_income_check = yes
 	}
 	
@@ -195,8 +199,10 @@ building_living_metal_plant = {
 	category = manufacturing
 	
 	potential = {
-		NOT = { has_modifier = resort_colony }	
-		NOT = { has_modifier = slave_colony }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
 		building_basic_income_check = yes
 	}
 	
@@ -295,8 +301,10 @@ building_nanite_plant = {
 	category = manufacturing
 	
 	potential = {
-		NOT = { has_modifier = resort_colony }	
-		NOT = { has_modifier = slave_colony }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
 		building_basic_income_check = yes
 	}
 	
